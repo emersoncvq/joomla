@@ -1,0 +1,165 @@
+/**@license scrollplus: a custom scrollbar for your website
+* @author  Levente Hunyadi
+* @version 1.0
+* @remarks Copyright (C) 2017-2018 Levente Hunyadi
+* @remarks Licensed under GNU/GPLv3, see http://www.gnu.org/licenses/gpl-3.0.html
+* @see     http://hunyadi.info.hu/projects/scrollplus
+**/
+
+/*
+* Container for scrollable content
+*/
+.scrollplus-container {
+position: relative;
+overflow: hidden;
+}
+
+/*
+* Docking element to hide the default browser scrollbar and position custom scrollbar
+*/
+
+.scrollplus-dock {
+position: relative;
+height: 100%;
+width: 100%;
+overflow: hidden;
+}
+
+.scrollplus-horizontal .scrollplus-dock {
+margin-bottom: -20px;  /* must match padding-bottom used to hide browser scrollbar in view element */
+}
+
+.scrollplus-dock:before,
+.scrollplus-dock:after {
+content: "";
+display: block;
+position: absolute;
+z-index: 1;
+}
+
+/*
+* Visual markers when scrolled to minimum/maximum
+*/
+
+.scrollplus-vertical .scrollplus-dock:before,
+.scrollplus-vertical .scrollplus-dock:after {
+width: 100%;
+height: 8px;
+}
+
+.scrollplus-vertical .scrollplus-dock:before {
+top: 0;
+background-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.25));
+}
+
+.scrollplus-vertical .scrollplus-dock:after {
+bottom: 0;
+background-image: linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0));
+}
+
+.scrollplus-horizontal .scrollplus-dock:before,
+.scrollplus-horizontal .scrollplus-dock:after {
+width: 8px;
+height: 100%;
+}
+
+.scrollplus-horizontal .scrollplus-dock:before {
+left: 0;
+background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.25));
+}
+
+.scrollplus-horizontal .scrollplus-dock:after {
+right: 0;
+background-image: linear-gradient(to left, rgba(0,0,0,0.25), rgba(0,0,0,0));
+}
+
+.scrollplus-dock.scrollplus-start:before,  /* content is scrolled to topmost or leftmost position */
+.scrollplus-dock.scrollplus-end:after {  /* content is scrolled to bottommost or rightmost position */
+display: none;
+}
+
+/*
+* Pane that receives scroll events
+*/
+
+.scrollplus-view {
+position: relative;
+}
+
+.scrollplus-vertical .scrollplus-view {
+height: 100%;
+width: 150%;  /* (for browsers without `calc`) excess size to push default browser scrollbar outside visible bounds */
+width: calc(100% + 20px);  /* pad with extra size to push default browser scrollbar outside visible bounds */
+overflow-x: hidden;
+overflow-y: scroll;
+}
+
+.scrollplus-horizontal .scrollplus-view {
+padding-bottom: 20px;  /* hide browser scrollbar */
+overflow-x: scroll;
+overflow-y: hidden;
+}
+
+/*
+* Scrollable content
+*/
+
+.scrollplus-content {
+display: inline-block;
+overflow: hidden;
+}
+
+.scrollplus-vertical .scrollplus-content {
+width: 66.67%;  /* (for browsers without `calc`) size expressed as a percentage of excess view size in order to get 100% back */
+width: calc(100% - 20px);  /* client width does not include scrollbar width */
+}
+
+/*
+* Scroll thumb and track along which scroll thumb moves
+*/
+
+.scrollplus-track {
+position: absolute;
+border-radius: 3px;
+background: #eee;
+}
+
+.scrollplus-vertical .scrollplus-track {
+top: 2px;
+bottom: 2px;
+right: 2px;
+width: 6px;
+padding: 8px 0;  /* must match thumb padding */
+}
+
+.scrollplus-horizontal .scrollplus-track {
+left: 2px;
+right: 2px;
+bottom: 22px;  /* includes 20px of hidden browser scrollbar height */
+height: 6px;
+padding: 0 8px;  /* must match thumb padding */
+}
+
+.scrollplus-thumb {
+position: relative;
+display: block;
+border-radius: 3px;
+cursor: pointer;
+background: rgba(0,0,0,.2);
+}
+
+.scrollplus-vertical .scrollplus-thumb {
+width: 100%;
+height: 0;
+top: 0%;
+padding: 8px 0;  /* must match track padding, gives a visual clue of visible size vs total scrollable content size */
+margin: -8px 0;  /* must be additive inverse of padding so that CSS property `top` aligns the thumb center */
+}
+
+.scrollplus-horizontal .scrollplus-thumb {
+height: 100%;
+width: 0;
+left: 0%;
+padding: 0 8px;  /* must match track padding, gives a visual clue of visible size vs total scrollable content size */
+margin: 0 -8px ;  /* must be additive inverse of padding so that CSS property `left` aligns the thumb center */
+}

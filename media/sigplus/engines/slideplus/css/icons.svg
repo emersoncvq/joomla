@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 128">
+<view id="first" viewBox="0 0 32 32" />
+<view id="previous" viewBox="0 32 32 32" />
+<view id="next" viewBox="0 64 32 32" />
+<view id="last" viewBox="0 96 32 32" />
+<g id="first"><path d="M4 28v-24h4v11l10-10v10l10-10v22l-10-10v10l-10-10v11z" /></g>
+<g id="previous"><path d="M18 37v10l10-10v22l-10-10v10l-11-11z" /></g>
+<g id="next"><path d="M16 91v-10l-10 10v-22l10 10v-10l11 11z" /></g>
+<g id="last"><path d="M28 100v24h-4v-11l-10 10v-10l-10 10v-22l10 10v-10l10 10v-11z" /></g>
+</svg>

@@ -1,0 +1,141 @@
+Added in V1.4.1
+---------------
+PLG_CONTENT_GTM_TFAPIKEY_LABEL="Thunderforest API key"
+PLG_CONTENT_GTM_TFAPIKEY_DESC="tfapikey: API key required for OpenCycleMap and all other map layers from thunderforest.com"
+
+Added in V1.4.0
+---------------
+PLG_CONTENT_GTM_ZOOMLEVEL_LABEL="Zoom level"
+PLG_CONTENT_GTM_ZOOMLEVEL_DESC="zoomlevel: sets a fixed zoom level (1..15). 0 = automatic zoom, > 0 disables Zoom out."
+
+Added in V1.3.3
+---------------
+COM_PLUGINS_GTM_MAPLAYERS_FIELDSET_LABEL="Map layers"
+PLG_CONTENT_GTM_MAPFULLSCREEN_LABEL="Fullscreen switch"
+PLG_CONTENT_GTM_MAPFULLSCREEN_DESC="mapfullscreen: switch to make the map go into fullscreen mode"
+PLG_CONTENT_GTM_MAPFULLSCREEN_ENTER="fullscreen mode"
+PLG_CONTENT_GTM_MAPFULLSCREEN_EXIT="normal mode"
+
+Changed in V1.3.3
+-----------------
+COM_PLUGINS_GTM_MAPCONTROLS_FIELDSET_LABEL="Map controls"
+(was: "Map controls and layers")
+
+Added in V1.3.2
+---------------
+COM_PLUGINS_GTM_MAPCONTROLS_FIELDSET_LABEL="Map layers"
+PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_TRANSPORT="Thunderforest Transport"
+PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_LANDSCAPE="Thunderforest Landscape"
+PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_OUTDOORS="Thunderforest Outdoors"
+PLG_CONTENT_GTM_MAPLAYER_MAPQUEST="MapQuest"
+PLG_CONTENT_GTM_MAPLAYER_OPENTOPOMAP="OpenTopoMap EU"
+PLG_CONTENT_GTM_MAPLAYER_MEMOMAPS_OPNV="MeMoMaps Public Transport"
+
+Added in V1.3.1
+---------------
+PLG_CONTENT_GTM_MAPLAYER_CUSTOM_1="Custom map layer 1"
+PLG_CONTENT_GTM_MAPLAYER_CUSTOM_2="Custom map layer 2"
+PLG_CONTENT_GTM_MAPLAYER_CUSTOM_3="Custom map layer 3"
+PLG_CONTENT_GTM_SHOWWARNINGS_LABEL="Show warnings"
+PLG_CONTENT_GTM_SHOWWARNINGS_DESC="showwarnings: turns generation of warning and error messages on or off"
+
+Added in V1.3.0
+---------------
+PLG_CONTENT_GTM_USEJQUERY_LABEL="use jQuery"
+PLG_CONTENT_GTM_USEJQUERY_DESC="usejquery: uses jQuery instead of mootools to load the map. 
+Required for newer templates that exclusively use jQuery. 
+Only change this if you get an empty map."
+
+Added in V1.2.3
+---------------
+PLG_CONTENT_GTM_WPPOPUPDESCBB_LABEL="BBCode active"
+PLG_CONTENT_GTM_WPPOPUPDESCBB_DESC="wppopupdescbb: transforms BBCode-tags in waypoint descriptions into html. Allows to have links and images in waypoint popups. See documentation for details."
+
+Added in V1.2.2
+---------------
+PLG_CONTENT_GTM_EDXGRIDCOLOR_LABEL="X axis grid color"
+PLG_CONTENT_GTM_EDXGRIDCOLOR_DESC="edxgridcolor: Color of the X axis grid lines"
+PLG_CONTENT_GTM_EDXGRIDWIDTH_LABEL="X axis grid line width"
+PLG_CONTENT_GTM_EDXGRIDWIDTH_DESC="edxgridwidth: Width of the X axis grid lines"
+PLG_CONTENT_GTM_EDYGRIDLINES_LABEL="Y axis grid lines"
+PLG_CONTENT_GTM_EDYGRIDLINES_DESC="edygridlines: Number of lines on the Y axis"
+PLG_CONTENT_GTM_EDYGRIDCOLOR_LABEL="Y axis grid color"
+PLG_CONTENT_GTM_EDYGRIDCOLOR_DESC="edygridcolor: Color of the Y axis grid lines"
+PLG_CONTENT_GTM_EDYGRIDWIDTH_LABEL="Y axis grid line width"
+PLG_CONTENT_GTM_EDYGRIDWIDTH_DESC="edygridwidth: Width of the Y axis grid lines"
+PLG_CONTENT_GTM_SPDXGRID_LABEL="X axis grid distances"
+PLG_CONTENT_GTM_SPDXGRID_DESC="edxgrid: distances of grid lines on x axis (uses units in the next setting). Smallest distance to fit the limit (below) will be chosen. Multiple increasing values can be entered separated with '/' slashes."
+PLG_CONTENT_GTM_SPDXGRIDUNITS_LABEL="X axis grid units"
+PLG_CONTENT_GTM_SPDXGRIDUNITS_DESC="edxgridunits: Units for the distances on the X axis"
+PLG_CONTENT_GTM_SPDXGRIDLIMIT_LABEL="X axis grid limit"
+PLG_CONTENT_GTM_SPDXGRIDLIMIT_DESC="edxgridlimit: max. number of X axis grid lines"
+PLG_CONTENT_GTM_SPDXGRIDCOLOR_LABEL="X axis grid color"
+PLG_CONTENT_GTM_SPDXGRIDCOLOR_DESC="edxgridcolor: Color of the X axis grid lines"
+PLG_CONTENT_GTM_SPDXGRIDWIDTH_LABEL="X axis grid line width"
+PLG_CONTENT_GTM_SPDXGRIDWIDTH_DESC="edxgridwidth: Width of the X axis grid lines"
+PLG_CONTENT_GTM_SPDYGRIDLINES_LABEL="Y axis grid lines"
+PLG_CONTENT_GTM_SPDYGRIDLINES_DESC="edygridlines: Number of lines on the Y axis"
+PLG_CONTENT_GTM_SPDYGRIDCOLOR_LABEL="Y axis grid color"
+PLG_CONTENT_GTM_SPDYGRIDCOLOR_DESC="edygridcolor: Color of the Y axis grid lines"
+PLG_CONTENT_GTM_SPDYGRIDWIDTH_LABEL="Y axis grid line width"
+PLG_CONTENT_GTM_SPDYGRIDWIDTH_DESC="edygridwidth: Width of the Y axis grid lines"
+
+Added in V1.2.x
+---------------
+PLG_CONTENT_GTM_TIMOVESPEED_LABEL="Moving speed threshold"
+PLG_CONTENT_GTM_TIMOVESPEED_DESC="timovespeed: [km/h] parts of the track where the speed lies below this value are considered as pause."
+
+COM_PLUGINS_GTM_WAYPOINTS_FIELDSET_LABEL="Waypoints"
+PLG_CONTENT_GTM_WPPOPUPS_LABEL="Waypoint popups"
+PLG_CONTENT_GTM_WPPOPUPS_DESC="wppopups: show popups for waypoints [0|1|2]"
+PLG_CONTENT_GTM_WPPOPUPS_HOVER="on hover"
+PLG_CONTENT_GTM_WPPOPUPS_TOGGLE="on click"
+PLG_CONTENT_GTM_WPPOPUPELE_LABEL="Show altitude"
+PLG_CONTENT_GTM_WPPOPUPELE_DESC="wppopupele: show the altitude of waypoints in the popup (if available)"
+PLG_CONTENT_GTM_WPPOPUPTIMEFMT_LABEL="Waypoint timestamp format"
+PLG_CONTENT_GTM_WPPOPUPTIMEFMT_DESC="wppopuptimefmt: format for the timestamp (for the strftime() function) of waypoints in the popup (if available). Enter 0 to disable timestamp display."
+PLG_CONTENT_GTM_WPPOPUPDESC_LABEL="Show description"
+PLG_CONTENT_GTM_WPPOPUPDESC_DESC="wppopupdesc: Show the description of waypoints in the popup (if available)"
+PLG_CONTENT_GTM_WPPOPUPLINKFMT_LABEL="Link format"
+PLG_CONTENT_GTM_WPPOPUPLINKFMT_DESC="wppopuplinkfmt: Show links in waypoints in the popup (if available). Enter 0 to disable link display."
+
+PLG_CONTENT_GTM_EDXGRID_LABEL="X axis grid distances"
+PLG_CONTENT_GTM_EDXGRID_DESC="edxgrid: distances of grid lines on x axis (uses units in the next setting). Smallest distance to fit the limit (below) will be chosen. Multiple increasing values can be entered separated with '/' slashes."
+PLG_CONTENT_GTM_EDXGRIDUNITS_LABEL="X axis grid units"
+PLG_CONTENT_GTM_EDXGRIDUNITS_DESC="edxgridunits: Units for the distances on the X axis"
+PLG_CONTENT_GTM_EDXGRIDLIMIT_LABEL="X axis grid limit"
+PLG_CONTENT_GTM_EDXGRIDLIMIT_DESC="edxgridlimit: max. number of X axis grid lines"
+
+PLG_CONTENT_GTM_EDFILLMODE_LABEL="Fill mode"
+PLG_CONTENT_GTM_EDFILLMODE_DESC="edfillmode: How the area below the diagram gets filled. Absolute mode uses Up color. Values: [0|1|2]"
+PLG_CONTENT_GTM_SPDFILLMODE_LABEL="Fill mode"
+PLG_CONTENT_GTM_SPDFILLMODE_DESC="spdfillmode: How the area below the diagram gets filled. Absolute mode uses Up color. Values: [0|1|2]"
+PLG_CONTENT_GTM_FILLMODE_NONE="no area filling"
+PLG_CONTENT_GTM_FILLMODE_DELTA="delta (up/down)"
+PLG_CONTENT_GTM_FILLMODE_ABSOLUTE="absolute"
+
+Added in V1.1.x
+------------------
+PLG_CONTENT_GTM_TPL6_LABEL="Layout Template 6"
+PLG_CONTENT_GTM_TPL6_DESC="Path to the html file for template 6"
+COM_PLUGINS_GTM_SPDDIA_FIELDSET_LABEL="Speed diagram"
+PLG_CONTENT_GTM_SPD_LABEL="Show speed diagram"
+PLG_CONTENT_GTM_SPD_DESC="spd: renders a speed diagram (only if the GPX track contains timestamp information)"
+PLG_CONTENT_GTM_SPDWIDTH_LABEL="Width"
+PLG_CONTENT_GTM_SPDWIDTH_DESC="spdwidth: width of the speed diagram in px or %"
+PLG_CONTENT_GTM_SPDHEIGHT_LABEL="Height"
+PLG_CONTENT_GTM_SPDHEIGHT_DESC="spdheight: height of the speed diagram in px or %"
+PLG_CONTENT_GTM_SPDLINECOLOR_LABEL="Diagram line color"
+PLG_CONTENT_GTM_SPDLINECOLOR_DESC="spdlinecolor: the color for the speed line"
+PLG_CONTENT_GTM_SPDLINEWIDTH_LABEL="Line width"
+PLG_CONTENT_GTM_SPDLINEWIDTH_DESC="spdlinewidth: the width of the line for the speed diagram"
+PLG_CONTENT_GTM_SPDBGCOLOR_LABEL="Background color"
+PLG_CONTENT_GTM_SPDBGCOLOR_DESC="spdbgcolor: the background color of the speed diagram"
+PLG_CONTENT_GTM_SPDUPCOLOR_LABEL="Up area color"
+PLG_CONTENT_GTM_SPDUPCOLOR_DESC="spdupcolor: color of the area below uphill track parts"
+PLG_CONTENT_GTM_SPDDOWNCOLOR_LABEL="Down area color"
+PLG_CONTENT_GTM_SPDDOWNCOLOR_DESC="spddowncolor: color of the area below downhill track parts"
+PLG_CONTENT_GTM_SPDFILTERORDER_LABEL="Smoothing filter order"
+PLG_CONTENT_GTM_SPDFILTERORDER_DESC="spdfilterorder: order of the smoothing filter for the speed data (see docs)"
+PLG_CONTENT_GTM_SPDUNITS_LABEL="Units"
+PLG_CONTENT_GTM_SPDUNITS_DESC="spdunits: units of measure for speed (km/h, miles per hour or knots)"

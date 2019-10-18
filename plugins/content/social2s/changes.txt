@@ -1,0 +1,189 @@
+V4.0
+*social2s font
+*Images array complete
+*variables withour fields
+    $doc->addScriptDeclaration("var pluginVersion = '{$this->getVersion()}';");
+*Buttons without bootstrap
+*sticky buttons
+*Opengraph for JEvents
+*custom cookie session
+
+TODO:
+	-fix CTA languages
+	-check if opengraph exists get_meta_tags('http://www.example.com/');
+	-twitter summarize large images or small images automatic
+	-upgrade scrollto in backend
+	-add button size for mobile
+	-CTA
+
+TODO V5 
+	-meneame button
+	-add loading image (thinking)
+	-GIFs of images in help
+	-new styles
+	-custom buttons
+	-offcanvas option
+	-Tweet or facebook a fragment (select and tweet)
+	-Administrator presets: load profile, save profile, send profile.
+	-check arrow on window size changes
+	-check duplicate meta opengraph
+	-define priority image for og with alt attribute
+	-complete img array
+	-Google font on text
+	-loading
+	-New preview
+	-Debug: twitter images with random
+    -<meta name="twitter:image" content="http://example.com/myimage.jpg?4362984378" />
+    -in/ex by menu
+    -in/ex children
+    -insert facebook pixel
+    -insert discussions and comments
+	-remove social images
+	-social2s modulehelper
+	-hangout button
+
+TO FIX
+	-CTA with cookies
+	-CTA with mobile
+	-CTA with facebook
+	-pagespeed botones cercanos
+	-test if position fixed is render two (after and before) social2s
+	-position fixed vertical with + button
+
+
+4.0.140
+Share text position
+Remove min in css - SASS built
+
+4.0.139
+Fix count scripts
+Fix pinterest button
+Fix VK button
+Check count calls with cookies
+
+4.0.138
+Better update from v3
+
+4.0.137
+Twitter no referrer
+
+4.0.136
+Better design for J4
+Language packages
+
+4.0.135
+Support for J4!
+
+4.0.134
+Fix url in jevents and SEF
+
+4.0.133
+Better migration from v3
+
+4.0.132
+jevents opengraph 
+
+4.0.131
+css buttons fixed
+
+4.0.130
+jevents links fixed
+
+4.0.129
+jevents links bug
+
+4.0.128
+defer css files and avoid multiple loads in blog view
+
+4.0.127
+avoid multiple js loads in blog view
+
+4.0.126
+async loading css
+
+4.0.125
+fix media path (thanks to O. Laverre).
+	
+4.0.124
+fix postgreSQL (thanks to O. Laverre).
+	
+4.0.123
+fix php 5.6 error (thanks to Adrian)
+
+4.0.121
+fix propagation error
+	
+4.0.114
+dark theme fixed
+
+4.0.113
+jQuery safe
+
+4.0.109
+opengraph images upgraded
+
+4.0.108
+backend upgraded
+
+4.0.107
+Refactored styles
+
+4.0.106
+facebook sizes
+pinterest count button
+cookie img fixed 
+*overflow: initial !important; en .btn para prevenir malfunción
+*modify minus button (se confunde con una señal de prohibido)
+
+4.0.105
+sticky position
+
+4.0.104
+hiden text in mobile
+rebuild modern css behavior
+
+4.0.103 The k2 version :)
+k2 is working!
+in/ex k2
+
+
+4.0.101
+preparing for j4
+after content working
+backend cleaning
+fontawesome 5
+
+3.9.9
+Moved resources to media to improve performance and SEO
+
+3.9.8
+update jquery ui to 1.12.1
+Plus button selector
+New s2sfont! fontawesome removed.
+
+3.9.7
+k2 in/out error
+modification J4 ahead
+
+3.9.6
+in/out refactoring
+
+3.9.4
+rebuild tmpl system (pre)
+rationalize tmpl class
+
+3.9.3
+rebuild check system
+more more more more debug system
+
+3.9.2
+fields in in/ex for k2 
+better presentation in accordions
+
+3.9.1
+preliminary support for telegram button
+preliminary support for flipboard button
+preliminary support for delicious button
+update text with fontawesome
+load optimization while check_view = false
+

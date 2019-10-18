@@ -1,0 +1,315 @@
+<div class="gpxtrack">
+  <h3>GPX Track-Karte</h3>
+  <div class="gpxtracklink">%TRACKDOWNLOAD%</div>
+  <div class="gpxtrackmap">%TRACKMAP%</div>
+  <br />
+  <h3>Höhenprofil des Tracks</h3>
+  <div class="gpxtrackdiagram">%TRACKDIAGRAM%</div>
+  <br />
+  <h3>Geschwindigkeitsdiagramm des Tracks</h3>
+  <div class="gpxspeeddiagram">%SPEEDDIAGRAM%</div>
+  <div class="gpxtrackinfo">
+    <h3>Aus der GPX-Datei ausgelesene statistische Daten</h3>
+    <hr />
+    <h4>Track-Länge und Daten zu Wegpunkten (Trackpoints)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gesamtlänge (metrisch)</td>
+          <td>%DISTANCE-KM% km</td>
+          <td>DISTANCE-KM</td>
+        </tr>
+        <tr>
+          <td>Gesamtlänge (angloamerikanisch)</td>
+          <td>%DISTANCE-MI% Meilen</td>
+          <td>DISTANCE-MI</td>
+        </tr>
+        <tr>
+          <td>Gesamtlänge (nautisch)</td>
+          <td>%DISTANCE-NM% nautische Meilen</td>
+          <td>DISTANCE-NM</td>
+        </tr>
+        <tr>
+          <td>Anzahl der Wegpunkte (Trackpoints)</td>
+          <td>%TRACKPOINTS%</td>
+          <td>TRACKPOINTS</td>
+        </tr>
+        <tr>
+          <td>Mittlerer Wegpunkt-Abstand (metrisch)</td>
+          <td>%TRACKPOINTDISTANCE-M% m</td>
+          <td>TRACKPOINTDISTANCE-M</td>
+        </tr>
+        <tr>
+          <td>Mittlerer Wegpunkt-Abstand (angloamerikanisch)</td>
+          <td>%TRACKPOINTDISTANCE-FT% ft</td>
+          <td>TRACKPOINTDISTANCE-FT</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Zeiten und Dauern</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Startzeitpunkt</td>
+          <td>%STARTTIME%</td>
+          <td>STARTTIME</td>
+        </tr>
+        <tr>
+          <td>Endzeitpunkt</td>
+          <td>%ENDTIME%</td>
+          <td>ENDTIME</td>
+        </tr>
+        <tr>
+          <td>Gesamtdauer</td>
+          <td>%DURATION%</td>
+          <td>DURATION</td>
+        </tr>
+        <tr>
+          <td>Dauer in Bewegung (Geschwindigkeit > 2 km/h)</td>
+          <td>%DURATIONMOVING%</td>
+          <td>DURATIONMOVING</td>
+        </tr>
+        <tr>
+          <td>Dauer in Ruhe</td>
+          <td>%DURATIONPAUSED%</td>
+          <td>DURATIONPAUSED</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Geschwindigkeiten in metrischen Einheiten (km/h = Kilometer pro Stunde)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Durchschnitssgeschw. gesamt</td>
+          <td>%AVGSPEED-KMH% km/h</td>
+          <td>AVGSPEED-KMH</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. in Bewegung</td>
+          <td>%AVGSPEEDMOVING-KMH% km/h</td>
+          <td>AVGSPEEDMOVING-KMH</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. bergauf</td>
+          <td>%AVGSPEEDUP-KMH% km/h</td>
+          <td>AVGSPEEDUP-KMH</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. bergab</td>
+          <td>%AVGSPEEDDOWN-KMH% km/h</td>
+          <td>AVGSPEEDDOWN-KMH</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit gesamt</td>
+          <td>%MAXSPEED-KMH% km/h</td>
+          <td>MAXSPEED-KMH</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit bergauf</td>
+          <td>%MAXSPEEDUP-KMH% km/h</td>
+          <td>MAXSPEEDUP-KMH</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit bergab</td>
+          <td>%MAXSPEEDDOWN-KMH% km/h</td>
+          <td>MAXSPEEDDOWN-KMH</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Geschwindigkeiten in angloamerikanischen Einheiten (mi/h = Meilen pro Stunde)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Durchschnitssgeschw. gesamt</td>
+          <td>%AVGSPEED-MPH% mi/h</td>
+          <td>AVGSPEED-MPH</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. in Bewegung</td>
+          <td>%AVGSPEEDMOVING-MPH% mi/h</td>
+          <td>AVGSPEEDMOVING-MPH</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. bergauf</td>
+          <td>%AVGSPEEDUP-MPH% mi/h</td>
+          <td>AVGSPEEDUP-MPH</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. bergab</td>
+          <td>%AVGSPEEDDOWN-MPH% mi/h</td>
+          <td>AVGSPEEDDOWN-MPH</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit gesamt</td>
+          <td>%MAXSPEED-MPH% mi/h</td>
+          <td>MAXSPEED-MPH</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit bergauf</td>
+          <td>%MAXSPEEDUP-MPH% mi/h</td>
+          <td>MAXSPEEDUP-MPH</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit bergab</td>
+          <td>%MAXSPEEDDOWN-MPH% mi/h</td>
+          <td>MAXSPEEDDOWN-MPH</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Geschwindigkeiten in nautischen Einheiten (kn = Knoten = Nautische Meilen pro Stunde)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Durchschnitssgeschw. gesamt</td>
+          <td>%AVGSPEED-KN% kn</td>
+          <td>AVGSPEED-KN</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. in Bewegung</td>
+          <td>%AVGSPEEDMOVING-KN% kn</td>
+          <td>AVGSPEEDMOVING-KN</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. bergauf</td>
+          <td>%AVGSPEEDUP-KN% kn</td>
+          <td>AVGSPEEDUP-KN</td>
+        </tr>
+        <tr>
+          <td>Durchschnitssgeschw. bergab</td>
+          <td>%AVGSPEEDDOWN-KN% kn</td>
+          <td>AVGSPEEDDOWN-KN</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit gesamt</td>
+          <td>%MAXSPEED-KN% kn</td>
+          <td>MAXSPEED-KN</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit bergauf</td>
+          <td>%MAXSPEEDUP-KN% kn</td>
+          <td>MAXSPEEDUP-KN</td>
+        </tr>
+        <tr>
+          <td>Maximale Geschwindigkeit bergab</td>
+          <td>%MAXSPEEDDOWN-KN% kn</td>
+          <td>MAXSPEEDDOWN-KN</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Höhendaten (metrisch)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Höhendifferenz (höchster-niedrigster Punkt)</td>
+          <td>%ELE-DELTA-M% m</td>
+          <td>ELE-DELTA-M</td>
+        </tr>
+        <tr>
+          <td>Minimale Höhe (niedrigster Punkt)</td>
+          <td>%ELE-MIN-M% m</td>
+          <td>ELE-MIN-M</td>
+        </tr>
+        <tr>
+          <td>Maximale Höhe (höchster Punkt)</td>
+          <td>%ELE-MAX-M% m</td>
+          <td>ELE-MAX-M</td>
+        </tr>
+        <tr>
+          <td>Höhenmeter bergauf (Addition positiver Höhenänderungen)</td>
+          <td>%ELE-UP-M% m</td>
+          <td>ELE-UP-M</td>
+        </tr>
+        <tr>
+          <td>Höhenmeter bergab (Addition negativer Höhenänderungen)</td>
+          <td>%ELE-DOWN-M% m</td>
+          <td>ELE-DOWN-M</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Höhendaten (angloamerikanisch)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berechneter Wert</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Höhendifferenz (höchster-niedrigster Punkt)</td>
+          <td>%ELE-DELTA-FT% ft</td>
+          <td>ELE-DELTA-FT</td>
+        </tr>
+        <tr>
+          <td>Minimale Höhe (niedrigster Punkt)</td>
+          <td>%ELE-MIN-FT% ft</td>
+          <td>ELE-MIN-FT</td>
+        </tr>
+        <tr>
+          <td>Maximale Höhe (höchster Punkt)</td>
+          <td>%ELE-MAX-FT% ft</td>
+          <td>ELE-MAX-FT</td>
+        </tr>
+        <tr>
+          <td>Höhenmeter bergauf (Addition positiver Höhenänderungen)</td>
+          <td>%ELE-UP-FT% ft</td>
+          <td>ELE-UP-FT</td>
+        </tr>
+        <tr>
+          <td>Höhenmeter bergab (Addition negativer Höhenänderungen)</td>
+          <td>%ELE-DOWN-FT% ft</td>
+          <td>ELE-DOWN-FT</td>
+        </tr>
+      </tbody>
+    </table>    
+  </div>
+</div>

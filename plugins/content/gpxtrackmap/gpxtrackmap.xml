@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="2.5.0" group="content" method="upgrade">
+	<name>PLG_CONTENT_GPXTRACKMAP_NAME</name>
+	<author>Frank Ingermann</author>
+	<creationDate>December 2012</creationDate>
+	<copyright>Copyright (C) Frank Ingermann</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>info@frankingermann.de</authorEmail>
+	<authorUrl>http://software.frankingermann.de/gpxtrackmap</authorUrl>
+	<version>1.4.0</version>
+	<description>PLG_CONTENT_GPXTRACKMAP_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="gpxtrackmap">gpxtrackmap.php</filename>
+		<filename plugin="gpxtrackmap">gpxtrackmap.js</filename>
+		<filename plugin="gpxtrackmap">hikebikelayer.js</filename>
+		<filename plugin="gpxtrackmap">OpenStreetMap.js</filename>
+		<filename plugin="gpxtrackmap">OpenLayers.2.13.2.full.js</filename>
+		<filename plugin="gpxtrackmap">gpxtrackmap-release-notes.txt</filename>
+		<filename plugin="gpxtrackmap">gpxtrackmap-translation-strings.txt</filename>
+		<filename plugin="gpxtrackmap">index.html</filename>
+		<filename plugin="gpxtrackmap">template1.html</filename>
+		<filename plugin="gpxtrackmap">template2.html</filename>
+		<filename plugin="gpxtrackmap">template3.html</filename>
+		<filename plugin="gpxtrackmap">template4.html</filename>
+		<filename plugin="gpxtrackmap">template5.html</filename>
+		<filename plugin="gpxtrackmap">template6.html</filename>
+		<filename plugin="gpxtrackmap">fullscreencontrols_buttons.html</filename>
+		<filename plugin="gpxtrackmap">fullscreencontrols_navbar.html</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_BingRoad.js</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_BingHybrid.js</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_BingAerial.js</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_Norgeskart.js</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_Hovedkartserien.js</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_OpenSeaMap.js</filename>
+		<filename plugin="gpxtrackmap">CustomMapLayer_MapQuestAerial.js</filename>
+    <folder plugin="gpxtrackmap">markers</folder>
+    <folder plugin="gpxtrackmap">de-DE</folder>
+    <folder plugin="gpxtrackmap">hu-HU</folder>
+    <folder plugin="gpxtrackmap">pl-PL</folder>
+    <folder plugin="gpxtrackmap">fr-FR</folder>
+    <folder plugin="gpxtrackmap">nl-NL</folder>
+    <folder plugin="gpxtrackmap">theme</folder>
+    <folder plugin="gpxtrackmap">theme/default</folder>
+    <folder plugin="gpxtrackmap">theme/default/img</folder>
+    <folder plugin="gpxtrackmap">img</folder>
+	</files>
+  <languages>
+    <language tag="en-GB">language/en-GB/en-GB.plg_content_gpxtrackmap.ini</language>
+    <language tag="en-GB">language/en-GB/en-GB.plg_content_gpxtrackmap.sys.ini</language>
+    <language tag="de-DE">language/de-DE/de-DE.plg_content_gpxtrackmap.ini</language>
+    <language tag="de-DE">language/de-DE/de-DE.plg_content_gpxtrackmap.sys.ini</language>
+    <language tag="hu-HU">language/hu-HU/hu-HU.plg_content_gpxtrackmap.ini</language>
+    <language tag="hu-HU">language/hu-HU/hu-HU.plg_content_gpxtrackmap.sys.ini</language>
+    <language tag="pl-PL">language/pl-PL/pl-PL.plg_content_gpxtrackmap.ini</language>
+    <language tag="pl-PL">language/pl-PL/pl-PL.plg_content_gpxtrackmap.sys.ini</language>
+    <language tag="fr-FR">language/fr-FR/fr-FR.plg_content_gpxtrackmap.ini</language>
+    <language tag="fr-FR">language/fr-FR/fr-FR.plg_content_gpxtrackmap.sys.ini</language>
+    <language tag="nl-NL">language/nl-NL/nl-NL.plg_content_gpxtrackmap.ini</language>
+    <language tag="nl-NL">language/nl-NL/nl-NL.plg_content_gpxtrackmap.sys.ini</language>
+  </languages>
+  <config>
+    <fields name="params">
+      <fieldset name="GTM_SETTINGS">
+        <field name="gpxroot" type="text" default="/images/gpxtracks" size="50" 
+          label="PLG_CONTENT_GTM_GPXROOT_LABEL"
+          description="PLG_CONTENT_GTM_GPXROOT_DESC" />
+        <field name="gpxpath" type="text" default="track.gpx" size="50" 
+          label="PLG_CONTENT_GTM_GPXPATH_LABEL"
+          description="PLG_CONTENT_GTM_GPXPATH_DESC" />
+        <field name="mapwidth" type="text" default="100%" size="8" 
+          label="PLG_CONTENT_GTM_MAPWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_MAPWIDTH_DESC" />
+        <field name="mapheight" type="text" default="400px" size="8" 
+          label="PLG_CONTENT_GTM_MAPHEIGHT_LABEL"
+          description="PLG_CONTENT_GTM_MAPHEIGHT_DESC" />
+        <field name="zoomout" type="text" default="0" size="8" 
+          label="PLG_CONTENT_GTM_ZOOMOUT_LABEL"
+          description="PLG_CONTENT_GTM_ZOOMOUT_DESC" />
+        <field name="zoomlevel" type="text" default="0" size="8" 
+          label="PLG_CONTENT_GTM_ZOOMLEVEL_LABEL"
+          description="PLG_CONTENT_GTM_ZOOMLEVEL_DESC" />
+        <field name="trackwidth" type="text" default="6" size="3" 
+          label="PLG_CONTENT_GTM_TRACKWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_TRACKWIDTH_DESC" />
+        <field name="trackcolor" type="text" default="blue" size="8" 
+          label="PLG_CONTENT_GTM_TRACKCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_TRACKCOLOR_DESC" />
+        <field name="trackopacity" type="text" default="0.5" size="4" 
+          label="PLG_CONTENT_GTM_TRACKOPACITY_LABEL"
+          description="PLG_CONTENT_GTM_TRACKOPACITY_DESC" />
+        <field name="trackstyle" type="list" default="0" 
+          label="PLG_CONTENT_GTM_TRACKSTYLE_LABEL"
+          description="PLG_CONTENT_GTM_TRACKSTYLE_DESC" >
+          <option value="0">PLG_CONTENT_GTM_TRACKSTYLE_SOLID</option>
+          <option value="1">PLG_CONTENT_GTM_TRACKSTYLE_DOTS</option>          
+          <option value="2">PLG_CONTENT_GTM_TRACKSTYLE_DASHES</option>          
+          <option value="3">PLG_CONTENT_GTM_TRACKSTYLE_DASHES_DOTS</option>          
+          <option value="4">PLG_CONTENT_GTM_TRACKSTYLE_LONG_DASHES</option>          
+          <option value="5">PLG_CONTENT_GTM_TRACKSTYLE_LONG_DASHES_DOTS</option>          
+        </field>
+      </fieldset>
+      <fieldset name="GTM_MAPCONTROLS">
+        <field name="mapnav" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_MAPNAV_LABEL" 
+          description="PLG_CONTENT_GTM_MAPNAV_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapwheelzoom" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPWHEELZOOM_LABEL" 
+          description="PLG_CONTENT_GTM_MAPWHEELZOOM_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mappan" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPPAN_LABEL" 
+          description="PLG_CONTENT_GTM_MAPPAN_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapzoombtns" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_MAPZOOMBTNS_LABEL" 
+          description="PLG_CONTENT_GTM_MAPZOOMBTNS_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapfullscreen" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPFULLSCREEN_LABEL" 
+          description="PLG_CONTENT_GTM_MAPFULLSCREEN_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapscale" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_MAPSCALE_LABEL" 
+          description="PLG_CONTENT_GTM_MAPSCALE_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapswitch" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_MAPSWITCH_LABEL" 
+          description="PLG_CONTENT_GTM_MAPSWITCH_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapoverview" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPOVERVIEW_LABEL" 
+          description="PLG_CONTENT_GTM_MAPOVERVIEW_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapmousepos" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPMOUSEPOS_LABEL" 
+          description="PLG_CONTENT_GTM_MAPMOUSEPOS_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="mapgraticule" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPGRATICULE_LABEL" 
+          description="PLG_CONTENT_GTM_MAPGRATICULE_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+      </fieldset>
+      <fieldset name="GTM_MAPLAYERS">
+        <field name="maphillshading" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_MAPHILLSHADING_LABEL" 
+          description="PLG_CONTENT_GTM_MAPHILLSHADING_DESC">
+          <option value="0">PLG_CONTENT_GTM_OFF</option>
+          <option value="1">PLG_CONTENT_GTM_SINGLE</option>
+          <option value="2">PLG_CONTENT_GTM_DOUBLE</option>
+        </field>
+        <field name="enablegooglemaps" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_ENABLEGOOGLEMAPS_LABEL" 
+          description="PLG_CONTENT_GTM_ENABLEGOOGLEMAPS_DESC">
+          <option value="0">JNO</option>
+          <option value="1">PLG_CONTENT_GTM_ENABLEGOOGLEMAPS_YES_I_KNOW</option>
+        </field>
+        <field name="maplayer" type="list" default="0" 
+          label="PLG_CONTENT_GTM_MAPLAYER_LABEL"
+          description="PLG_CONTENT_GTM_MAPLAYER_DESC">
+          <option value="0">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_MAPNIK</option>
+          <option value="1">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_CYCLEMAP</option>          
+          <option value="2">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_MAPNIK_DE</option>          
+          <option value="3">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_HIKEBIKE</option> 
+          <option value="4">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_STREET</option>
+          <option value="5">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_PHYSICAL</option>          
+          <option value="6">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_HYBRID</option>          
+          <option value="7">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_SATELLITE</option>          
+          <option value="8">PLG_CONTENT_GTM_MAPLAYER_CUSTOM_1</option>          
+          <option value="9">PLG_CONTENT_GTM_MAPLAYER_CUSTOM_2</option>          
+          <option value="10">PLG_CONTENT_GTM_MAPLAYER_CUSTOM_3</option>          
+          <option value="11">PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_TRANSPORT</option> 
+          <option value="12">PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_LANDSCAPE</option>
+          <option value="13">PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_OUTDOORS</option>
+          <option value="14">PLG_CONTENT_GTM_MAPLAYER_MAPQUEST</option>
+          <option value="15">PLG_CONTENT_GTM_MAPLAYER_OPENTOPOMAP</option>
+          <option value="16">PLG_CONTENT_GTM_MAPLAYER_MEMOMAPS_OPNV</option>		  
+        </field>  
+        <field name="maplayers" type="list" multiple="true" default="" size="17" 
+          label="PLG_CONTENT_GTM_MAPLAYERS_LABEL" 
+          description="PLG_CONTENT_GTM_MAPLAYERS_DESC">
+          <option value="0">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_MAPNIK</option>
+          <option value="1">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_CYCLEMAP</option>          
+          <option value="2">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_MAPNIK_DE</option>          
+          <option value="3">PLG_CONTENT_GTM_MAPLAYER_OPENSTREETMAP_HIKEBIKE</option>          
+          <option value="4">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_STREET</option>
+          <option value="5">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_PHYSICAL</option>          
+          <option value="6">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_HYBRID</option>          
+          <option value="7">PLG_CONTENT_GTM_MAPLAYER_GOOGLE_MAPS_SATELLITE</option>          
+          <option value="8">PLG_CONTENT_GTM_MAPLAYER_CUSTOM_1</option>          
+          <option value="9">PLG_CONTENT_GTM_MAPLAYER_CUSTOM_2</option>          
+          <option value="10">PLG_CONTENT_GTM_MAPLAYER_CUSTOM_3</option>          
+          <option value="11">PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_TRANSPORT</option> 
+          <option value="12">PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_LANDSCAPE</option>
+          <option value="13">PLG_CONTENT_GTM_MAPLAYER_THUNDERFOREST_OUTDOORS</option>
+          <option value="14">PLG_CONTENT_GTM_MAPLAYER_MAPQUEST</option>
+          <option value="15">PLG_CONTENT_GTM_MAPLAYER_OPENTOPOMAP</option>
+          <option value="16">PLG_CONTENT_GTM_MAPLAYER_MEMOMAPS_OPNV</option>		  
+        </field>
+      </fieldset>
+      <fieldset name="GTM_WAYPOINTS">
+        <field name="wpshow" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_WPSHOW_LABEL"
+          description="PLG_CONTENT_GTM_WPSHOW_DESC" >
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>          
+        </field>
+        <field name="wpcolor" type="text" default="blue" size="8" 
+          label="PLG_CONTENT_GTM_WPCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_WPCOLOR_DESC" />
+        <field name="wpradius" type="text" default="4" size="4" 
+          label="PLG_CONTENT_GTM_WPRADIUS_LABEL"
+          description="PLG_CONTENT_GTM_WPRADIUS_DESC" />
+		<field name="spacer" type="spacer" hr="true" />
+        <field name="wppopups" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_WPPOPUPS_LABEL"
+          description="PLG_CONTENT_GTM_WPPOPUPS_DESC" >
+          <option value="0">JNO</option>          
+          <option value="1">PLG_CONTENT_GTM_WPPOPUPS_HOVER</option>
+          <option value="2">PLG_CONTENT_GTM_WPPOPUPS_TOGGLE</option>
+        </field>
+        <field name="wppopupwidth" type="text" size="10" default="350"
+		      label="PLG_CONTENT_GTM_WPPOPUPWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_WPPOPUPWIDTH_DESC">
+        </field>     	  	
+        <field name="wppopupheight" type="text" size="10" default="350"
+		      label="PLG_CONTENT_GTM_WPPOPUPHEIGHT_LABEL"
+          description="PLG_CONTENT_GTM_WPPOPUPHEIGHT_DESC">
+        </field>     	  	
+        <field name="wppopupele" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_WPPOPUPELE_LABEL"
+          description="PLG_CONTENT_GTM_WPPOPUPELE_DESC" >
+          <option value="0">JNO</option>          
+          <option value="m">m</option>
+          <option value="ft">ft</option>
+        </field>
+        <field name="wppopuptimefmt" type="text" size="30" default="%Y-%m-%d %H:%M:%S"
+		      label="PLG_CONTENT_GTM_WPPOPUPTIMEFMT_LABEL"
+          description="PLG_CONTENT_GTM_WPPOPUPTIMEFMT_DESC">
+        </field>     	  	
+        <field name="wppopupdesc" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_WPPOPUPDESC_LABEL" 
+          description="PLG_CONTENT_GTM_WPPOPUPDESC_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="wppopupdescbb" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_WPPOPUPDESCBB_LABEL" 
+          description="PLG_CONTENT_GTM_WPPOPUPDESCBB_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="wppopuplinkfmt" type="text" size="30" default="link #%N%"
+		      label="PLG_CONTENT_GTM_WPPOPUPLINKFMT_LABEL"
+          description="PLG_CONTENT_GTM_WPPOPUPLINKFMT_DESC">
+        </field>     	  	
+        <field name="wpsymbols" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_WPSYMBOLS_LABEL"
+          description="PLG_CONTENT_GTM_WPSYMBOLS_DESC" >
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>          
+        </field>
+        <field name="wpsymbolmappings" type="textarea" default="*=%PLUGINDIR%/markers/waypointmarker16.png,16,16" rows="20" cols="100" filter="raw"
+          label="PLG_CONTENT_GTM_WPSYMBOLMAPPINGS_LABEL"
+          description="PLG_CONTENT_GTM_WPSYMBOLMAPPINGS_DESC" />
+      </fieldset>
+      <fieldset name="GTM_TRACKINFO">
+        <field name="ti" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_TRACKINFO_LABEL"
+          description="PLG_CONTENT_GTM_TRACKINFO_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>     	  
+        <field name="tidecimalsep" type="text" size="3" default="."
+		      label="PLG_CONTENT_GTM_TIDECIMALSEP_LABEL"
+          description="PLG_CONTENT_GTM_TIDECIMALSEP_DESC">
+        </field>     	  	
+        <field name="tidatefmt" type="text" size="30" default="%Y-%m-%d %H:%M:%S"
+		      label="PLG_CONTENT_GTM_TIDATEFMT_LABEL"
+          description="PLG_CONTENT_GTM_TIDATEFMT_DESC">
+        </field>     	  	
+        <field name="titimefmt" type="text" size="20" default="%H:%M:%S"
+		      label="PLG_CONTENT_GTM_TITIMEFMT_LABEL"
+          description="PLG_CONTENT_GTM_TITIMEFMT_DESC">
+        </field>     	  	
+        <field name="titimeshift" type="text" size="20" default="0"
+		      label="PLG_CONTENT_GTM_TITIMESHIFT_LABEL"
+          description="PLG_CONTENT_GTM_TITIMESHIFT_DESC">
+        </field>     	  	
+        <field name="timovespeed" type="text" size="20" default="2"
+		      label="PLG_CONTENT_GTM_TIMOVESPEED_LABEL"
+          description="PLG_CONTENT_GTM_TIMOVESPEED_DESC">
+        </field>     	  	
+      </fieldset>
+      <fieldset name="GTM_ELEDIA">
+        <field name="ed" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_ED_LABEL"
+          description="PLG_CONTENT_GTM_ED_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>     	  
+        <field name="edwidth" type="text" size="10" default="100%"
+		      label="PLG_CONTENT_GTM_EDWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_EDWIDTH_DESC">
+        </field>     	  	
+        <field name="edheight" type="text" size="10" default="200px"
+		      label="PLG_CONTENT_GTM_EDHEIGHT_LABEL"
+          description="PLG_CONTENT_GTM_EDHEIGHT_DESC">
+        </field>     	  	
+        <field name="edlinecolor" type="text" size="10" default="black"
+		      label="PLG_CONTENT_GTM_EDLINECOLOR_LABEL"
+          description="PLG_CONTENT_GTM_EDLINECOLOR_DESC">
+        </field>     	  	
+        <field name="edlinewidth" type="text" size="10" default="2"
+		      label="PLG_CONTENT_GTM_EDLINEWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_EDLINEWIDTH_DESC">
+        </field>     	  	
+        <field name="edbgcolor" type="text" size="10" default="white"
+		      label="PLG_CONTENT_GTM_EDBGCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_EDBGCOLOR_DESC">
+        </field>     	  	
+        <field name="edfillmode" type="radio" default="1"
+		      label="PLG_CONTENT_GTM_EDFILLMODE_LABEL"
+          description="PLG_CONTENT_GTM_EDFILLMODE_DESC">
+          <option value="0">PLG_CONTENT_GTM_FILLMODE_NONE</option>
+          <option value="1">PLG_CONTENT_GTM_FILLMODE_DELTA</option>          
+          <option value="2">PLG_CONTENT_GTM_FILLMODE_ABSOLUTE</option>          
+        </field>     	  	
+        <field name="edupcolor" type="text" size="10" default="green"
+		      label="PLG_CONTENT_GTM_EDUPCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_EDUPCOLOR_DESC">
+        </field>     	  	
+        <field name="eddowncolor" type="text" size="10" default="red"
+		      label="PLG_CONTENT_GTM_EDDOWNCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_EDDOWNCOLOR_DESC">
+        </field>     	  	
+        <field name="edfilterorder" type="text" size="5" default="3"
+		       label="PLG_CONTENT_GTM_EDFILTERORDER_LABEL"
+          description="PLG_CONTENT_GTM_EDFILTERORDER_DESC">
+        </field>     	  	
+        <field name="edunits" type="radio" default="m" 
+          label="PLG_CONTENT_GTM_EDUNITS_LABEL"
+          description="PLG_CONTENT_GTM_EDUNITS_DESC">
+          <option value="m">m</option>
+          <option value="ft">ft</option>
+        </field>     	  
+		<field name="spacer" type="spacer" hr="true" />
+        <field name="edxgrid" type="text" size="25" default="1/2/5/10/20/50"
+		       label="PLG_CONTENT_GTM_EDXGRID_LABEL"
+          description="PLG_CONTENT_GTM_EDXGRID_DESC">
+        </field>     	  	
+        <field name="edxgridunits" type="radio" default="km"
+		       label="PLG_CONTENT_GTM_EDXGRIDUNITS_LABEL"
+          description="PLG_CONTENT_GTM_EDXGRIDUNITS_DESC">
+          <option value="m">m</option>
+          <option value="km">km</option>
+          <option value="ft">ft</option>
+          <option value="mi">mi</option>
+          <option value="nm">nm</option>
+        </field>     	  	
+        <field name="edxgridlimit" type="text" size="5" default="15"
+		       label="PLG_CONTENT_GTM_EDXGRIDLIMIT_LABEL"
+          description="PLG_CONTENT_GTM_EDXGRIDLIMIT_DESC">
+        </field>     	  	
+        <field name="edxgridcolor" type="text" default="blue" size="8" 
+          label="PLG_CONTENT_GTM_EDXGRIDCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_EDXGRIDCOLOR_DESC" />
+        <field name="edxgridwidth" type="text" default="4" size="4" 
+          label="PLG_CONTENT_GTM_EDXGRIDWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_EDXGRIDWIDTH_DESC" />
+		<field name="spacer2" type="spacer" hr="true" />
+        <field name="edygridlines" type="text" default="3" size="8" 
+          label="PLG_CONTENT_GTM_EDYGRIDLINES_LABEL"
+          description="PLG_CONTENT_GTM_EDYGRIDLINES_DESC" />
+        <field name="edygridcolor" type="text" default="blue" size="8" 
+          label="PLG_CONTENT_GTM_EDYGRIDCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_EDYGRIDCOLOR_DESC" />
+        <field name="edygridwidth" type="text" default="4" size="4" 
+          label="PLG_CONTENT_GTM_EDYGRIDWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_EDYGRIDWIDTH_DESC" />
+      </fieldset>
+      <fieldset name="GTM_SPDDIA">
+        <field name="spd" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_SPD_LABEL"
+          description="PLG_CONTENT_GTM_SPD_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>     	  
+        <field name="spdwidth" type="text" size="10" default="100%"
+		      label="PLG_CONTENT_GTM_SPDWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_SPDWIDTH_DESC">
+        </field>     	  	
+        <field name="spdheight" type="text" size="10" default="200px"
+		      label="PLG_CONTENT_GTM_SPDHEIGHT_LABEL"
+          description="PLG_CONTENT_GTM_SPDHEIGHT_DESC">
+        </field>     	  	
+        <field name="spdlinecolor" type="text" size="10" default="black"
+		      label="PLG_CONTENT_GTM_SPDLINECOLOR_LABEL"
+          description="PLG_CONTENT_GTM_SPDLINECOLOR_DESC">
+        </field>     	  	
+        <field name="spdlinewidth" type="text" size="10" default="2"
+		      label="PLG_CONTENT_GTM_SPDLINEWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_SPDLINEWIDTH_DESC">
+        </field>     	  	
+        <field name="spdbgcolor" type="text" size="10" default="white"
+		      label="PLG_CONTENT_GTM_SPDBGCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_SPDBGCOLOR_DESC">
+        </field>     	  	
+        <field name="spdfillmode" type="radio" default="2"
+		      label="PLG_CONTENT_GTM_SPDFILLMODE_LABEL"
+          description="PLG_CONTENT_GTM_SPDFILLMODE_DESC">
+          <option value="0">PLG_CONTENT_GTM_FILLMODE_NONE</option>
+          <option value="1">PLG_CONTENT_GTM_FILLMODE_DELTA</option>          
+          <option value="2">PLG_CONTENT_GTM_FILLMODE_ABSOLUTE</option>          
+        </field>     	  	
+        <field name="spdupcolor" type="text" size="10" default="green"
+		      label="PLG_CONTENT_GTM_SPDUPCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_SPDUPCOLOR_DESC">
+        </field>     	  	
+        <field name="spddowncolor" type="text" size="10" default="red"
+		      label="PLG_CONTENT_GTM_SPDDOWNCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_SPDDOWNCOLOR_DESC">
+        </field>     	  	
+        <field name="spdfilterorder" type="text" size="5" default="3"
+		       label="PLG_CONTENT_GTM_SPDFILTERORDER_LABEL"
+          description="PLG_CONTENT_GTM_SPDFILTERORDER_DESC">
+        </field>     	  	
+        <field name="spdunits" type="radio" default="km/h" 
+          label="PLG_CONTENT_GTM_SPDUNITS_LABEL"
+          description="PLG_CONTENT_GTM_SPDUNITS_DESC">
+          <option value="km/h">km/h</option>
+          <option value="mph">mph</option>
+          <option value="kn">kn</option>
+        </field>     	  
+		<field name="spacer" type="spacer" hr="true" />
+        <field name="spdxgrid" type="text" size="25" default="1/2/5/10/20/50"
+		       label="PLG_CONTENT_GTM_SPDXGRID_LABEL"
+          description="PLG_CONTENT_GTM_SPDXGRID_DESC">
+        </field>     	  	
+        <field name="spdxgridunits" type="radio" default="km"
+		       label="PLG_CONTENT_GTM_SPDXGRIDUNITS_LABEL"
+          description="PLG_CONTENT_GTM_SPDXGRIDUNITS_DESC">
+          <option value="m">m</option>
+          <option value="km">km</option>
+          <option value="ft">ft</option>
+          <option value="mi">mi</option>
+          <option value="nm">nm</option>
+        </field>     	  	
+        <field name="spdxgridlimit" type="text" size="5" default="15"
+		       label="PLG_CONTENT_GTM_SPDXGRIDLIMIT_LABEL"
+          description="PLG_CONTENT_GTM_SPDXGRIDLIMIT_DESC">
+        </field>     	  	
+        <field name="spdxgridcolor" type="text" default="blue" size="8" 
+          label="PLG_CONTENT_GTM_SPDXGRIDCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_SPDXGRIDCOLOR_DESC" />
+        <field name="spdxgridwidth" type="text" default="4" size="4" 
+          label="PLG_CONTENT_GTM_SPDXGRIDWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_SPDXGRIDWIDTH_DESC" />
+		<field name="spacer2" type="spacer" hr="true" />
+        <field name="spdygridlines" type="text" default="3" size="8" 
+          label="PLG_CONTENT_GTM_SPDYGRIDLINES_LABEL"
+          description="PLG_CONTENT_GTM_SPDYGRIDLINES_DESC" />
+        <field name="spdygridcolor" type="text" default="blue" size="8" 
+          label="PLG_CONTENT_GTM_SPDYGRIDCOLOR_LABEL"
+          description="PLG_CONTENT_GTM_SPDYGRIDCOLOR_DESC" />
+        <field name="spdygridwidth" type="text" default="4" size="4" 
+          label="PLG_CONTENT_GTM_SPDYGRIDWIDTH_LABEL"
+          description="PLG_CONTENT_GTM_SPDYGRIDWIDTH_DESC" />
+      </fieldset>
+      <fieldset name="GTM_MARKER">
+        <field name="startmarker" type="list" default="0" 
+          label="PLG_CONTENT_GTM_STARTMARKER_LABEL"
+          description="PLG_CONTENT_GTM_STARTMARKER_DESC">
+          <option value="0">PLG_CONTENT_GTM_MARKERCOLOR_NONE</option>
+          <option value="1">PLG_CONTENT_GTM_MARKERCOLOR_BLUE</option>          
+          <option value="2">PLG_CONTENT_GTM_MARKERCOLOR_RED</option>          
+          <option value="3">PLG_CONTENT_GTM_MARKERCOLOR_GREEN</option>          
+          <option value="4">PLG_CONTENT_GTM_MARKERCOLOR_YELLOW</option>          
+          <option value="5">PLG_CONTENT_GTM_MARKERCOLOR_WHITE</option>          
+          <option value="6">PLG_CONTENT_GTM_MARKERCOLOR_GRAY</option>          
+          <option value="7">PLG_CONTENT_GTM_MARKERCOLOR_BLACK</option>          
+        </field>     
+        <field name="endmarker" type="list" default="0" 
+          label="PLG_CONTENT_GTM_ENDMARKER_LABEL" 
+          description="PLG_CONTENT_GTM_ENDMARKER_DESC">
+          <option value="0">PLG_CONTENT_GTM_MARKERCOLOR_NONE</option>
+          <option value="1">PLG_CONTENT_GTM_MARKERCOLOR_BLUE</option>          
+          <option value="2">PLG_CONTENT_GTM_MARKERCOLOR_RED</option>          
+          <option value="3">PLG_CONTENT_GTM_MARKERCOLOR_GREEN</option>          
+          <option value="4">PLG_CONTENT_GTM_MARKERCOLOR_YELLOW</option>          
+          <option value="5">PLG_CONTENT_GTM_MARKERCOLOR_WHITE</option>          
+          <option value="6">PLG_CONTENT_GTM_MARKERCOLOR_GRAY</option>          
+          <option value="7">PLG_CONTENT_GTM_MARKERCOLOR_BLACK</option>          
+        </field>     
+        <field name="markerset" type="list" default="1" 
+          label="PLG_CONTENT_GTM_MARKERSET_LABEL"
+          description="PLG_CONTENT_GTM_MARKERSET_DESC" >
+          <option value="1">PLG_CONTENT_GTM_MARKERSET_1</option>
+          <option value="2">PLG_CONTENT_GTM_MARKERSET_2</option>          
+          <option value="3">PLG_CONTENT_GTM_MARKERSET_3</option>          
+          <option value="4">PLG_CONTENT_GTM_MARKERSET_4</option>          
+        </field>     
+      </fieldset>
+      <fieldset name="GTM_DOWNLOADSETTINGS">
+        <field name="dl" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_DL_LABEL"
+          description="PLG_CONTENT_GTM_DL_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>     
+        <field name="dltext" type="text" default="Download: %s" size="50" 
+          label="PLG_CONTENT_GTM_DLTEXT_LABEL"
+          description="PLG_CONTENT_GTM_DLTEXT_DESC" />
+        <field name="dlzip" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_DLZIP_LABEL"
+          description="PLG_CONTENT_GTM_DLZIP_DESC" >
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="dltype" type="radio" default="0" 
+          label="PLG_CONTENT_GTM_DLTYPE_LABEL"
+          description="PLG_CONTENT_GTM_DLTYPE_DESC">
+          <option value="0">PLG_CONTENT_GTM_DLTYPE_TEXT</option>
+          <option value="1">PLG_CONTENT_GTM_DLTYPE_BUTTON</option>
+        </field>     
+        <field name="dlclass" type="text" default="gpxtracklink" size="24" 
+          label="PLG_CONTENT_GTM_DLCLASS_LABEL"
+          description="PLG_CONTENT_GTM_DLCLASS_DESC" />
+        <field name="dlstyle" type="text" default="" size="50" 
+          label="PLG_CONTENT_GTM_DLSTYLE_LABEL"
+          description="PLG_CONTENT_GTM_DLSTYLE_DESC" />
+      </fieldset>
+      <fieldset name="GTM_PRESETS">
+        <field name="presets" type="textarea" default="" rows="10" cols="100" filter="raw"
+          label="PLG_CONTENT_GTM_PRESETS_LABEL"
+          description="PLG_CONTENT_GTM_PRESETS_DESC" />
+      </fieldset>
+      <fieldset name="GTM_TEMPLATES">
+        <field name="tpldefault" type="list" default="1" 
+          label="PLG_CONTENT_GTM_TPLDEFAULT_LABEL"
+          description="PLG_CONTENT_GTM_TPLDEFAULT_DESC" >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </field>  
+        <field name="tpl1" type="text" default="%PLUGINDIR%/template1.html" size="100" 
+          label="PLG_CONTENT_GTM_TPL1_LABEL"
+          description="PLG_CONTENT_GTM_TPL1_DESC" />
+        <field name="tpl2" type="text" default="%PLUGINDIR%/template2.html" size="100" 
+          label="PLG_CONTENT_GTM_TPL2_LABEL"
+          description="PLG_CONTENT_GTM_TPL2_DESC" />
+        <field name="tpl3" type="text" default="%PLUGINDIR%/template3.html" size="100" 
+          label="PLG_CONTENT_GTM_TPL3_LABEL"
+          description="PLG_CONTENT_GTM_TPL3_DESC" />
+        <field name="tpl4" type="text" default="%PLUGINDIR%/template4.html" size="100" 
+          label="PLG_CONTENT_GTM_TPL4_LABEL"
+          description="PLG_CONTENT_GTM_TPL4_DESC" />
+        <field name="tpl5" type="text" default="%PLUGINDIR%/template5.html" size="100" 
+          label="PLG_CONTENT_GTM_TPL5_LABEL"
+          description="PLG_CONTENT_GTM_TPL5_DESC" />
+        <field name="tpl6" type="text" default="%PLUGINDIR%/template6.html" size="100" 
+          label="PLG_CONTENT_GTM_TPL6_LABEL"
+          description="PLG_CONTENT_GTM_TPL6_DESC" />         
+      </fieldset>
+      <fieldset name="GTM_ADVANCEDSETTINGS">
+        <field name="scriptsrc-ol" type="text" default="/plugins/content/gpxtrackmap/OpenLayers.2.13.2.full.js" size="180" 
+          label="PLG_CONTENT_GTM_SCRIPTSRC_OL_LABEL"
+          description="PLG_CONTENT_GTM_SCRIPTSRC_OL_DESC" />
+        <field name="scriptsrc-osm" type="text" default="/plugins/content/gpxtrackmap/OpenStreetMap.js" size="180" 
+          label="PLG_CONTENT_GTM_SCRIPTSRC_OSM_LABEL"
+          description="PLG_CONTENT_GTM_SCRIPTSRC_OSM_DESC" />
+        <field name="scriptsrc-gm" type="text" default="http://maps.google.com/maps/api/js?v=3&amp;sensor=false" size="180" 
+          label="PLG_CONTENT_GTM_SCRIPTSRC_GM_LABEL"
+          description="PLG_CONTENT_GTM_SCRIPTSRC_GM_DESC" />
+        <field name="tfapikey" type="text" default="" size="180" 
+          label="PLG_CONTENT_GTM_TFAPIKEY_LABEL"
+          description="PLG_CONTENT_GTM_TFAPIKEY_DESC" />
+        <field name="cache" type="radio" default="1" 
+          label="PLG_CONTENT_GTM_CACHE_LABEL"
+          description="PLG_CONTENT_GTM_CACHE_DESC">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>  
+        <field name="usejquery" type="radio" default="0"
+                 label="PLG_CONTENT_GTM_USEJQUERY_LABEL"
+                 description="PLG_CONTENT_GTM_USEJQUERY_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="showwarnings" type="radio" default="1"
+                 label="PLG_CONTENT_GTM_SHOWWARNINGS_LABEL"
+                 description="PLG_CONTENT_GTM_SHOWWARNINGS_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+      </fieldset>  
+    </fields>
+  </config>
+</extension>

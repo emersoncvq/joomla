@@ -1,0 +1,1762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" type="plugin" group="content" method="upgrade">
+	<name>Content - Social 2s</name>
+	<author>jtotal.org</author>
+	<creationDate>02-ago-2019</creationDate>
+	<copyright>Copyright (C) 2005 - 2019 jtotal.org All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@jtotal.org</authorEmail>
+	<authorUrl>www.jtotal.org</authorUrl>
+	<version>4.0.143</version>
+	<description><![CDATA[
+		<img class="img-responsive pull-right s2s_logo_portada" src="../media/plg_social2s/assets/social_2s_v4_350.png"/>
+		]]>
+	</description>
+	<files>
+		<filename plugin="social2s">social2s.php</filename>
+		<folder>fields</folder>
+		<folder>features</folder>
+		<filename>index.html</filename>
+		<filename>changes.txt</filename>
+		<filename>license.txt</filename>
+	</files> 
+ 
+	<media folder="media" destination="plg_social2s">
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>assets</folder>
+        <folder>fonts</folder>
+    </media>
+
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_content_social2s.ini</language>
+		<language tag="en-GB">language/en-GB.plg_content_social2s.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params" addfieldpath="/plugins/content/social2s/fields">
+			<fieldset name="basic">
+				
+				<field type="s2sversion" class="s2s_version" name="s2s_version" default="4.0" />
+				<!--<field type="s2sfirsttime" class="s2s_firsttime" name="s2s_firsttime" />-->
+
+				<field type="s2sbackend" />
+
+				<field name="jtotal_license_dashboard" 
+					type="jtotallicensecheck" 
+					class="inputbox" 
+					mode="dashboard"
+					validate="email" 
+					label="JTOTAL_LICENSE_KEY" 
+					
+				/>
+
+
+				<field type="s2sbs1st" name="acc1" initial="true" acordeon="basic" active="general1" />
+
+
+
+					<field type="s2sbs1st" name="acc2" initial="slide" acordeon="basic" slide="general1" label="SOCIAL2S_SPACER_GENERAL_OPTIONS" />
+
+
+						
+
+						<!--<field type="spacer" name="language_spacer" label="SOCIAL2S_SPACER_GENERAL_OPTIONS" />-->
+
+						<field
+							name="s2s_text_to_share"
+							type="radio"
+							class="btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_TEXT_TO_SHARE"
+							description="SOCIAL2S_TEXT_TO_SHARE_DESC"
+							>
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<field
+							name="s2s_text_to_share_text"
+							type="text"
+							class=""
+							default="SOCIAL2S_SHARE_TEXT"
+							label="SOCIAL2S_TEXT_TO_SHARE_TEXT"
+							description="SOCIAL2S_TEXT_TO_SHARE_TEXT_DESC"/>
+
+						<field
+							name="s2s_text_to_share_position"
+							type="radio"
+							class="btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_TEXT_TO_SHARE_POS"
+							description="SOCIAL2S_TEXT_TO_SHARE_POS_DESC">
+							<option value="0">SOCIAL2S_TOP</option>
+							<option value="1">SOCIAL2S_LEFT</option>
+						</field>
+
+						<field
+							name="social2s_base"
+							type="radio"
+							class="btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_BASE"
+							description="SOCIAL2S_BASE_DESC">
+							<option value="0">Default</option>
+							<option value="1">SOCIAL2S_BASE_MODERN</option>
+						</field>
+
+
+						<field name="s2s_language" type="groupedlist" default="0" label="SOCIAL2S_GENERAL_LANGUAGE" description="SOCIAL2S_GENERAL_LANGUAGE_DESC">
+						   		<option value="0">Autodetect</option>
+						   		<group label="SOCIAL2S_LANGUAGES_GROUP">
+							    	<option value="nl_NL">Dutch</option>
+							    	<option value="en_GB">English</option>
+							      	<option value="fr_FR">French</option>
+							      	<option value="de_DE">German</option>
+							      	<option value="id_ID">Indonesian</option>
+							      	<option value="it_IT">Italian</option>
+									<option value="ja_JP">Japanese</option>
+									<option value="ko_KR">Korean</option>
+									<option value="pt_PT">Portuguese</option>
+							      	<option value="ru_RU">Russian</option>
+							      	<option value="es_ES">Spanish</option>
+							     	<option value="tr_TR">Turkish</option> 
+							     </group>   
+						</field>
+
+
+
+						<field
+							name="load_jquery"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_LOAD_JQUERY"
+							description="SOCIAL2S_LOAD_JQUERY_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+						</field>
+						<field name="s2s_jquery_version" type="list" default="0" label="SOCIAL2S_JQUERY_VERSION" description="SOCIAL2S_JQUERY_VERSION_DESC">
+							<option value="0">SOCIAL2S_TEMPLATE_DEFAULT</option>
+							<option value="jquery-1.10.2.min">jquery-1.10.2.min</option>
+							<option value="jquery-1.12.0.min">jquery-1.12.0.min</option>
+							<option value="jquery-2.2.0.min">jquery-2.2.0.min</option>
+							<option value="jquery-3.3.1.min">jquery-3.3.1.min</option>
+						</field>
+
+
+<!--
+						<field
+							name="load_bootstrap"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_LOAD_BOOTSTRAP"
+							description="SOCIAL2S_LOAD_BOOTSTRAP_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+						</field>
+-->
+
+
+						<field
+							name="s2s_load_scripts_onload"
+							type="radio"
+							class="btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_LOAD_SOCIAL_SCRIPTS"
+							description="SOCIAL2S_LOAD_SOCIAL_SCRIPTS_DESC">
+							<option
+								value="0">SOCIAL2S_JNO_RECOMMENDED</option>
+							<option
+								value="1">SOCIAL2S_JYES_WARNING</option>
+							<option
+								value="2">SOCIAL2S_ONLY_ARTICLES</option>
+						</field>
+
+						<field
+							name="s2s_display_module"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_DISPLAY_MODULE"
+							description="SOCIAL2S_DISPLAY_MODULE_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+						</field>
+
+						<field
+							name="s2s_credits"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_CREDITS"
+							description="SOCIAL2S_CREDITS_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+						</field>
+
+					<field type="s2sbs1st" name="acc37" initial="end" slide="general1" />
+
+					<field type="s2sbs1st" name="acc38" initial="slide" acordeon="basic" slide="debug" label="SOCIAL2S_DEBUG_SPACER" />
+
+						<field
+							name="s2s_debug"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_DEBUG"
+							description="SOCIAL2S_DEBUG_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+						</field>
+
+						<field
+							name="s2s_og_debug"
+							type="radio"
+							class="btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_OPENGRAPH_DEBUG"
+							description="SOCIAL2S_OPENGRAPH_DEBUG_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+					
+						<field
+							name="social2s_minify_debug"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_MINIFY_DEBUG"
+							description="SOCIAL2S_MINIFY_DEBUG_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<!--<field name="s2s_pro_variables" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_PRO_VARIABLES" description="SOCIAL2S_PRO_VARIABLES_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>-->
+
+						<field
+							name="social2s_css_defer"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_CSS_DEFER"
+							description="SOCIAL2S_CSS_DEFER_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+
+
+
+
+
+						<field
+							name="social2s_load_base"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_LOAD_TEMPLATE"
+							description="SOCIAL2S_LOAD_TEMPLATE_DESC">
+							<option
+								value="0">SOCIAL2S_JNO_WARNING</option>
+							<option
+								value="1">JYES</option>
+						</field>
+
+						<field
+							name="load_s2sfont"
+							type="radio"
+							class=" btn-group s2-btn-mini s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_LOAD_S2SFONT"
+							description="SOCIAL2S_LOAD_S2SFONT_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">SOCIAL2S_JYES_RECOMMENDED</option>
+						</field>
+
+						<field
+							name="s2s_button_style"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_BUTTON_STYLE"
+							description="SOCIAL2S_BUTTON_STYLE_DESC">
+							<option
+								value="0">SOCIAL2S_JNO_WARNING</option>
+							<option
+								value="1">SOCIAL2S_S2SFONT_RECOMMENDED</option>
+							<option
+								value="2">Images</option>
+						</field>
+
+						<field
+							name="s2s_load_style"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_LOAD_STYLE"
+							description="SOCIAL2S_LOAD_STYLE_DESC">
+							<option
+								value="0">SOCIAL2S_JNO_WARNING</option>
+							<option
+								value="1">JYES</option>
+						</field>
+
+
+
+
+						<!--<field type="spacer" name="buttons_spacer" label="SOCIAL2S_BEHAVIOR_SPACER" />-->
+
+					<field type="s2sbs1st" name="acc3" initial="end" slide="debug" />
+					<!--<field type="s2sbs1st" name="acc4" initial="slide" acordeon="basic" slide="behavior" label="SOCIAL2S_BEHAVIOR_SPACER" />-->
+					
+
+		<!--
+						<field
+							name="social2s_base"
+							type="filelist"
+							class="inputbox"
+							default="s2sdefault"
+							stripext="1" filter="\.css$" exclude="^_"
+							hide_default="1" hide_none="1"
+							directory="/plugins/content/social2s/css/behavior"
+							label="SOCIAL2S_BASE"
+							description="SOCIAL2S_BASE_DESC"
+						/>
+		-->
+					
+					<!--<field type="s2sbs1st" name="acc5" initial="end"  />-->
+				<field type="s2sbs1st" name="acc6" initial="superend" />
+
+
+				<field type="s2slegend" />
+				<!--<field type="s2slicensecheck" />-->
+
+				
+			</fieldset>
+
+
+
+<fieldset name="SOCIAL2S_ARTICLES">
+
+
+	<!--<field type="spacer" name="buttons_pro_spacer" label="SOCIAL2S_ARTICLE_BUTTONS_ADV" />-->
+					
+				<field
+					name="s2s_display_art_view"
+					type="radio"
+					class="switcher btn-group"
+					default="1"
+					label="SOCIAL2S_ARTICLE_DISPLAY_VIEW"
+					description="SOCIAL2S_ARTICLE_DISPLAY_VIEW_DESC">
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
+				</field>
+
+				<!--<field type="s2spreview" label="Preview"/>-->
+
+				<field type="s2sbs1st" name="acc7" initial="true" acordeon="article" active="article_custom" />
+				
+					<field type="s2sbs1st" name="acc8" initial="slide" acordeon="article" slide="article_custom" label="SOCIAL2S_ARTICLE_BUTTONS_ADV"/>
+					
+						<field
+							name="s2s_art_font_style"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default=""
+							label="SOCIAL2S_FONT_STYLE"
+							description="SOCIAL2S_FONT_STYLE_DESC">
+							<option	value="">S2S_FONT_STYLE_ICON</option>
+							<option	value="-square">S2S_FONT_STYLE_SQUARE</option>
+							<option	value="-circle">S2S_FONT_STYLE_CIRCLE</option>
+						</field>
+
+						<field
+							name="s2s_art_style"
+							type="filelist"
+							class="inputbox"
+							default="default"
+							stripext="1" filter="\.scss$" exclude="^_"
+							hide_default="1" hide_none="1"
+							directory="../media/plg_social2s/css/styles"
+							label="SOCIAL2S_STYLE"
+							description="SOCIAL2S_STYLE_DESC"
+						/>
+						
+						<field
+							name="s2s_art_pos"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_POS"
+							description="SOCIAL2S_POS_DESC">
+							<option	value="0">Before content</option>
+							<option	value="1">After content</option>
+							<option	value="2">Both</option>
+						</field>
+
+						<field
+							name="s2s_art_button_align"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="left"
+							label="SOCIAL2S_BUTTON_ALIGN"
+							description="SOCIAL2S_BUTTON_ALIGN_DESC">
+							<option
+								value="left">SOCIAL2S_BUTTON_ALIGN_LEFT</option>
+							<option
+								value="center">SOCIAL2S_BUTTON_ALIGN_CENTER</option>
+							<option
+								value="right">SOCIAL2S_BUTTON_ALIGN_RIGHT</option>
+						</field>
+
+
+ 
+						<field
+							name="s2s_art_fill"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="S2S_ART_FILL"
+							description="S2S_ART_FILL_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+							<option
+								value="2">S2S_ART_FILL_MOBILE</option>
+						</field>
+
+						<field
+							name="s2s_art_sticky"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="S2S_ART_STICKY"
+							description="S2S_ART_STICKY_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+							<option
+								value="2">S2S_ART_FILL_MOBILE</option>
+						</field>
+
+						<field
+							name="s2s_art_group"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_GROUP"
+							description="SOCIAL2S_GROUP_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+						
+						<field
+							name="s2s_art_size"
+							type="list"
+							class=" btn-group s2-btn-mini"
+							default="s2s-btn-default"
+							label="SOCIAL2S_SIZE"
+							description="SOCIAL2S_SIZE_DESC">
+							<option value="s2s-btn-xs">mini</option>
+							<option value="s2s-btn-sm">small</option>
+							<option value="s2s-btn-default">default</option>
+							<option value="s2s-btn-lg">large</option>
+						</field>
+
+
+
+
+
+						<field
+							name="s2s_art_show_text"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_SHOW_TEXT"
+							description="SOCIAL2S_SHOW_TEXT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+							<option value="2">S2S_HIDDEN_MOBILE</option>
+						</field>
+
+
+
+						<field
+							name="s2s_art_balloon_pos"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_BALLOON_POS"
+							description="SOCIAL2S_BALLOON_POS_DESC">
+							<option
+								value="0">SOCIAL2S_BOTTOM</option>
+							<option
+								value="1">SOCIAL2S_TOP_PRO</option>
+						</field>
+
+
+
+
+
+					<field type="s2sbs1st" name="acc9" initial="end" slide="article_custom"/>
+
+
+<!--
+					<field type="s2sbs1st" name="acc10" initial="slide" acordeon="article" slide="posfixed" label="SOCIAL2S_FIXED_ACCORDEON"/>
+					
+						<field
+							name="s2s_art_fixed"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_FIXED"
+							description="SOCIAL2S_FIXED_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<field name="s2s_art_mobile_min" type="text" default="978" label="SOCIAL2S_FIXED_MOBILE_MIN" description="SOCIAL2S_FIXED_MOBILE_MIN_DESC" size="4" />
+						
+						 <field
+							name="s2s_art_fixed_mode"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="s2s_fixed_horizontal"
+							label="SOCIAL2S_FIXED_MODE"
+							description="SOCIAL2S_FIXED_MODE_DESC">
+							<option
+								value="s2s_fixed_horizontal">SOCIAL2S_HORIZONTAL</option>
+							<option
+								value="s2s_fixed_vertical">SOCIAL2S_VERTICAL</option>
+						</field>
+
+						<field
+							name="s2s_art_fixed_posx"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="right"
+							label="SOCIAL2S_FIXED_MODE_POS_X"
+							description="SOCIAL2S_FIXED_MODE_POS_X_DESC">
+							<option
+								value="left">SOCIAL2S_LEFT</option>
+							<option
+								value="center">SOCIAL2S_CENTER</option>
+							<option
+								value="right">SOCIAL2S_RIGHT</option>
+						</field>
+
+						<field
+							name="s2s_art_fixed_posy"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="center"
+							label="SOCIAL2S_FIXED_MODE_POS_Y"
+							description="SOCIAL2S_FIXED_MODE_POS_Y_DESC">
+							<option
+								value="top">SOCIAL2S_TOP</option>
+							<option
+								value="center">SOCIAL2S_CENTER</option>
+							<option
+								value="bottom">SOCIAL2S_BOTTOM</option>
+						</field>
+
+					<field type="s2sbs1st" name="acc11" initial="end" label="initial" active="posfixed" />
+				-->
+
+				<field type="s2sbs1st" name="acc12" initial="superend" nombre="posfixed" label="SOCIAL2S_SPACER_POSITION_FIXED"/>
+
+				<field type="s2slegend" />
+
+
+
+
+
+</fieldset>
+
+
+<fieldset name="SOCIAL2S_CATEGORIES">
+
+		<!--<field type="spacer" name="buttons_pro_spacer" label="SOCIAL2S_BUTTONS_CATEGORIES_ADV" />-->
+					
+				<field
+					name="s2s_takefromarticle"
+					type="radio"
+					class="btn-group s2-btn-mini"
+					default="1"
+					label="SOCIAL2S_CAT_TAKEFROMARTICLE"
+					description="SOCIAL2S_CAT_TAKEFROMARTICLE_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">SOCIAL2S_JNO_PRO</option>
+					
+				</field>
+
+
+				<field
+					name="s2s_display_cat_view"
+					type="radio"
+					class="switcher btn-group s2-btn-mini"
+					default="1"
+					label="SOCIAL2S_ARTICLE_DISPLAY_VIEW"
+					>
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
+				</field>
+
+
+
+				<field type="s2sbs1st" name="acc13" initial="true" acordeon="category" active="" />
+					<field type="s2sbs1st" name="acc14" initial="slide" acordeon="category" slide="category_custom" label="SOCIAL2S_BUTTONS_CATEGORIES_ADV"/>
+
+						<field
+							name="s2s_cat_font_style"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default=""
+							label="SOCIAL2S_FONT_STYLE"
+							description="SOCIAL2S_FONT_STYLE_DESC">
+							<option	value="">S2S_FONT_STYLE_ICON</option>
+							<option	value="-square">S2S_FONT_STYLE_SQUARE</option>
+							<option	value="-circle">S2S_FONT_STYLE_CIRCLE</option>
+						</field>
+
+						<field
+							name="s2s_cat_style"
+							type="filelist"
+							class="inputbox"
+							default="default"
+							stripext="1" filter="\.scss$" exclude="^_"
+							hide_default="1" hide_none="1"
+							directory="../media/plg_social2s/css/styles"
+							label="SOCIAL2S_STYLE"
+							description="SOCIAL2S_STYLE_DESC"
+						/>
+						<field
+							name="s2s_cat_pos"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_POS"
+							description="SOCIAL2S_POS_DESC">
+							<option	value="0">Before content</option>
+							<option	value="1">After content</option>
+							<option	value="2">Both</option>
+						</field>
+						<field
+							name="s2s_cat_button_align"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="left"
+							label="SOCIAL2S_BUTTON_ALIGN"
+							description="SOCIAL2S_BUTTON_ALIGN_DESC">
+							<option
+								value="left">Left</option>
+							<option
+								value="center">Center</option>
+							<option
+								value="right">Right</option>
+						</field>
+						<field
+							name="s2s_cat_fill"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="S2S_ART_FILL"
+							description="S2S_ART_FILL_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+							<option
+								value="2">S2S_ART_FILL_MOBILE</option>
+						</field>
+
+						<field
+							name="s2s_cat_sticky"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="S2S_ART_STICKY"
+							description="S2S_ART_STICKY_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+							<option
+								value="2">S2S_ART_FILL_MOBILE</option>
+						</field>
+
+
+						<field
+							name="s2s_cat_group"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_GROUP"
+							description="SOCIAL2S_GROUP_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+						<field
+							name="s2s_cat_size"
+							type="list"
+							class=" btn-group s2-btn-mini"
+							default="s2s-btn-default"
+							label="SOCIAL2S_SIZE"
+							description="SOCIAL2S_SIZE_DESC">
+							<option value="s2s-btn-xs">mini</option>
+							<option value="s2s-btn-sm">small</option>
+							<option value="s2s-btn-default">default</option>
+							<option value="s2s-btn-lg">large</option>
+						</field>
+
+
+
+						<field
+							name="s2s_cat_show_text"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_SHOW_TEXT"
+							description="SOCIAL2S_SHOW_TEXT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+							<option value="2">S2S_HIDDEN_MOBILE</option>
+						</field>
+
+						<field
+							name="s2s_cat_balloon_pos"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_BALLOON_POS"
+							description="SOCIAL2S_BALLOON_POS_DESC">
+							<option
+								value="0">SOCIAL2S_BOTTOM</option>
+							<option
+								value="1">SOCIAL2S_TOP_PRO</option>
+						</field>
+
+						<!--<field
+							name="s2s_cat_load_style"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_LOAD_STYLE"
+							description="SOCIAL2S_LOAD_STYLE_DESC">
+							<option
+								value="0">SOCIAL2S_JNO_WARNING</option>
+							<option
+								value="1">JYES</option>
+						</field>-->
+
+						<!--<field
+							name="s2s_cat_button_style"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="1"
+							label="SOCIAL2S_BUTTON_STYLE"
+							description="SOCIAL2S_BUTTON_STYLE_DESC">
+							<option
+								value="0">SOCIAL2S_JNO_WARNING</option>
+							<option
+								value="1">SOCIAL2S_FA_RECOMMENDED</option>
+							<option
+								value="2">Images</option>
+						</field>-->
+
+
+
+					<field type="s2sbs1st" name="acc15" initial="end" slide="category_custom"/>
+				<field type="s2sbs1st" name="acc16" initial="superend"/>
+
+				<field type="s2slegend" />
+
+</fieldset>
+
+		<fieldset name="SOCIAL2S_SOCIAL">
+
+
+			<field type="s2sbs1st" name="acc17" initial="true" acordeon="social" active="" />
+
+
+
+<!--<field type="spacer" name="social2s_hr_7" label="SOCIAL2S_BUTTONS_CATEGORIES_ADV" hr="true"/>-->
+
+				<field type="s2sbs1st" name="mas1" initial="slide" acordeon="social" slide="mas" label="SOCIAL2S_MAS_TAB"/>
+
+
+					<field name="mas_on" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_MAS_ON" description="SOCIAL2S_MAS_ON_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+						<option value="2">S2S_ART_FILL_MOBILE</option>
+					</field>
+
+
+					<field name="mas_style" type="radio" class=" btn-group s2-btn-mini" default="rplus_q" label="S2S_MAS_STYLE" description="S2S_MAS_STYLE_DESC">
+						<option value="plus_q">S2S_MAS_PLUSQ</option>
+						<option value="plus_s">S2S_MAS_PLUSS</option>
+						<option value="rplus_q">S2S_MAS_PLUSRQ</option>
+						<option value="rplus_s">S2S_MAS_PLUSRS</option>
+					</field>
+
+					<!--<field name="mas_only_mob" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_MAS_ONLY_MOB" description="SOCIAL2S_MAS_ONLY_MOB_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>-->
+
+					<field
+			            name="s2s_order"
+			            type="s2sorder"
+			            label="SOCIAL2S_PREFERRED_ORDER"			            
+					/>
+
+				<field type="s2sbs1st" name="mas2" initial="end" slide="mas"/>
+
+			
+				<field type="s2sbs1st" name="acc18" initial="slide" acordeon="social" slide="twitter" label="SOCIAL2S_TWITTER_ON"/>
+
+					<field name="twitter_on" type="radio" class="switcher btn-group s2-btn-mini" default="1" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="twitter_fast_as_light" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_TWITTER_FAST_AS_LIGHT" description="SOCIAL2S_TWITTER_FAST_AS_LIGHT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+		            <field name="twitter_user" type="text" default="" label="SOCIAL2S_TWITTER_USER" description="SOCIAL2S_TWITTER_USER_DESC" size="10" />
+
+	            	
+		            <!--<field name="twitter_count" 						
+		            	type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_TWITTER_COUNT"
+						description="SOCIAL2S_TWITTER_COUNT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+					</field>-->
+
+					<field name="twitter_via" 						
+		            	type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_TWITTER_VIA"
+						description="SOCIAL2S_TWITTER_VIA_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+					</field>
+
+					<field name="twitter_follow" 						
+		            	type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_TWITTER_FOLLOW"
+						description="SOCIAL2S_TWITTER_FOLLOW_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="twitter_follow_count" 						
+		            	type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_TWITTER_FOLLOW_COUNT"
+						description="SOCIAL2S_TWITTER_FOLLOW_COUNT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+					</field>
+
+					<field name="twitter_cards" 						
+		            	type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_TWITTER_CARDS"
+						description="SOCIAL2S_TWITTER_CARDS_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="twitter_cards_summary" 						
+		            	type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_TWITTER_CARDS_SUMMARY"
+						description="SOCIAL2S_TWITTER_CARDS_SUMMARY_DESC">
+							<option value="0">SOCIAL2S_TWITTER_CARDS_SUMMARY_SMALL</option>
+							<option value="1">SOCIAL2S_TWITTER_CARDS_SUMMARY_LARGE</option>
+					</field>
+
+					<field name="s2s_twitter_link_utf8" type="list" default="0" label="SOCIAL2S_TWITTER_UTF8" description="SOCIAL2S_TWITTER_UTF8_DESC">
+						<option value="0">SOCIAL2S_TEMPLATE_DEFAULT</option>
+						<option value="1">urlencode</option>
+						<option value="2">str_replace</option>
+						<option value="3">htmlspecialchars</option>
+					</field>
+
+					<field name="s2s_twitter_text_utf8" type="list" default="0" label="SOCIAL2S_TWITTER_TEXT_UTF8" description="SOCIAL2S_TWITTER_TEXT_UTF8_DESC">
+						<option value="0">SOCIAL2S_TEMPLATE_DEFAULT</option>
+						<option value="1">raw</option>
+						<option value="2">rawurlencode</option>
+						<option value="3">htmlspecialchars</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc19" initial="end" slide="twitter"/>
+				<field type="s2sbs1st" name="acc20" initial="slide" acordeon="social" slide="facebook" label="SOCIAL2S_FACEBOOK_ON"/>
+
+<!--<field type="spacer" name="social2s_hr_1" label="SOCIAL2S_HR"/>-->
+
+					<field name="facebook_on" type="radio" class="switcher btn-group s2-btn-mini" default="1" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+<!--
+					<field name="facebook_like_count" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_FACEBOOK_LIKE_COUNT" description="SOCIAL2S_FACEBOOK_LIKE_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="facebook_share_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_FACEBOOK_SHARE_COUNT" description="SOCIAL2S_FACEBOOK_SHARE_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="facebook_count_hide" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_COMMON_COUNT_HIDE" description="SOCIAL2S_COMMON_COUNT_HIDE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+-->
+					<field name="facebook_share" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_FACEBOOK_SHARE" description="SOCIAL2S_FACEBOOK_SHARE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+
+					<field name="facebook_size" type="radio" class=" btn-group s2-btn-mini" default="small" label="SOCIAL2S_FACEBOOK_SIZE" description="SOCIAL2S_FACEBOOK_SIZE_DESC">
+						<option value="small">small</option>
+						<option value="large">large</option>
+					</field>
+
+					<field name="facebook_layout" 						
+		            	type="list"
+						class=" btn-group s2-btn-mini"
+						default="button_count"
+						label="SOCIAL2S_FACEBOOK_LAYOUT"
+						description="SOCIAL2S_FACEBOOK_LAYOUT_DESC">
+							<option value="standard">standard</option>
+							<option value="box_count">box count</option>
+							<option value="button_count">button count</option>
+							<option value="button">button</option>
+					</field>
+
+					<field name="facebook_save" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_FACEBOOK_SAVE" description="SOCIAL2S_FACEBOOK_SAVE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc21" initial="end" slide="facebook"/>
+				<field type="s2sbs1st" name="acc22" initial="slide" acordeon="social" slide="pinterest" label="SOCIAL2S_PINTEREST_ON"/>
+
+<!--<field type="spacer" name="social2s_hr_2" label="SOCIAL2S_HR" hr="true"/>-->
+
+					<field name="pinterest_on" type="radio" class="switcher btn-group s2-btn-mini" default="1" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+<!--
+					<field name="pinterest_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COMMON_COUNT" description="SOCIAL2S_COMMON_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="pinterest_count_hide" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_COMMON_COUNT_HIDE" description="SOCIAL2S_COMMON_COUNT_HIDE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+-->
+					<field name="pinterest_shape" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_PINTEREST_SHAPE" description="SOCIAL2S_PINTEREST_SHAPE_DESC">
+						<option value="0">Default</option>
+						<option value="1">Round</option>
+					</field>
+
+					<field name="pinterest_size" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_PINTEREST_SIZE" description="SOCIAL2S_PINTEREST_SIZE_DESC">
+						<option value="0">Small</option>
+						<option value="1">Large</option>
+					</field>
+
+					<field name="pinterest_color" type="radio" class=" btn-group s2-btn-mini" default="red" label="SOCIAL2S_PINTEREST_COLOR" description="SOCIAL2S_PINTEREST_COLOR_DESC">
+						<option value="red">Red</option>
+						<option value="gray">Gray</option>
+						<option value="white">White</option>
+					</field>
+
+					<field name="pinterest_b_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_PINTEREST_BUTTON_COUNT" description="SOCIAL2S_PINTEREST_BUTTON_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">S2S_JYES_ABOVE</option>
+						<option value="2">S2S_JYES_BESIDE</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc23" initial="end" slide="pinterest"/>
+				<field type="s2sbs1st" name="acc24" initial="slide" acordeon="social" slide="linkedin" label="SOCIAL2S_LINKEDIN_ON"/>
+
+<!--<field type="spacer" name="social2s_hr_3" label="SOCIAL2S_BUTTONS_CATEGORIES_ADV" hr="true"/>-->
+
+					<field name="linkedin_on" type="radio" class="switcher btn-group s2-btn-mini" default="1" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+<!--
+					<field name="linkedin_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COMMON_COUNT" description="SOCIAL2S_COMMON_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="linkedin_count_hide" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_COMMON_COUNT_HIDE" description="SOCIAL2S_COMMON_COUNT_HIDE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+-->
+					<field name="linkedin_counter" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_LINKEDIN_COUNTER" description="SOCIAL2S_LINKEDIN_COUNTER_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_HORIZONTAL</option>
+						<option value="2">SOCIAL2S_VERTICAL</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc25" initial="end" slide="linkedin"/>
+
+				<!--
+				<field type="s2sbs1st" name="acc26" initial="slide" acordeon="social" slide="gplus" label="SOCIAL2S_GPLUS_ON"/>
+
+					<field name="gplus_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="gplus_b_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COMMON_COUNT" description="SOCIAL2S_COMMON_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="gplus_b_count_hide" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_COMMON_COUNT_HIDE" description="SOCIAL2S_COMMON_COUNT_HIDE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="gplus_count" type="radio" class=" btn-group s2-btn-mini" default="bubble" label="SOCIAL2S_GPLUS_COUNT" description="SOCIAL2S_GPLUS_COUNT_DESC">
+						<option value="none">JNO</option>
+						<option value="bubble">SOCIAL2S_HORIZONTAL</option>
+						<option value="vertical-bubble">SOCIAL2S_VERTICAL</option>
+						<option value="inline">SOCIAL2S_GPLUS_COUNT_INTEGRATED</option>
+					</field>
+
+					<field name="gplus_size" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_GPLUS_SIZE" description="SOCIAL2S_GPLUS_SIZE">
+						<option value="15">SOCIAL2S_GPLUS_SIZE_SMALL</option>
+						<option value="0">SOCIAL2S_GPLUS_SIZE_MEDIUM</option>
+						<option value="24">SOCIAL2S_GPLUS_SIZE_LARGE</option>
+					</field>
+
+
+					<field name="gplus1_on" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_GPLUS1_ON" description="SOCIAL2S_GPLUS1_ON_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="gplus1_count" type="radio" class=" btn-group s2-btn-mini" default="bubble" label="SOCIAL2S_GPLUS1_COUNT" description="SOCIAL2S_GPLUS1_COUNT_DESC">
+						<option value="none">JNO</option>
+						<option value="bubble">SOCIAL2S_HORIZONTAL</option>
+						<option value="inline">SOCIAL2S_GPLUS_COUNT_INTEGRATED</option>
+					</field>
+
+					<field name="gplus1_size" type="radio" class=" btn-group s2-btn-mini" default="medium" label="SOCIAL2S_GPLUS1_SIZE" description="SOCIAL2S_GPLUS1_SIZE">
+						<option value="small">SOCIAL2S_GPLUS_SIZE_SMALL</option>
+						<option value="medium">SOCIAL2S_GPLUS_SIZE_MEDIUM</option>
+						<option value="standard">SOCIAL2S_GPLUS_SIZE_STANDARD</option>
+						<option value="tall">SOCIAL2S_GPLUS_SIZE_TALL</option>
+					</field>
+
+					<field name="gplus_follow_on" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_GPLUS_FOLLOW_ON" description="SOCIAL2S_GPLUS_FOLLOW_ON_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="gplus_follow_id" type="text" default="" label="SOCIAL2S_GPLUS_FOLLOW_ID" description="SOCIAL2S_GPLUS_FOLLOW_ID_DESC" size="10" />
+
+
+
+				<field type="s2sbs1st" name="acc27" initial="end" slide="gplus"/>-->
+				<field type="s2sbs1st" name="acc28" initial="slide" acordeon="social" slide="wapp" label="SOCIAL2S_WAPP_ON"/>
+
+<!--<field type="spacer" name="social2s_hr_wapp" label="SOCIAL2S_WAPP_ADV" hr="true"/>-->
+
+					<field name="wapp_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="wapp_only_mobile" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_WAPP_ONLY_MOBILE" description="SOCIAL2S_WAPP_ONLY_MOBILE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc29" initial="end" slide="wapp"/>
+
+
+				<field type="s2sbs1st" name="acctelegram1" initial="slide" acordeon="social" slide="tgram" label="SOCIAL2S_TGRAM_ON"/>
+
+					<field name="tgram_on" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="tgram_only_mobile" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_TGRAM_ONLY_MOBILE" description="SOCIAL2S_TGRAM_ONLY_MOBILE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="acctelegram2" initial="end" slide="tgram"/>
+<!--<field type="spacer" name="social2s_hr_wapp" label="SOCIAL2S_WAPP_ADV" hr="true"/>-->
+
+<field type="s2sbs1st" name="accreddit1" initial="slide" acordeon="social" slide="reddit" label="SOCIAL2S_REDDIT_ON"/>
+
+					<field name="reddit_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="accreddit2" initial="end" slide="reddit"/>
+
+
+				<field type="s2sbs1st" name="accflipboard1" initial="slide" acordeon="social" slide="flipb" label="SOCIAL2S_FLIPB_ON"/>
+
+					<field name="flipb_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="flipb_only_mobile" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_FLIPB_ONLY_MOBILE" description="SOCIAL2S_FLIPB_ONLY_MOBILE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="accflipboard2" initial="end" slide="flipb"/>
+
+				<field type="s2sbs1st" name="accdelio1" initial="slide" acordeon="social" slide="delio" label="SOCIAL2S_DELIO_ON"/>
+
+					<field name="delio_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="delio_only_mobile" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_DELIO_ONLY_MOBILE" description="SOCIAL2S_DELIO_ONLY_MOBILE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="accdelio2" initial="end" slide="delio"/>
+
+
+				<field type="s2sbs1st" name="acc30" initial="slide" acordeon="social" slide="tumblr" label="SOCIAL2S_TUMBLR_ON"/>
+
+<!--<field type="spacer" name="social2s_hr_5" label="SOCIAL2S_BUTTONS_CATEGORIES_ADV" hr="true"/>-->
+
+					<field name="tumblr_on" type="radio" class="switcher btn-group s2-btn-mini" default="1" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+<!--
+					<field name="tumblr_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COMMON_COUNT" description="SOCIAL2S_COMMON_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="tumblr_count_hide" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_COMMON_COUNT_HIDE" description="SOCIAL2S_COMMON_COUNT_HIDE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+-->
+					<field name="tumblr_follow" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_TUMBLR_FOLLOW" description="SOCIAL2S_TUMBLR_FOLLOW_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+					<field name="tumblr_user" type="text" default="" label="SOCIAL2S_TUMBLR_USER" description="SOCIAL2S_TUMBLR_USER_DESC" size="10" />
+
+					<field name="tumblr_counter" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_TUMBLR_COUNTER" description="SOCIAL2S_TUMBLR_COUNTER_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_HORIZONTAL</option>
+						<option value="2">SOCIAL2S_VERTICAL</option>
+					</field>
+
+					<field name="tumblr_color" type="radio" class=" btn-group s2-btn-mini" default="blue" label="SOCIAL2S_TUMBLR_COLOR" description="SOCIAL2S_TUMBLR_COLOR_DESC">
+						<option value="blue">Blue</option>
+						<option value="white">White</option>
+						<option value="black">Black</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc31" initial="end" slide="tumblr"/>
+				<field type="s2sbs1st" name="acc32" initial="slide" acordeon="social" slide="vk" label="SOCIAL2S_VK_ON"/>
+
+					<!--<field type="spacer" name="social2s_hr_6" label="SOCIAL2S_BUTTONS_CATEGORIES_ADV" hr="true"/>-->
+
+					<field name="vk_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+<!--
+					<field name="s2s_vk_count" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COMMON_COUNT" description="SOCIAL2S_COMMON_COUNT_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="s2s_vk_count_hide" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_COMMON_COUNT_HIDE" description="SOCIAL2S_COMMON_COUNT_HIDE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+-->
+					<field name="vk_new" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VK_NEW" description="SOCIAL2S_VK_NEW_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_WARNING</option>
+					</field>
+
+					<field name="vk_api" type="text" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VK_API" description="SOCIAL2S_VK_API_DESC"/>
+
+				<field type="s2sbs1st" name="acc33" initial="end" slide="vk"/>
+
+				<field type="s2sbs1st" name="acc40" initial="slide" acordeon="social" slide="email" label="SOCIAL2S_EMAIL_ON"/>
+
+					<field name="email_on" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+				<field type="s2sbs1st" name="acc41" initial="end" slide="email"/>
+
+			<field type="s2sbs1st" name="acc36" initial="superend"/>
+
+			<field type="s2slegend" />
+
+		</fieldset>
+
+
+		<fieldset name="SOCIAL2S_OPENGRAPH">
+
+			<field type="s2sbs1st" name="og1" initial="true" acordeon="opengraph" active="opengraph1" />
+
+				<field type="s2sbs1st" name="acc34" initial="slide" acordeon="opengraph" slide="opengraph1" label="SOCIAL2S_OPENGRAPH"/>
+
+					<field name="opengraph" type="radio" class="switcher btn-group s2-btn-mini" default="1" label="SOCIAL2S_ACTIVATE" description="SOCIAL2S_ACTIVATE_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+					<field name="og_multi_img" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_OPENGRAPH_MULTI_IMG" description="SOCIAL2S_OPENGRAPH_MULTI_IMG_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="og_max_multi_img" type="list" class="input" default="3" label="SOCIAL2S_OPENGRAPH_MAX_MULTI_IMG" description="SOCIAL2S_OPENGRAPH_MAX_MULTI_IMG_DESC">
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+					</field>
+
+					<field name="og_add_dom_img" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_OPENGRAPH_DOM_IMG" description="SOCIAL2S_OPENGRAPH_DOM_IMG_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+						<option value="2">SOCIAL2S_ALL</option>
+					</field>
+
+					<field name="og_skip_intro_img" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_OPENGRAPH_SKIP_INTRO_IMG" description="SOCIAL2S_OPENGRAPH_SKIP_INTRO_IMG_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="og_skip_min_img" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_OPENGRAPH_SKIP_MIN_IMG" description="SOCIAL2S_OPENGRAPH_SKIP_MIN_IMG_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_JYES_PRO</option>
+					</field>
+
+					<field name="opengraph_default_image_opt" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_OPT" description="SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_OPT_DESC">
+						<option value="0">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_NEVER</option>
+						<option value="1">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_ALWAYS</option>
+						<!--<option value="2">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_EXCEPT_CONTENT</option>-->
+						<option value="3">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_LAST_CHANCE</option>
+					</field>
+
+
+					<field name="opengraph_default_image"
+						type="media"
+						class="inputbox"
+						default=""
+						directory="images"
+						label="SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE"
+						description="SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_DESC"
+					/>
+
+					<field type="spacer" name="ogspacer1" hr="true" />
+
+
+
+					<field name="opengraph_metadescription" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_OPENGRAPH_METADESCRIPTION" description="SOCIAL2S_OPENGRAPH_METADESCRIPTION_DESC">
+						<option value="0">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_NEVER</option>
+						<option value="1">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_ALWAYS</option>
+						<option value="2">SOCIAL2S_OPENGRAPH_DEFAULT_IMAGE_LAST_CHANCE</option>
+					</field>
+
+					<field name="opengraph_default_data"
+						type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_OPENGRAPH_DEFAULT_CATEGORIES"
+						description="SOCIAL2S_OPENGRAPH_DEFAULT_CATEGORIES_DESC">
+						<option value="0">JNO</option>
+						<option value="1">SOCIAL2S_OPENGRAPH_MENU</option>
+						<option value="2">SOCIAL2S_OPENGRAPH_SITE</option>
+					</field>
+
+
+
+<!--
+					<field name="opengraph_def_title_based"
+						type="radio"
+						class=" btn-group s2-btn-mini"
+						default="0"
+						label="SOCIAL2S_OPENGRAPH_DEF_TITLE_BASED"
+						description="SOCIAL2S_OPENGRAPH_DEF_TITLE_BASED_DESC">
+						<option value="1">SOCIAL2S_OPENGRAPH_MENU</option>
+						<option value="0">SOCIAL2S_OPENGRAPH_SITE</option>
+					</field>
+-->
+
+				<field type="s2sbs1st" name="acc35" initial="end" slide="opengraph"/>
+
+				<field type="s2sbs1st" name="og4" initial="slide" acordeon="opengraph" slide="opengraphk2" label="SOCIAL2S_OPENGRAPH_k2"/>
+
+					<field name="s2s_og_k2" type="radio" class="switcher btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_OG" description="SOCIAL2S_K2_OG_DESC">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+					</field>
+
+
+
+				<field type="s2sbs1st" name="og5" initial="end" slide="opengraph"/>
+
+
+
+			<field type="s2sbs1st" name="og2" initial="superend" />   
+
+		</fieldset>
+
+
+			<fieldset name="SOCIAL2S_ADVANCED">
+				
+				<!--INCLUDE/EXCLUDE -->
+				<!--<field type="spacer" name="in_ex_spacer" label="SOCIAL2S_SPACER_IN_EX" /> -->
+
+				<field type="s2sbs1st" name="adv1" initial="true" acordeon="advanced" active="inex" />
+
+
+					<field type="s2sbs1st" name="adv2" initial="slide" acordeon="advanced" slide="inex" label="SOCIAL2S_SPACER_IN_EX" />
+
+						<field name="cat_inc_exc" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_CAT_IN_EX" description="SOCIAL2S_CAT_IN_EX_DESC">
+			        		<option value="0">SOCIAL2S_EX</option>
+							<option value="1">SOCIAL2S_IN</option>
+			        	</field>
+			        	<field name="categories" type="category" extension="com_content"
+							multiple="true" size="5"
+							label="JCATEGORY"
+							description="SOCIAL2S_CAT_DESC"
+						>
+							<option value="0">JOPTION_ALL_CATEGORIES</option>
+						</field>
+						<field name="article_inc_exc" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_ART_IN_EX" description="SOCIAL2S_ART_IN_EX_DESC">
+			        		<option value="0">SOCIAL2S_EX</option>
+							<option value="1">SOCIAL2S_IN</option>
+			        	</field>
+			            <field name="article_ids" type="sql" default="" multiple="true" label="SOCIAL2S_ART_IDS" description="SOCIAL2S_ART_ID_DESC" query="SELECT id AS value, title AS article_ids FROM #__content" />
+
+			            <field name="s2s_featured_inc_exc" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_FEAT_IN_EX" description="SOCIAL2S_FEAT_IN_EX_DESC">
+			        		<option value="0">SOCIAL2S_EX</option>
+							<option value="1">SOCIAL2S_IN</option>
+			        	</field>
+
+
+			       	<field type="s2sbs1st" name="adv3" initial="end"  />
+
+			       	<field type="s2sbs1st" name="inexk21" initial="slide" acordeon="advanced" slide="inexk2" label="SOCIAL2S_SPACER_K2_IN_EX" />
+
+						<field name="s2s_k2_cat_inc_exc" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_CAT_IN_EX" description="SOCIAL2S_K2_CAT_IN_EX_DESC">
+			        		<option value="0">SOCIAL2S_EX</option>
+							<option value="1">SOCIAL2S_IN</option>
+			        	</field>
+
+			        	<field name="s2s_k2_categories" type="s2sk2category" extension="com_k2" 
+							multiple="true" size="5"
+							label="K2_JCATEGORY"
+							description="SOCIAL2S_K2_CAT_DESC"
+						>
+							<option value="0">JOPTION_ALL_CATEGORIES</option>
+						</field>
+
+						<field name="s2s_k2_article_inc_exc" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_ART_IN_EX" description="SOCIAL2S_K2_ART_IN_EX_DESC">
+			        		<option value="0">SOCIAL2S_EX</option>
+							<option value="1">SOCIAL2S_IN</option>
+			        	</field>
+
+			            <!--<field name="s2s_k2_article_ids" type="s2sk2article" extension="com_k2" default="" multiple="true" label="SOCIAL2S_K2_ART_IDS" description="SOCIAL2S_K2_ART_ID_DESC"/>-->
+			            <field name="s2s_k2_article_ids" type="text" default="" label="SOCIAL2S_K2_ART_IDS" description="SOCIAL2S_K2_ART_ID_DESC"/>
+
+			       	<field type="s2sbs1st" name="inexk22" initial="end"  />
+
+
+				<field type="s2sbs1st" name="adv4" initial="superend" />     
+
+			</fieldset>
+
+			<fieldset name="SOCIAL2S_COMPONENTS">
+
+				<field type="s2sbs1st" name="com1" initial="true" acordeon="components" active="none" />
+
+					<field type="s2sbs1st" name="com2" initial="slide" acordeon="components" slide="jevents1" label="SOCIAL2S_JEVENTS_TITLE" />
+
+						<field name="s2s_jevents" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_JEVENTS" description="SOCIAL2S_JEVENTS_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<field name="s2s_jevents_check" type="s2sjeventscheck" class="alert" description="S2S_JEVENTS_NOTE" />
+
+					<field type="s2sbs1st" name="com3" initial="end"  />
+				
+					<field type="s2sbs1st" name="com4" initial="slide" acordeon="components" slide="s2s_k2" label="SOCIAL2S_K2_TITLE" />
+
+						<field name="s2s_k2" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2" description="SOCIAL2S_K2_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<field name="s2s_k2_check" type="s2sk2check" class="alert" description="S2S_K2_NOTE" />
+
+						<field name="s2s_k2_item" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_K2_ITEM" description="SOCIAL2S_K2_ITEM_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_k2_itemlist" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_K2_ITEMLIST" description="SOCIAL2S_K2_ITEMLIST_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_k2_module" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_MODULE" description="SOCIAL2S_K2_MODULE_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field type="spacer" name="k2_spacer" hr="true" />
+
+						<field name="s2s_k2_after_title" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_AFTER_TITLE" description="SOCIAL2S_K2_AFTER_TITLE_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_k2_before_content" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_BEFORE_CONTENT" description="SOCIAL2S_K2_BEFORE_CONTENT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_k2_after_content" type="radio" class=" btn-group s2-btn-mini" default="1" label="SOCIAL2S_K2_AFTER_CONTENT" description="SOCIAL2S_K2_AFTER_CONTENT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_k2_remove_social" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_K2_REMOVE_SOCIAL" description="SOCIAL2S_K2_REMOVE_SOCIAL_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+
+					<field type="s2sbs1st" name="com5" initial="end"  />
+
+					<field type="s2sbs1st" name="com6" initial="slide" acordeon="components" slide="s2s_virtuemart" label="SOCIAL2S_VIRTUEMART_TITLE" />
+
+						
+						<field name="s2s_virtuemart" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VIRTUEMART" description="SOCIAL2S_VIRTUEMART_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<field name="s2s_virtuemart_fixsef" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VIRTUEMART_FIXSEF" description="SOCIAL2S_VIRTUEMART_FIXSEF_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_WARNING</option>
+						</field>
+
+						<field name="s2s_virtuemart_sale_price_amount" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VIRTUEMART_SALE_PRICE_AMOUNT" description="SOCIAL2S_VIRTUEMART_SALE_PRICE_AMOUNT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_virtuemart_sale_price_currency" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VIRTUEMART_SALE_PRICE_CURRENCY" description="SOCIAL2S_VIRTUEMART_SALE_PRICE_CURRENCY_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_virtuemart_sale_price_dates_start" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VIRTUEMART_SALE_PRICE_DATES_START" description="SOCIAL2S_VIRTUEMART_SALE_PRICE_DATES_START_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+						<field name="s2s_virtuemart_sale_price_dates_end" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_VIRTUEMART_SALE_PRICE_DATES_END" description="SOCIAL2S_VIRTUEMART_SALE_PRICE_DATES_END_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>
+
+					<field type="s2sbs1st" name="com7" initial="end"/>
+
+
+					<field type="s2sbs1st" name="com9" initial="slide" acordeon="components" slide="s2s_sp" label="SOCIAL2S_SP_TITLE" />
+
+						
+						<field
+							name="s2s_display_module_sp"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_DISPLAY_MODULE"
+							description="SOCIAL2S_DISPLAY_MODULE_DESC">
+							<option
+								value="0">JNO</option>
+							<option
+								value="1">JYES</option>
+						</field>
+
+					<field type="s2sbs1st" name="com10" initial="end"  />
+
+				<field type="s2sbs1st" name="com8" initial="superend" />
+
+			</fieldset>
+
+			<fieldset name="SOCIAL2S_PRO_FEATURES">
+				<!--<field type="s2slicensecheck" />-->
+				
+				<field type="s2sbs1st" name="pro1" initial="true" acordeon="pro" active="cookies" />
+
+					<field type="s2sbs1st" name="pro2" initial="slide" acordeon="pro" slide="cookies" label="SOCIAL2S_STUPID_COOKIE_LAW" />	
+
+						<field name="s2s_stupid_cookie_on" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COOKIE_ON" description="SOCIAL2S_COOKIE_ON_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+
+						<!--<field name="s2s_stupid_cookie_ccm_support" type="radio" class=" btn-group s2-btn-mini" default="0" label="SOCIAL2S_COOKIE_CCM_SUPPORT" description="SOCIAL2S_COOKIE_CCM_SUPPORT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">JYES</option>
+						</field>-->
+
+						<field name="s2s_stupid_cookie_custom" type="text" class="" default="" label="SOCIAL2S_COOKIE_CUSTOM" description="SOCIAL2S_COOKIE_CUSTOM_DESC"/>
+
+						<field name="s2s_stupid_cookie_link" type="sql" default="" multiple="false" label="SOCIAL2S_COOKIE_LINK" description="SOCIAL2S_COOKIE_LINK_DESC" query="SELECT id AS value, title AS s2s_stupid_cookie_link FROM #__content" />
+
+					<field type="s2sbs1st" name="pro3" initial="end"  />
+					
+
+<!--
+					<field type="s2sbs1st" name="pro4" initial="slide" acordeon="pro" slide="injection" label="SOCIAL2S_PRO_INJECTION" />	
+
+						<field
+							name="s2s_insert"
+							type="radio"
+							class=" btn-group s2-btn-mini"
+							default="0"
+							label="SOCIAL2S_INSERT"
+							description="SOCIAL2S_INSERT_DESC">
+							<option value="0">JNO</option>
+							<option value="1">SOCIAL2S_JYES_PRO</option>
+						</field>
+						<field
+							name="s2s_insert_position"
+							type="list"
+							default="0"
+							label="SOCIAL2S_INSERT_POSITION"
+							description="SOCIAL2S_INSERT_POSITION_DESC">
+							<option value="0">Before</option>
+							<option value="1">After</option>
+							<option value="2">Prepend</option>
+							<option value="2">Append</option>
+						</field>
+
+						<field
+							name="s2s_insert_element"
+							type="text"
+							default=""
+							label="SOCIAL2S_INSERT_ELEMENT"
+							description="SOCIAL2S_INSERT_ELEMENT_DESC">
+						</field>
+					<field type="s2sbs1st" name="pro5" initial="end"  />
+-->
+
+
+				<field type="s2sbs1st" name="pro6" initial="superend" />
+			</fieldset>
+
+<!--
+			<fieldset name="SOCIAL2S_CALL_TO_ACTION">
+				<field
+					name="s2s_cta_active"
+					type="radio"
+					class=" btn-group s2-btn-mini"
+					default="0"
+					label="SOCIAL2S_CTA_ON"
+					description="SOCIAL2S_CTA_ON_DESC">
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">SOCIAL2S_JYES_PRO</option>
+				</field>
+
+				<field
+					name="s2s_cta_active_in_mobile"
+					type="radio"
+					class=" btn-group s2-btn-mini"
+					default="0"
+					label="SOCIAL2S_CTA_ON_MOBILE"
+					description="SOCIAL2S_CTA_ON_MOBILEDESC">
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">SOCIAL2S_JYES_PRO</option>
+				</field>
+
+				<field name="s2s_cta_maintext"
+					default=""
+					label="SOCIAL2S_CTA_MAINTEXT" 
+					description="SOCIAL2S_CTA_MAINTEXT_DESC"
+					type="text" width="300" filter="safehtml" />
+
+				<field name="s2s_cta_default" type="radio" class=" btn-group s2-btn-mini" default="twitter" label="SOCIAL2S_CTA_DEFAULT" description="SOCIAL2S_CTA_DEFAULT_DESC">
+					<option value="0">SOCIAL2S_NONE</option>
+					<option value="twitter">SOCIAL2S_CTA_TWITTER</option>
+					<option value="facebook">SOCIAL2S_CTA_FACEBOOK</option>
+					<option value="pinterest">SOCIAL2S_CTA_PINTEREST</option>
+					<option value="linkedin">SOCIAL2S_CTA_LINKEDIN</option>
+					<option value="gplus">SOCIAL2S_CTA_GOOGLEPLUS</option>
+					<option value="wapp">SOCIAL2S_CTA_WAPP</option>
+					<option value="tumblr">SOCIAL2S_CTA_TUMBLR</option>
+					<option value="vk">SOCIAL2S_CTA_VK</option>
+				</field>
+
+				<field
+					name="s2s_cta_size"
+					type="list"
+					class=" btn-group s2-btn-mini"
+					default="s2s_cta_size_default"
+					label="SOCIAL2S_SIZE"
+					description="SOCIAL2S_SIZE_DESC">
+					<option value="s2s_cta_size_mini">mini</option>
+					<option value="s2s_cta_size_small">small</option>
+					<option value="s2s_cta_size_default">default</option>
+					<option value="s2s_cta_size_large">large</option>
+				</field>
+
+				<field
+						name="s2s_cta_pos"
+						type="radio"
+						class=" btn-group s2-btn-mini"
+						default="left"
+						label="SOCIAL2S_CTA_POS"
+						description="SOCIAL2S_CTA_POS_DESC">
+						<option
+							value="left">Left</option>
+						<option
+							value="center">Center</option>
+						<option
+							value="right">Right</option>
+					</field>
+
+				<field type="spacer" name="ctaspacer" class="text" label="SOCIAL2S_CTA_PUBLI"/>
+
+
+			</fieldset>
+-->
+			<fieldset name="SOCIAL2S_LICENSE">
+
+				<field name="s2s_license_email" type="hidden" />
+
+
+				<field name="jtotal_email" 
+					type="email" 
+					class="inputbox" 
+					validate="email" 
+					label="JTOTAL_LICENSE_EMAIL" 
+				/>
+				<field name="jtotal_key" 
+					type="jtotalkey" 
+					class="inputbox" 
+					label="JTOTAL_LICENSE_KEY" 
+					
+				/>
+
+				<field name="jtotal_license" 
+					type="jtotallicensecheck" 
+					class="inputbox" 
+					validate="email" 
+					label="JTOTAL_LICENSE_KEY" 
+					
+				/>
+				<!-- 
+				<field name="s2s_license_email" type="s2semail" label="SOCIAL2S_LICENSE_EMAIL" validate="email" description="SOCIAL2S_LICENSE_EMAIL_DESC" />
+
+				<field type="s2slicensecheck" />
+
+				<field name="s2s_license_activation" type="hidden" default="0"/>
+
+				<field type="spacer" name="publispacer" hr="true"/>
+				-->
+				<!-- <field type="s2spubli" name="s2spubli" label="SOCIAL2S_PUBLI" /> -->
+
+			</fieldset>
+
+
+		</fields>
+	</config>
+    <updateservers>
+        <server type="extension" priority="1" name="dibuxo social2s">https://users.jtotal.org/SOFT/UPDATES/PLUGINS/social2s/social2sv4-update.xml</server>
+    </updateservers>
+</extension>

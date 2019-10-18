@@ -1,0 +1,349 @@
+$twitter: #3894b6;
+$twitter_a: #00aced;
+
+$facebook: #526282;
+$facebook_a: #3b5998;
+
+$pinterest: #a4484c; 
+$pinterest_a: #cb2027;
+
+$linkedin: #2a6d8c; 
+$linkedin_a: #007bb6;
+
+$gplus: #b66a60; 
+$gplus_a: #dd4b39;
+
+$wapp: #43d854; 
+$wapp_a: #37AF45;
+
+$tumblr: #41515f; 
+$tumblr_a: #32506d;
+
+$vk: #57687d; 
+$vk_a: #45668e;
+
+$tgram: #127fb6; 
+$tgram_a: #0088cc;
+
+$flipb: #c21010; 
+$flipb_a: #8c1010;
+
+$delio: #257acc; 
+$delio_a: #1e61a3;
+
+$reddit: #ea6a3a; 
+$reddit_a: #ff4500;
+
+$email: #257acc; 
+$email_a: #0076e8;
+
+
+/**************************/
+/******   BTN COLOR   *****/
+/**************************/
+
+.s2s_contenedor{
+	//generic
+	.s2s_btn{
+		&.active{
+			.s2s_flecha{opacity:1}
+		}
+		a.s2s_icon{
+			color:#fff;
+			span.s2s_social_text{
+				color:#fff;
+			}
+			.s2sfo{
+				color:#fff;
+			}
+		}
+		.s2s_flecha{content:' ';position:absolute;border:8px solid;border-color:#D6D6D6 transparent transparent transparent;z-index:99999;top:-1px;-webkit-transition:opacity 300ms;-webkit-transition-delay:100ms;opacity:0}
+
+	}
+	.s2s_twitter{
+		background-color:$twitter;
+		&:hover, &.active{
+			background-color:$twitter_a;
+		}
+
+		.s2s_flecha{
+			border-color: $twitter_a transparent transparent transparent;
+		}
+		.s2s_a_btn{
+			background-color:$twitter;
+			&:hover{
+				background-color:$twitter_a;
+			}
+		}
+	}
+	.s2s_facebook {
+	    background-color: $facebook;
+	    &:hover,
+	    &.active {
+	        background-color: $facebook_a;
+	    }
+		.s2s_flecha {
+		    border-color: $facebook_a transparent transparent transparent;
+		}
+	}
+
+	.s2s_pinterest {
+	    background-color: $pinterest;
+	    &:hover,
+	    &.active {
+	        background-color: $pinterest_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $pinterest_a transparent transparent transparent;
+		}
+
+	}
+
+	.s2s_linkedin {
+	    background-color: $linkedin;
+	    &:hover,
+	    &.active {
+	        background-color: $linkedin_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $linkedin_a transparent transparent transparent;
+		}
+	}
+
+	.s2s_gplus {
+	    background-color: $gplus;
+	    &:hover,
+	    &.active {
+	        background-color: $gplus_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $gplus_a transparent transparent transparent;
+		}
+
+	}
+
+	.s2s_wapp {
+	    background-color: $wapp;
+	    &:hover,
+	    &.active {
+	        background-color: $wapp_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $wapp_a transparent transparent transparent;
+		}
+		.s2s_a_btn{
+			background-color:$wapp;
+			&:hover{
+				background-color:$wapp_a;
+			}
+		}
+	}
+
+	.s2s_tumblr {
+	    background-color: $tumblr;
+	    &:hover,
+	    &.active {
+	        background-color: $tumblr_a;
+	    }
+	    .s2s_flecha {
+    		border-color:  $tumblr_a transparent transparent transparent;
+		}
+
+	}
+
+	.s2s_vk {
+	    background-color: $vk;
+	    &:hover,
+	    &.active {
+	        background-color: $vk_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $vk_a transparent transparent transparent;
+		}
+
+	}
+
+	.s2s_tgram {
+	    background-color: $tgram;
+	    &:hover,
+	    &.active {
+	        background-color: $tgram_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $tgram_a transparent transparent transparent;
+		}
+		.s2s_a_btn{
+			background-color:$tgram;
+			&:hover{
+				background-color:$tgram_a;
+			}
+		}
+	}
+
+	.s2s_flipb {
+	    background-color: $flipb;
+	    &:hover,
+	    &.active {
+	        background-color: $flipb_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $flipb_a transparent transparent transparent;
+		}
+
+	}
+
+	.s2s_delio {
+	    background-color: $delio;
+	    &:hover,
+	    &.active {
+	        background-color: $delio_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $delio_a transparent transparent transparent;
+		}
+		.s2s_a_btn{
+			background-color:$delio;
+			&:hover{
+				background-color:$delio_a;
+			}
+		}
+	}
+
+	.s2s_reddit {
+	    background-color: $reddit;
+	    &:hover,
+	    &.active {
+	        background-color: $reddit_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $reddit_a transparent transparent transparent;
+		}
+		.s2s_a_btn{
+			background-color:$reddit;
+			&:hover{
+				background-color:$reddit_a;
+			}
+		}
+	}
+
+	.s2s_email {
+	    background-color: $email;
+	    &:hover,
+	    &.active {
+	        background-color: $email_a;
+	    }
+	    .s2s_flecha {
+    		border-color: $email_a transparent transparent transparent;
+		}
+		.s2s_a_btn{
+			background-color:$email;
+			&:hover{
+				background-color:$email_a;
+			}
+		}
+	}
+}
+
+
+/**************************/
+/******   BALLOON  *****/
+/**************************/
+.globo {
+    background-color: rgba(255,255,255,0.95);
+    padding: 10px;
+    border: 0 solid #ccc;
+    border-radius: 0 4px 4px 4px;
+    box-shadow: 1px 2px 4px #aaa;
+
+}
+
+.s2s_balloon_top{
+
+	.globo{
+		border-bottom: solid 2px;
+		box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+		border-radius: 6px;
+	}
+	.s2s_twitter .globo {
+	    border-color: $twitter_a;
+	}
+
+	.s2s_facebook .globo {
+	    border-color: $facebook_a;
+	}
+
+	.s2s_pinterest .globo {
+	    border-color: $pinterest_a;
+	}
+
+	.s2s_linkedin .globo {
+	    border-color: $linkedin_a;
+	}
+
+	.s2s_gplus .globo {
+	    border-color: $gplus_a;
+	}
+
+	.s2s_wapp .globo {
+	    border-color: $wapp_a;
+	}
+
+	.s2s_tumblr .globo {
+	    border-color: $tumblr_a;
+	}
+
+	.s2s_vk .globo {
+	    border-color: $vk_a;
+	}
+
+	.s2s_email .globo {
+	    border-color: $email;
+	}
+
+	.s2s_reddit .globo {
+	    border-color: $reddit_a;
+	}
+
+	.s2s_delio .globo {
+	    border-color: $delio_a;
+	}
+
+	.s2s_tgram .globo {
+	    border-color: $tgram_a;
+	}
+
+	.s2s_flipb .globo {
+	    border-color: $flipb_a;
+	}
+
+
+}
+
+
+
+/*boton +*/
+div.s2s_mas{
+	background-color:#ccc; 
+	a i{
+	  color:#333;
+	}
+}
+
+.is_on_screen.globo{
+	border-radius:4px 0 4px 4px;
+}
+
+
+/**********************/
+/****** EXPERIMENTAL  *****/
+/**********************/
+/*
+$cantidad :8px;
+@supports ((-webkit-backdrop-filter: blur($cantidad)) or (backdrop-filter: blur($cantidad))) {
+  .globo {
+    background-color: rgba(255, 255, 255, .4);
+    -webkit-backdrop-filter: blur($cantidad);
+    backdrop-filter: blur($cantidad);
+  }
+}
+*/

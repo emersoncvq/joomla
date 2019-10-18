@@ -1,0 +1,573 @@
+/**@license boxplusx: a versatile lightweight pop-up window engine
+* @author  Levente Hunyadi
+* @version 1.0
+* @remarks Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks Licensed under GNU/GPLv3, see http://www.gnu.org/licenses/gpl-3.0.html
+* @see     http://hunyadi.info.hu/projects/boxplusx
+**/
+
+/*
+* The following style classes are added/removed dynamically from script:
+* .boxplusx-hidden: Toggled when the element is not to be shown.
+* .boxplusx-animation: Toggled when the element is being animated.
+* .boxplusx-interactive: Toggled when the content accepts interaction and no overlay controls are desirable.
+* .boxplusx-unavailable: Toggled when the content of the element is not available (e.g. image is missing).
+* .boxplusx-fixedaspect: Toggled when the element has fixed aspect ratio.
+* .boxplusx-draggable: Toggled when drag capabilities are available to reveal content that falls outside the current view area.
+* .boxplusx-above/top/bottom/below: Sets relative position of navigation bar and controls w.r.t. viewport area.
+*/
+
+.boxplusx-hidden {
+display: none !important;
+}
+
+html > body > .boxplusx-container {  /* increase rule priority */
+display: flex;
+align-items: center;
+justify-content: center;
+position: fixed;
+box-sizing: border-box;
+max-width: none;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+background-color: rgba(0,0,0,0.6);
+cursor: default;
+z-index: 9999;
+animation: fadein 0.8s;
+}
+
+@keyframes fadein {
+from { opacity: 0; }
+to   { opacity: 1; }
+}
+
+.boxplusx-dialog {
+display: inline-block;
+box-sizing: border-box;
+background-color: rgba(0,0,0,0.8);
+margin: 0;
+border: 0 solid transparent;
+padding: 10px;
+min-width: 100px;
+min-height: 100px;
+max-width: 100%;
+overflow: hidden;
+color: #fff;
+}
+
+.boxplusx-dialog.boxplusx-dark,  /* a dark theme for the dialog box */
+.boxplusx-dialog.boxplusx-dark .boxplusx-detail {
+background-color: rgba(0,0,0,0.8);
+color: #fff;
+}
+
+.boxplusx-dialog.boxplusx-light,  /* a light theme for the dialog box */
+.boxplusx-dialog.boxplusx-light .boxplusx-detail {
+background-color: rgba(255,255,255,0.8);
+color: #000;
+}
+
+.boxplusx-dialog.boxplusx-square {  /* a dialog box with squared corners */
+padding: 10px;
+}
+
+.boxplusx-dialog.boxplusx-rounded {  /* a dialog box with rounded corners */
+padding: 20px;
+border-radius: 20px;
+}
+
+.boxplusx-dialog.boxplusx-bordered {  /* a dialog box with a thick border */
+border: 10px solid rgba(0,0,0,0.8);
+}
+
+.boxplusx-dialog.boxplusx-animation {
+transition-property: width, height;
+transition-duration: 0.5s, 0.5s;
+}
+
+.boxplusx-animation-linear {
+transition-timing-function: linear;
+}
+.boxplusx-animation-quad {
+transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.boxplusx-animation-cubic {
+transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.boxplusx-animation-quart {
+transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+.boxplusx-animation-quint {
+transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+.boxplusx-animation-expo {
+transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+.boxplusx-animation-circ {
+transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.boxplusx-animation-sine {
+transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.boxplusx-animation-back {
+transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.boxplusx-wrapper {
+display: flex;
+flex-flow: column;
+position: relative;
+}
+
+.boxplusx-progress {
+display: inline-block;
+position: absolute;
+box-sizing: border-box;
+width: 80px;
+height: 80px;
+top: 50%;
+left: 50%;
+margin: -40px 0 0 -40px;
+border-radius: 100%;
+border: 10px solid rgba(255, 255, 255, 0.2);
+border-top-color: #fff;
+animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+100% { transform: rotate(360deg); }
+}
+
+/*
+* The main viewport that displays content
+*/
+
+.boxplusx-viewport {
+position: relative;
+overflow: hidden;
+}
+
+.boxplusx-expander {
+position: absolute;
+width: 18px;
+height: 18px;
+top: 24px;
+left: 24px;
+padding: 4px;
+background: rgba(0,0,0,0.5) center center no-repeat;
+background-size: 18px 18px;
+}
+
+.boxplusx-expander:hover {
+background-size: auto auto;
+}
+
+.boxplusx-expander.boxplusx-collapse {
+background-image: url('fit-collapse.svg');
+}
+
+.boxplusx-expander.boxplusx-expand {
+background-image: url('fit-expand.svg');
+}
+
+.boxplusx-viewport > .boxplusx-previous,
+.boxplusx-viewport > .boxplusx-next {
+position: absolute;
+background: transparent none no-repeat scroll 0 center;
+bottom: 66px;  /* leave space for <video> element controls */
+top: 66px;  /* use same value as for CSS bottom */
+width: 58px;
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-viewport > .boxplusx-previous,
+.boxplusx-container[dir=rtl] .boxplusx-viewport > .boxplusx-next {
+left: 0;
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-viewport > .boxplusx-next,
+.boxplusx-container[dir=rtl] .boxplusx-viewport > .boxplusx-previous {
+right: 0;
+}
+
+/* A utility element that helps maintain aspect ratio */
+.boxplusx-aspect {
+margin: 0;
+border: 0 solid transparent;
+padding: 0;  /* required for fixed aspect ratio, overridden in script with a percentage value */
+max-width: 100%;
+height: auto;  /* required for fixed aspect ratio */
+}
+
+/* Inner container that displays content such as images or video */
+.boxplusx-content {
+overflow-x: hidden;
+overflow-y: auto;
+}
+
+.boxplusx-viewport.boxplusx-draggable > .boxplusx-content {
+overflow: auto;
+}
+
+.boxplusx-content.boxplusx-image > div,  /* rotation container */
+.boxplusx-content.boxplusx-image > div > div {  /* rotated element */
+position: absolute;
+width: 100%;
+height: 100%;
+}
+
+.boxplusx-content.boxplusx-image > div > div {
+background: transparent none no-repeat scroll center center;
+background-size: contain;
+}
+
+.boxplusx-viewport.boxplusx-draggable > .boxplusx-content.boxplusx-image > div {  /* rotation container */
+position: relative;
+}
+
+.boxplusx-viewport.boxplusx-draggable > .boxplusx-content.boxplusx-image > div > div {  /* rotated element */
+position: relative;
+background-size: cover;
+}
+
+.boxplusx-content > .boxplusx-detail {
+overflow-y: auto;
+}
+
+.boxplusx-viewport.boxplusx-draggable > .boxplusx-content.boxplusx-image > .boxplusx-detail {
+position: absolute;
+top: 0;
+}
+
+.boxplusx-content.boxplusx-unavailable {
+background: transparent url(warning.svg) no-repeat scroll center center;
+background-size: contain;
+}
+
+.boxplusx-content > video {
+width: 100%;  /* video elements always keep aspect ratio automatically */
+}
+
+.boxplusx-content > embed {
+width: 100%;
+height: 100%;
+}
+
+.boxplusx-content > iframe {
+border: 0;
+background-color: white;
+}
+
+/*
+* Aspect ratio
+*/
+
+.boxplusx-viewport.boxplusx-fixedaspect > .boxplusx-content {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+overflow-y: hidden;
+}
+
+/*
+* Navigation buttons in main viewport
+*/
+
+.boxplusx-container[dir=ltr] .boxplusx-viewport > .boxplusx-previous,  /* lowest priority rule, sets background image */
+.boxplusx-container[dir=ltr] .boxplusx-viewport > div.boxplusx-previous:hover,  /* highest priority rule, makes control visible on hover */
+.boxplusx-container[dir=rtl] .boxplusx-viewport > .boxplusx-next,  /* lowest priority rule, sets background image */
+.boxplusx-container[dir=rtl] .boxplusx-viewport > div.boxplusx-next:hover {  /* highest priority rule, makes control visible on hover */
+background-image: url(navigation-left.svg);
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-viewport > .boxplusx-next,
+.boxplusx-container[dir=ltr] .boxplusx-viewport > div.boxplusx-next:hover,
+.boxplusx-container[dir=rtl] .boxplusx-viewport > .boxplusx-previous,
+.boxplusx-container[dir=rtl] .boxplusx-viewport > div.boxplusx-previous:hover {
+background-image: url(navigation-right.svg);
+}
+
+@media (hover) and (pointer: fine), (-moz-touch-enabled: 0) {  /* rules for desktop devices */
+.boxplusx-container[dir=ltr] .boxplusx-viewport > div.boxplusx-previous,  /* medium priority rule, hides control on desktop devices (unless on hover, see highest priority rule) */
+.boxplusx-container[dir=ltr] .boxplusx-viewport > div.boxplusx-next,
+.boxplusx-container[dir=rtl] .boxplusx-viewport > div.boxplusx-previous,  /* medium priority rule, hides control on desktop devices (unless on hover, see highest priority rule) */
+.boxplusx-container[dir=rtl] .boxplusx-viewport > div.boxplusx-next {
+background-image: none
+}
+}
+
+.boxplusx-viewport > .boxplusx-content.boxplusx-interactive ~ .boxplusx-previous,
+.boxplusx-viewport > .boxplusx-content.boxplusx-interactive ~ .boxplusx-next {
+display: none;
+}
+
+/*
+* Navigation bar
+*/
+
+.boxplusx-navigation {
+margin: 6px 0;
+height: 60px;
+overflow: hidden;
+position: relative;
+}
+
+.boxplusx-navigation.boxplusx-top,
+.boxplusx-navigation.boxplusx-bottom {
+visibility: hidden;
+}
+
+@media (hover) and (pointer: fine), (-moz-touch-enabled: 0) {  /* rules for desktop devices */
+.boxplusx-navigation.boxplusx-top,
+.boxplusx-navigation.boxplusx-bottom {
+visibility: visible;
+opacity: 0.0;
+}
+
+.boxplusx-navigation.boxplusx-top:hover,
+.boxplusx-navigation.boxplusx-bottom:hover {
+opacity: 1.0;
+}
+}
+
+.boxplusx-navbar {
+position: absolute;
+top: 0;
+bottom: 0;
+white-space: nowrap;
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-navbar {
+left: 0;  /* required for navigation scroll */
+transition: left 0s linear;  /* required for navigation scroll, duration overridden in script */
+}
+
+.boxplusx-container[dir=rtl] .boxplusx-navbar {
+right: 0;  /* required for navigation scroll */
+transition: right 0s linear;  /* required for navigation scroll, duration overridden in script */
+}
+
+.boxplusx-navitem {
+display: inline-block;
+position: relative;
+width: 60px;
+height: 100%;
+overflow: hidden;
+opacity: 0.5;
+transition: opacity 0.1s;
+}
+
+.boxplusx-navitem.boxplusx-current,
+.boxplusx-navitem:hover {
+opacity: 1;
+}
+
+.boxplusx-navitem > .boxplusx-aspect {
+box-sizing: border-box;
+height: 100%;
+}
+
+.boxplusx-navimage {
+position: absolute;
+display: flex;  /* use flexbox to center image counter text */
+align-items: center;
+justify-content: center;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+border: 1px solid gray;
+margin: 2px;
+background: transparent none no-repeat scroll center center;
+background-size: contain;
+}
+
+.boxplusx-current > .boxplusx-navimage {
+border-color: red;
+}
+
+.boxplusx-rewind,
+.boxplusx-forward {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 24px;
+background: transparent none no-repeat scroll center center;
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-rewind,
+.boxplusx-container[dir=rtl] .boxplusx-forward {
+left: 0;
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-forward,
+.boxplusx-container[dir=rtl] .boxplusx-rewind {
+right: 0;
+}
+
+/*
+* Caption area
+*/
+
+.boxplusx-caption {
+max-height: 60px;
+overflow-y: auto;
+}
+
+.boxplusx-caption > .boxplusx-title {
+font-weight: bold;
+}
+
+/*
+* Tabular data for meta-information
+*/
+
+.boxplusx-detail table {
+border-collapse: collapse;
+}
+
+.boxplusx-detail td {
+border: 1px solid transparent;
+text-align: left;
+}
+
+.boxplusx-dialog.boxplusx-dark .boxplusx-detail td {
+border-color: #fff;
+}
+
+.boxplusx-dialog.boxplusx-light .boxplusx-detail td {
+border-color: #000;
+}
+
+/*
+* User interface buttons
+*/
+
+.boxplusx-controls {
+margin: 3px 0 0 0;
+}
+
+.boxplusx-controls > div {
+background: transparent none no-repeat scroll 0 0;
+display: inline-block;
+height: 24px;
+width: 24px;
+margin: 2px;
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-controls > .boxplusx-previous,
+.boxplusx-container[dir=ltr] div.boxplusx-rewind,  /* add tag name to increase rule priority */
+.boxplusx-container[dir=rtl] .boxplusx-controls > .boxplusx-next,
+.boxplusx-container[dir=rtl] div.boxplusx-forward {  /* add tag name to increase rule priority */
+background-image: url(button-left.svg);
+}
+
+.boxplusx-container[dir=ltr] .boxplusx-controls > .boxplusx-next,
+.boxplusx-container[dir=ltr] div.boxplusx-forward,  /* add tag name to increase rule priority */
+.boxplusx-container[dir=rtl] .boxplusx-controls > .boxplusx-previous,
+.boxplusx-container[dir=rtl] div.boxplusx-rewind {  /* add tag name to increase rule priority */
+background-image: url(button-right.svg);
+}
+
+.boxplusx-controls > .boxplusx-close {
+background-image: url(button-close.svg);
+}
+
+.boxplusx-controls > .boxplusx-start {
+background-image: url(button-play.svg);
+}
+
+.boxplusx-controls > .boxplusx-stop {
+background-image: url(button-stop.svg);
+}
+
+.boxplusx-controls > .boxplusx-download {
+background-image: url(button-save.svg);
+}
+
+.boxplusx-controls > .boxplusx-metadata {
+background-image: url(button-meta.svg);
+}
+
+/*
+* EXIF orientation
+* 1       2       3       4       5           6           7           8
+*
+* 888888  888888      88  88      8888888888  88                  88  8888888888
+* 88          88      88  88      88  88      88  88          88  88      88  88
+* 8888      8888    8888  8888    88          8888888888  8888888888          88
+* 88          88      88  88
+* 88          88  888888  888888
+*/
+
+.boxplusx-orientation-1 {
+/* intentionally empty */
+}
+
+.boxplusx-orientation-2 {
+transform: rotateY(180deg);
+}
+
+.boxplusx-orientation-3 {
+transform: rotate(180deg);
+}
+
+.boxplusx-orientation-4 {
+transform: rotate(180deg) rotateY(180deg);
+}
+
+.boxplusx-orientation-5 {
+transform: rotate(270deg) rotateY(180deg);
+transform-origin: top left;
+}
+
+.boxplusx-orientation-6 {
+transform: translateY(-100%) rotate(90deg);
+transform-origin: bottom left;
+}
+
+.boxplusx-orientation-7 {
+transform: translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg);
+transform-origin: bottom right;
+}
+
+.boxplusx-orientation-8 {
+transform: translateX(-100%) rotate(270deg);
+transform-origin: top right;
+}
+
+/*
+* Layout
+* Rules positioned last in CSS file to allow them to override previous rules.
+*/
+
+.boxplusx-top,
+.boxplusx-bottom {
+position: absolute;
+left: 0;
+right: 0;
+}
+
+.boxplusx-top {
+top: 0;
+}
+
+.boxplusx-bottom {
+bottom: 0;
+}
+
+.boxplusx-above,
+.boxplusx-below {
+position: relative;
+}
+
+.boxplusx-above {
+order: -1;
+}
+
+.boxplusx-below {
+order: 1;
+}

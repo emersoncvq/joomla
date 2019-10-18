@@ -1,0 +1,61 @@
+/**
+* @file
+* @brief    hoverplus lightweight pop-up window on mouse-over
+* @author   Levente Hunyadi
+* @version  1.5.0
+* @remarks  Copyright (C) 2011 Levente Hunyadi
+* @see      http://hunyadi.info.hu/projects/hoverplus
+*/
+
+/**
+* Custom styling.
+*/
+
+#hoverplus {
+padding:5px;
+}
+
+/* initial width and height for dialog */
+.hoverplus-dialog {
+width:100px;
+height:100px;
+}
+
+/**
+* Standard styling.
+* Changing this section may negatively impact slider functionality.
+*/
+
+#hoverplus {
+position:absolute;
+margin:0;
+overflow:hidden;
+z-index:10000;
+background-color: rgba(0,0,0,0.6) !important;
+}
+
+#hoverplus.hoverplus-hidden {
+display:none;
+}
+
+.hoverplus-hidden {
+visibility:hidden !important;
+}
+
+#hoverplus .hoverplus-viewer {
+margin:0;
+border:0 none transparent;
+padding:0;
+}
+
+#hoverplus .hoverplus-caption,
+#hoverplus .hoverplus-title,
+#hoverplus .hoverplus-text {
+margin:0;
+padding:0;
+color: rgb(255,255,255) !important;
+}
+
+#hoverplus .hoverplus-title {
+font-weight:bold;
+}

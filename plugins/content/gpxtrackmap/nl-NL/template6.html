@@ -1,0 +1,315 @@
+<div class="gpxtrack">
+  <h3>GPX Track-Kaart</h3>
+  <div class="gpxtracklink">%TRACKDOWNLOAD%</div>
+  <div class="gpxtrackmap">%TRACKMAP%</div>
+  <br />
+  <h3>Hoogteprofiel van de track</h3>
+  <div class="gpxtrackdiagram">%TRACKDIAGRAM%</div>
+  <br />
+  <h3>Snelheidsdiagram van de track</h3>
+  <div class="gpxspeeddiagram">%SPEEDDIAGRAM%</div>
+  <div class="gpxtrackinfo">
+    <h3>Uit het GPX-bestand uitgelezen gegevens</h3>
+    <hr />
+    <h4>Track lengte en gevens van Waypoints (Trackpunten)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Informatie</th>
+          <th width="25%">berekende waarde</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Totale lengte (metrisch)</td>
+          <td>%DISTANCE-KM% km</td>
+          <td>DISTANCE-KM</td>
+        </tr>
+        <tr>
+          <td>Totale lengte (Engels/Amerikaans)</td>
+          <td>%DISTANCE-MI% Mijlen</td>
+          <td>DISTANCE-MI</td>
+        </tr>
+        <tr>
+          <td>Totale lengte (nautisch)</td>
+          <td>%DISTANCE-NM% nautische mijlen</td>
+          <td>DISTANCE-NM</td>
+        </tr>
+        <tr>
+          <td>Aantal trackpunten (Trackpoints)</td>
+          <td>%TRACKPOINTS%</td>
+          <td>TRACKPOINTS</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde waypoint afstand (metrisch)</td>
+          <td>%TRACKPOINTDISTANCE-M% m</td>
+          <td>TRACKPOINTDISTANCE-M</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde waypoint afstand (Engels/Amerikaans)</td>
+          <td>%TRACKPOINTDISTANCE-FT% ft</td>
+          <td>TRACKPOINTDISTANCE-FT</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Tijd en duur</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Information</th>
+          <th width="25%">berekende waarde</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Starttijd</td>
+          <td>%STARTTIME%</td>
+          <td>STARTTIME</td>
+        </tr>
+        <tr>
+          <td>Eindtijd</td>
+          <td>%ENDTIME%</td>
+          <td>ENDTIME</td>
+        </tr>
+        <tr>
+          <td>Duur</td>
+          <td>%DURATION%</td>
+          <td>DURATION</td>
+        </tr>
+        <tr>
+          <td>Tijd in beweging (Snelheid > 2 km/u)</td>
+          <td>%DURATIONMOVING%</td>
+          <td>DURATIONMOVING</td>
+        </tr>
+        <tr>
+          <td>Tijd in rust</td>
+          <td>%DURATIONPAUSED%</td>
+          <td>DURATIONPAUSED</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Snelheid in metrische eenheden (km/u = Kilometer per uur)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Informatie</th>
+          <th width="25%">berekende waarde</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gemiddelde snelheid totaal</td>
+          <td>%AVGSPEED-KMH% km/u</td>
+          <td>AVGSPEED-KMH</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid in beweging</td>
+          <td>%AVGSPEEDMOVING-KMH% km/u</td>
+          <td>AVGSPEEDMOVING-KMH</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid bergop</td>
+          <td>%AVGSPEEDUP-KMH% km/u</td>
+          <td>AVGSPEEDUP-KMH</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid bergaf</td>
+          <td>%AVGSPEEDDOWN-KMH% km/u</td>
+          <td>AVGSPEEDDOWN-KMH</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid totaal</td>
+          <td>%MAXSPEED-KMH% km/u</td>
+          <td>MAXSPEED-KMH</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid bergop</td>
+          <td>%MAXSPEEDUP-KMH% km/u</td>
+          <td>MAXSPEEDUP-KMH</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid bergaf</td>
+          <td>%MAXSPEEDDOWN-KMH% km/u</td>
+          <td>MAXSPEEDDOWN-KMH</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Snelheden in Engels/Amerikaans eenheden (mi/h = Mijlen per uur)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Informatie</th>
+          <th width="25%">berekende waardes</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gemiddelde snelheid totaal</td>
+          <td>%AVGSPEED-MPH% mi/h</td>
+          <td>AVGSPEED-MPH</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid in beweging</td>
+          <td>%AVGSPEEDMOVING-MPH% mi/h</td>
+          <td>AVGSPEEDMOVING-MPH</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid bergop</td>
+          <td>%AVGSPEEDUP-MPH% mi/h</td>
+          <td>AVGSPEEDUP-MPH</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid bergaf</td>
+          <td>%AVGSPEEDDOWN-MPH% mi/h</td>
+          <td>AVGSPEEDDOWN-MPH</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid totaal</td>
+          <td>%MAXSPEED-MPH% mi/h</td>
+          <td>MAXSPEED-MPH</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid bergop</td>
+          <td>%MAXSPEEDUP-MPH% mi/h</td>
+          <td>MAXSPEEDUP-MPH</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid bergaf</td>
+          <td>%MAXSPEEDDOWN-MPH% mi/h</td>
+          <td>MAXSPEEDDOWN-MPH</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Snelheden in nautische eenheden (kn = Knopen = Nautische Meijlen per uur)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Informatie</th>
+          <th width="25%">berekende waarden</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gemiddelde snelheid totaal</td>
+          <td>%AVGSPEED-KN% kn</td>
+          <td>AVGSPEED-KN</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid in beweging</td>
+          <td>%AVGSPEEDMOVING-KN% kn</td>
+          <td>AVGSPEEDMOVING-KN</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid bergop</td>
+          <td>%AVGSPEEDUP-KN% kn</td>
+          <td>AVGSPEEDUP-KN</td>
+        </tr>
+        <tr>
+          <td>Gemiddelde snelheid bergaf</td>
+          <td>%AVGSPEEDDOWN-KN% kn</td>
+          <td>AVGSPEEDDOWN-KN</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid totaal</td>
+          <td>%MAXSPEED-KN% kn</td>
+          <td>MAXSPEED-KN</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid bergop</td>
+          <td>%MAXSPEEDUP-KN% kn</td>
+          <td>MAXSPEEDUP-KN</td>
+        </tr>
+        <tr>
+          <td>Maximale snelheid bergaf</td>
+          <td>%MAXSPEEDDOWN-KN% kn</td>
+          <td>MAXSPEEDDOWN-KN</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Hoogte gegevens (metrisch)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Informatie</th>
+          <th width="25%">berekende waarden</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hoogteverschil (hoogste-laagste punt)</td>
+          <td>%ELE-DELTA-M% m</td>
+          <td>ELE-DELTA-M</td>
+        </tr>
+        <tr>
+          <td>Minimale Hoogte (laagste punt)</td>
+          <td>%ELE-MIN-M% m</td>
+          <td>ELE-MIN-M</td>
+        </tr>
+        <tr>
+          <td>Maximale hoogte (hoogste punt)</td>
+          <td>%ELE-MAX-M% m</td>
+          <td>ELE-MAX-M</td>
+        </tr>
+        <tr>
+          <td>Hoogtemeters bergop (Som positieve hoogteveranderingen)</td>
+          <td>%ELE-UP-M% m</td>
+          <td>ELE-UP-M</td>
+        </tr>
+        <tr>
+          <td>Hoogtemeters bergaf (Som negatieve hoogteveranderingen)</td>
+          <td>%ELE-DOWN-M% m</td>
+          <td>ELE-DOWN-M</td>
+        </tr>
+      </tbody>
+    </table>    
+    <hr />
+    <h4>Hoogte gegevens (Engels/Amerikaans)</h4>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th width="50%">Informatie</th>
+          <th width="25%">berekende waarden</th>
+          <th width="25%">Platzhalter-Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hoogteverschil (hoogste-laagste punt)</td>
+          <td>%ELE-DELTA-FT% ft</td>
+          <td>ELE-DELTA-FT</td>
+        </tr>
+        <tr>
+          <td>Minimale Hoogte (laagste punt)</td>
+          <td>%ELE-MIN-FT% ft</td>
+          <td>ELE-MIN-FT</td>
+        </tr>
+        <tr>
+          <td>Maximale Hoogte (hoogste punt)</td>
+          <td>%ELE-MAX-FT% ft</td>
+          <td>ELE-MAX-FT</td>
+        </tr>
+        <tr>
+          <td>Hoogtemeters bergop (Som positieve hoogteveranderingen)</td>
+          <td>%ELE-UP-FT% ft</td>
+          <td>ELE-UP-FT</td>
+        </tr>
+        <tr>
+          <td>Hoogtemeters bergaf (Som negatieve hoogteveranderingen)</td>
+          <td>%ELE-DOWN-FT% ft</td>
+          <td>ELE-DOWN-FT</td>
+        </tr>
+      </tbody>
+    </table>    
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+  <name>All Video Share - Player</name>
+  <author>MrVinoth</author>
+  <creationDate>June 2019</creationDate>
+  <copyright>Copyright (c) 2012-2019 MrVinoth. All rights reserved.</copyright>
+  <authorEmail>admin@mrvinoth.com</authorEmail>
+  <authorUrl>https://allvideoshare.mrvinoth.com</authorUrl>
+  <version>3.4.0</version>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <description>Displays a Video Player.</description>
+  <files>
+    <folder>tmpl</folder>
+    <filename>index.html</filename>
+    <filename>helper.php</filename>
+    <filename module="mod_allvideoshareplayer">mod_allvideoshareplayer.php</filename>
+  </files>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field name="playerid" type="sql" default="1" label="SELECT_PLAYER_LABEL" description="SELECT_PLAYER_DESCRIPTION" query="SELECT id, name from #__allvideoshare_players WHERE published=1 ORDER BY name ASC" key_field="id" value_field="name" />
+        <field name="videoid" type="sql" default="latest" label="SELECT_VIDEO_LABEL" description="SELECT_VIDEO_DESCRIPTION" query="SELECT id, title from #__allvideoshare_videos WHERE published=1 ORDER BY title ASC" key_field="id" value_field="title">
+          <option value="latest">LATEST_VIDEO</option>
+          <option value="popular">POPULAR_VIDEO</option>
+        </field>
+        <field name="title" type="list" default="0" label="SHOW_VIDEO_TITLE_LABEL" description="SHOW_VIDEO_TITLE_DESCRIPTION">
+          <option value="0">ALL_VIDEO_SHARE_NO</option>
+          <option value="1">ALL_VIDEO_SHARE_YES</option>
+        </field>
+        <field name="description" type="list" default="0" label="SHOW_VIDEO_DESCRIPTION_LABEL" description="SHOW_VIDEO_DESCRIPTION">
+          <option value="0">ALL_VIDEO_SHARE_NO</option>
+          <option value="1">ALL_VIDEO_SHARE_YES</option>
+        </field>
+        <field name="autodetect" type="list" default="1" label="AUTO_DETECT_VIDEO_LABEL" description="AUTO_DETECT_VIDEO_DESCRIPTION">
+          <option value="0">ALL_VIDEO_SHARE_NO</option>
+          <option value="1">ALL_VIDEO_SHARE_YES</option>
+        </field>
+        <field name="cache" type="list" default="0" label="CACHE_LABEL" description="CACHE_DESCRIPTION">
+          <option value="0">NEVER</option>
+        </field>
+        <field name="moduleclass_sfx" type="text" default="" label="MODULE_CLASS_SUFFIX_LABEL" description="MODULE_CLASS_SUFFIX_DESCRIPTION" />
+      </fieldset>
+    </fields>
+  </config>
+</extension>

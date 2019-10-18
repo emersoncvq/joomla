@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="editors-xtd" method="upgrade">
+	<name>plg_editors-xtd_sigplus</name>
+	<author>Levente Hunyadi</author>
+	<creationDate>Jul 19, 2019</creationDate>
+	<copyright>© 2019-2017 Levente Hunyadi. All rights reserved.</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorUrl>http://hunyadi.info.hu/projects/sigplus</authorUrl>
+	<version>1.5.0.277</version>
+	<downloadUrl>https://bitbucket.org/hunyadi/sigplus/downloads/</downloadUrl>
+	<description>SIGPLUS_EDITORBUTTON_DESCRIPTION</description>
+	<files>
+		<filename plugin="sigplus">sigplus.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<media folder="media" destination="plg_button_sigplus">
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_editors-xtd_sigplus.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_editors-xtd_sigplus.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_editors-xtd_sigplus.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_editors-xtd_sigplus.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_editors-xtd_sigplus.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_editors-xtd_sigplus.sys.ini</language>
+	</languages>
+</extension>

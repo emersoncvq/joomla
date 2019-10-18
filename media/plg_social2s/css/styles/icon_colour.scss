@@ -1,0 +1,495 @@
+$twitter: #3894b6;
+$twitter_a: #00aced;
+
+$facebook: #526282;
+$facebook_a: #3b5998;
+
+$pinterest: #a4484c; 
+$pinterest_a: #cb2027;
+
+$linkedin: #2a6d8c; 
+$linkedin_a: #007bb6;
+
+$gplus: #b66a60; 
+$gplus_a: #dd4b39;
+
+$wapp: #43d854; 
+$wapp_a: #37AF45;
+
+$tumblr: #41515f; 
+$tumblr_a: #32506d;
+
+$vk: #57687d; 
+$vk_a: #45668e;
+
+$tgram: #127fb6; 
+$tgram_a: #0088cc;
+
+$flipb: #c21010; 
+$flipb_a: #8c1010;
+
+$delio: #257acc; 
+$delio_a: #1e61a3;
+
+$reddit: #ea6a3a; 
+$reddit_a: #ff4500;
+
+$email: #257acc; 
+$email_a: #0076e8;
+
+$generic_btn: #eee;
+$generic_bg: rgba(255,255,255,0.05);
+$border_color: darken($generic_bg, 3%);
+
+
+
+/**************************/
+/******   BTN COLOR   *****/
+/**************************/
+
+.s2s_contenedor{
+  //generic
+  .s2s_btn{
+    background-color:$generic_bg;
+    &.active{
+      .s2s_flecha{opacity:1}
+    }
+    a.s2s_icon{
+      //color:initial;
+    }
+    .s2s_a_btn{
+      background-color: darken($generic_bg, 2%);
+      color:$generic_btn;
+      &:hover{
+        background-color: lighten($generic_bg, 4%);
+      }
+
+    }
+    .s2s_flecha{content:' ';position:absolute;border:8px solid;border-color:#D6D6D6 transparent transparent transparent;z-index:99999;top:-1px;-webkit-transition:opacity 300ms;-webkit-transition-delay:100ms;opacity:0}
+  }
+  //group
+  &.s2s-btn-group{
+    >div.s2s_btn{
+      border-left:solid 1px $border_color;
+      &.afterplus{
+        border-left:solid 0px $border_color;
+      }
+      &.afterplus_open{
+        border-left:solid 1px $border_color;
+      }
+      &:first-child{
+        border-left:solid 0px $border_color;
+      }
+    }
+  }
+  .s2s_twitter {
+    a.s2s_icon{
+      color:$twitter;
+    }
+    &:hover a.s2s_icon{
+      color:$twitter_a;
+    }
+    &.active{
+      background-color:$twitter_a;
+      
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+    .s2s_flecha{
+      border-color: $twitter_a transparent transparent transparent;
+    }
+    .s2s_a_btn{
+      background-color:$twitter;
+      &:hover{
+        background-color:$twitter_a;
+      }
+    }
+    .globo {
+      box-shadow: 0px 0px 10px transparentize($twitter_a, .7);
+    }
+  }
+  .s2s_facebook {
+    a.s2s_icon{
+      color:$facebook;
+    }
+    &:hover a.s2s_icon{
+      color:$facebook_a;
+    }
+    &.active{
+      background-color:$facebook_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+    .s2s_flecha {
+        border-color: $facebook_a transparent transparent transparent;
+    }
+    .globo {
+      box-shadow: 0px 0px 10px transparentize($facebook_a, .7);
+    }
+  }
+
+  .s2s_pinterest {
+    a.s2s_icon{
+      color:$pinterest;
+    }
+    &:hover a.s2s_icon{
+      color:$pinterest_a;
+    }
+    &.active{
+      background-color:$pinterest_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $pinterest_a transparent transparent transparent;
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($pinterest_a, .7);
+    }
+
+  }
+
+  .s2s_linkedin {
+    a.s2s_icon{
+      color:$linkedin;
+    }
+    &:hover a.s2s_icon{
+      color:$linkedin_a;
+    }
+    &.active{
+      background-color:$linkedin_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $linkedin_a transparent transparent transparent;
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($linkedin_a, .7);
+    }
+  }
+
+  .s2s_gplus {
+    a.s2s_icon{
+      color:$gplus;
+    }
+    &:hover a.s2s_icon{
+      color:$gplus_a;
+    }
+    &.active{
+      background-color:$gplus_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $gplus_a transparent transparent transparent;
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($gplus_a, .7);
+    }
+
+  }
+
+  .s2s_wapp {
+    a.s2s_icon{
+      color:$wapp;
+    }
+    &:hover a.s2s_icon{
+      color:$wapp_a;
+    }
+    &.active{
+      background-color:$wapp_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $wapp_a transparent transparent transparent;
+    }
+    .s2s_a_btn{
+      background-color:$wapp;
+      &:hover{
+        background-color:$wapp_a;
+      }
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($wapp_a, .7);
+    }
+  }
+
+  .s2s_tumblr {
+    a.s2s_icon{
+      color:$tumblr;
+    }
+    &:hover a.s2s_icon{
+      color:$tumblr_a;
+    }
+    &.active{
+      background-color:$tumblr_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color:  $tumblr_a transparent transparent transparent;
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($tumblr_a, .7);
+    }
+
+  }
+
+  .s2s_vk {
+    a.s2s_icon{
+      color:$vk;
+    }
+    &:hover a.s2s_icon{
+      color:$vk_a;
+    }
+    &.active{
+      background-color:$vk_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $vk_a transparent transparent transparent;
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($vk_a, .7);
+    }
+  }
+
+  .s2s_tgram {
+    a.s2s_icon{
+      color:$tgram;
+    }
+    &:hover a.s2s_icon{
+      color:$tgram_a;
+    }
+    &.active{
+      background-color:$tgram_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $tgram_a transparent transparent transparent;
+    }
+    .s2s_a_btn{
+      background-color:$tgram;
+      &:hover{
+        background-color:$tgram_a;
+      }
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($tgram_a, .7);
+    }
+  }
+
+  .s2s_flipb {
+    a.s2s_icon{
+      color:$flipb;
+    }
+    &:hover a.s2s_icon{
+      color:$flipb_a;
+    }
+    &.active{
+      background-color:$flipb_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $flipb_a transparent transparent transparent;
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($flipb_a, .7);
+    }
+
+  }
+
+  .s2s_delio {
+    a.s2s_icon{
+      color:$delio;
+    }
+    &:hover a.s2s_icon{
+      color:$delio_a;
+    }
+    &.active{
+      background-color:$delio_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+    .s2s_flecha {
+        border-color: $delio_a transparent transparent transparent;
+    }
+    
+    .s2s_a_btn{
+      background-color:$delio;
+      &:hover{
+        background-color:$delio_a;
+      }
+    }
+        .globo {
+      box-shadow: 0px 0px 10px transparentize($delio_a, .7);
+    }
+  }
+
+  .s2s_reddit {
+    a.s2s_icon{
+      color:$reddit;
+    }
+    &:hover a.s2s_icon{
+      color:$reddit_a;
+    }
+    &.active{
+      background-color:$reddit_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $reddit_a transparent transparent transparent;
+    }
+    .s2s_a_btn{
+      background-color:$reddit;
+      &:hover{
+        background-color:$reddit_a;
+      }
+    }
+    .globo {
+      box-shadow: 0px 0px 10px transparentize($reddit_a, .7);
+    }
+  }
+
+  .s2s_email {
+    a.s2s_icon{
+      color:$email;
+    }
+    &:hover a.s2s_icon{
+      color:$email_a;
+    }
+    &.active{
+      background-color:$email_a;
+      &:hover a.s2s_icon, a.s2s_icon{
+        color:$generic_btn;
+      }
+    }
+      .s2s_flecha {
+        border-color: $email_a transparent transparent transparent;
+    }
+    .s2s_a_btn{
+      background-color:$email;
+      &:hover{
+        background-color:$email_a;
+      }
+    }
+    .globo {
+      box-shadow: 0px 0px 10px transparentize($email_a, .7);
+    }
+  }
+
+}
+
+
+/**************************/
+/******   BALLOON  *****/
+/**************************/
+.globo {
+    background-color: rgba(lighten($generic_bg,4%), .95);
+    padding: 10px;
+    border: 0 solid #ccc;
+    border-radius: 0 4px 4px 4px;
+    box-shadow: 1px 2px 4px #aaa;
+
+}
+
+.s2s_balloon_top{
+
+  .globo{
+    border-bottom: solid 2px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+    border-radius: 6px;
+  }
+  .s2s_twitter .globo {
+      border-color: $twitter_a;
+  }
+
+  .s2s_facebook .globo {
+      border-color: $facebook_a;
+  }
+
+  .s2s_pinterest .globo {
+      border-color: $pinterest_a;
+  }
+
+  .s2s_linkedin .globo {
+      border-color: $linkedin_a;
+  }
+
+  .s2s_gplus .globo {
+      border-color: $gplus_a;
+  }
+
+  .s2s_wapp .globo {
+      border-color: $wapp_a;
+  }
+
+  .s2s_tumblr .globo {
+      border-color: $tumblr_a;
+  }
+
+  .s2s_vk .globo {
+      border-color: $vk_a;
+  }
+
+  .s2s_email .globo {
+      border-color: $email;
+  }
+
+  .s2s_reddit .globo {
+      border-color: $reddit_a;
+  }
+
+  .s2s_delio .globo {
+      border-color: $delio_a;
+  }
+
+  .s2s_tgram .globo {
+      border-color: $tgram_a;
+  }
+
+  .s2s_flipb .globo {
+      border-color: $flipb_a;
+  }
+
+
+}
+
+
+
+/*boton +*/
+div.s2s_mas{
+  //color:inherit;
+  a i{
+    //color:$generic_btn;
+
+  }
+  &:hover a i{
+    //color: rgba($generic_btn, .7);
+  }
+
+}
+
+.is_on_screen.globo{
+  border-radius:4px 0 4px 4px;
+}
+
+

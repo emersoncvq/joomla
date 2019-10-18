@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+  <name>COM_ALLVIDEOSHARE</name>
+  <author>MrVinoth</author>
+  <creationDate>June 2019</creationDate>
+  <copyright>Copyright (c) 2012-2019 MrVinoth. All rights reserved.</copyright>
+  <authorEmail>admin@mrvinoth.com</authorEmail>
+  <authorUrl>https://allvideoshare.mrvinoth.com</authorUrl>
+  <version>3.4.0</version>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <description>Thank you for installing All Video Share. The complete video sharing solution for your Joomla!</description>
+  <scriptfile>script.allvideoshare.php</scriptfile>
+  <install>
+    <sql>
+      <file charset="utf8" driver="mysql">install.mysql.sql</file>
+      <file charset="utf8" driver="mysqli">install.mysql.sql</file>
+    </sql>
+  </install>
+  <uninstall>
+    <sql>
+      <file charset="utf8" driver="mysql">uninstall.mysql.sql</file>
+      <file charset="utf8" driver="mysqli">uninstall.mysql.sql</file>
+    </sql>
+  </uninstall>
+  <languages folder="language/en-GB">
+    <language tag="en-GB">en-GB.com_allvideoshare.ini</language>
+    <language tag="en-GB">en-GB.mod_allvideosharegallery.ini</language>
+    <language tag="en-GB">en-GB.mod_allvideoshareplayer.ini</language>
+    <language tag="en-GB">en-GB.mod_allvideosharesearch.ini</language>
+  </languages>
+  <files folder="components/com_allvideoshare">
+    <folder>assets</folder>
+    <folder>controllers</folder>
+    <folder>models</folder>
+    <folder>views</folder>
+    <filename>allvideoshare.php</filename>
+    <filename>index.html</filename>
+    <filename>komento_plugin.php</filename>
+    <filename>player.swf</filename>
+    <filename>router.php</filename>
+  </files>
+  <media destination="com_allvideoshare" folder="media/com_allvideoshare">
+    <folder>categories</folder>
+    <folder>system</folder>
+    <folder>videos</folder>
+    <filename>index.html</filename>
+  </media>
+  <administration>
+    <menu img="components/com_allvideoshare/assets/allvideoshare.png">COM_ALLVIDEOSHARE</menu>
+    <files folder="administrator/components/com_allvideoshare">
+      <folder>assets</folder>
+      <folder>controllers</folder>
+      <folder>libraries</folder>
+      <folder>models</folder>
+      <folder>tables</folder>
+      <folder>views</folder>
+      <filename>allvideoshare.php</filename>
+      <filename>index.html</filename>
+      <filename>install.mysql.sql</filename>
+      <filename>uninstall.mysql.sql</filename>
+    </files>
+    <languages folder="administrator/language/en-GB">
+      <language tag="en-GB">en-GB.com_allvideoshare.ini</language>
+      <language tag="en-GB">en-GB.com_allvideoshare.sys.ini</language>
+    </languages>
+  </administration>
+  <modules>
+    <module module="mod_allvideosharegallery" client="site" />
+    <module module="mod_allvideoshareplayer" client="site" />
+    <module module="mod_allvideosharesearch" client="site" />
+  </modules>
+  <plugins>
+    <plugin plugin="allvideoshareplayer" group="content" />
+	<plugin plugin="allvideoshare" group="search" />
+  </plugins>
+  <updateservers>
+	<server type="extension" name="All Video Share - Updates" priority="2">https://allvideoshare.mrvinoth.com/updates/allvideoshare-update.xml</server>
+  </updateservers>
+</extension>

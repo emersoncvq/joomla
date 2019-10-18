@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="search" method="upgrade">
+	<name>plg_search_sigplus</name>
+	<author>Levente Hunyadi</author>
+	<creationDate>Jul 19, 2019</creationDate>
+	<copyright>© 2009-2017 Levente Hunyadi. All rights reserved.</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorUrl>http://hunyadi.info.hu/projects/sigplus/</authorUrl>
+	<version>1.5.0.277</version>
+	<downloadUrl>https://bitbucket.org/hunyadi/sigplus/downloads/</downloadUrl>
+	<description>SIGPLUS_SEARCH_DESCRIPTION</description>
+	<files>
+		<filename plugin="sigplus">sigplus.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_search_sigplus.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_search_sigplus.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_search_sigplus.ini</language>
+		<language tag="de-DE">de-DE/de-DE.plg_search_sigplus.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_search_sigplus.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_search_sigplus.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="search_limit" type="text" default="50" description="JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC" label="JFIELD_PLG_SEARCH_SEARCHLIMIT_LABEL" size="5" />
+				<field name="search_thumbnail" type="radio" default="1" label="SIGPLUS_SEARCH_THUMBNAIL" description="SIGPLUS_SEARCH_THUMBNAIL_DESCRIPTION">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field name="search_lightbox" type="radio" default="1" label="SIGPLUS_SEARCH_LIGHTBOX" description="SIGPLUS_SEARCH_LIGHTBOX_DESCRIPTION">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

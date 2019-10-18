@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" version="3.0" method="upgrade">
+	<name>sigplus</name>
+	<author>Levente Hunyadi</author>
+	<creationDate>Jul 19, 2019</creationDate>
+	<copyright>© 2009-2017 Levente Hunyadi. All rights reserved.</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorUrl>http://hunyadi.info.hu/projects/sigplus</authorUrl>
+	<version>1.5.0.277</version>
+	<downloadUrl>https://bitbucket.org/hunyadi/sigplus/downloads/</downloadUrl>
+	<description>MOD_SIGPLUS_DESCRIPTION</description>
+	<files>
+		<filename module="mod_sigplus">mod_sigplus.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>fields</folder>
+		<folder>tmpl</folder>
+	</files>
+	<scriptfile>script.php</scriptfile>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_sigplus.ini</language>
+		<language tag="de-DE">de-DE/de-DE.mod_sigplus.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.mod_sigplus.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.mod_sigplus.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="SIGPLUS_FIELDSET_BASIC">
+				<field name="source" type="text" default="sampledata/parks/landscape" label="SIGPLUS_SOURCE" description="SIGPLUS_SOURCE_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_LAYOUT" />
+				<field name="layout" type="list" default="fixed" label="SIGPLUS_LAYOUT" description="SIGPLUS_LAYOUT_DESCRIPTION">
+					<option value="fixed">SIGPLUS_LAYOUT_FIXED</option>
+					<option value="flow">SIGPLUS_LAYOUT_FLOW</option>
+					<option value="packed">SIGPLUS_LAYOUT_PACKED</option>
+				</field>
+				<field name="rows" type="text" default="1" showon="layout:fixed" label="SIGPLUS_ROWS" description="SIGPLUS_ROWS_DESCRIPTION" />
+				<field name="cols" type="text" default="1" showon="layout:fixed" label="SIGPLUS_COLUMNS" description="SIGPLUS_COLUMNS_DESCRIPTION" />
+				<field name="maxcount" type="text" default="0" label="SIGPLUS_MAXCOUNT" description="SIGPLUS_MAXCOUNT_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_ALIGNMENT" />
+				<field name="alignment" type="list" default="center" label="SIGPLUS_ALIGNMENT" description="SIGPLUS_ALIGNMENT_DESCRIPTION">
+					<option value="before-clear">SIGPLUS_ALIGNMENT_BEFORE</option>
+					<option value="center">SIGPLUS_ALIGNMENT_CENTER</option>
+					<option value="after-clear">SIGPLUS_ALIGNMENT_AFTER</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_PREVIEW" />
+				<field name="preview_width" type="text" default="200" label="SIGPLUS_PREVIEW_WIDTH" description="SIGPLUS_PREVIEW_WIDTH_DESCRIPTION" />
+				<field name="preview_height" type="text" default="200" label="SIGPLUS_PREVIEW_HEIGHT" description="SIGPLUS_PREVIEW_HEIGHT_DESCRIPTION" />
+				<field name="preview_crop" type="radio" default="0" label="SIGPLUS_PREVIEW_CROP" description="SIGPLUS_PREVIEW_CROP_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_LIGHTBOX" />
+				<field name="lightbox" type="groupedlist" default="boxplus/light" label="SIGPLUS_LIGHTBOX" description="SIGPLUS_LIGHTBOX_DESCRIPTION">
+					<option value="none">SIGPLUS_LIGHTBOX_NONE</option>
+					<group label="SIGPLUS_BOXPLUS">
+						<option value="boxplus/light">SIGPLUS_BOXPLUS_LIGHT</option>
+						<option value="boxplus/dark">SIGPLUS_BOXPLUS_DARK</option>
+					</group>
+					<option value="fancybox">SIGPLUS_FANCYBOX</option>
+					<option value="fancybox3">SIGPLUS_FANCYBOX3</option>
+					<option value="hoverplus">SIGPLUS_HOVERPLUS</option>
+					<option value="slimbox2">SIGPLUS_SLIMBOX2</option>
+					<option value="bootstrap">SIGPLUS_BOOTSTRAP</option>
+				</field>
+				<field name="lightbox_autocenter" type="radio" default="1" label="SIGPLUS_LIGHTBOX_AUTOCENTER" description="SIGPLUS_LIGHTBOX_AUTOCENTER_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="lightbox_autofit" type="radio" default="1" label="SIGPLUS_LIGHTBOX_AUTOFIT" description="SIGPLUS_LIGHTBOX_AUTOFIT_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="lightbox_thumbs" type="list" default="inside" label="SIGPLUS_LIGHTBOX_THUMBS" description="SIGPLUS_LIGHTBOX_THUMBS_DESCRIPTION">
+					<option value="inside">SIGPLUS_LIGHTBOX_THUMBS_INSIDE</option>
+					<option value="outside">SIGPLUS_LIGHTBOX_THUMBS_OUTSIDE</option>
+					<option value="none">JHIDE</option>
+				</field>
+				<field name="lightbox_slideshow" type="text" default="0" label="SIGPLUS_LIGHTBOX_SLIDESHOW" description="SIGPLUS_LIGHTBOX_SLIDESHOW_DESCRIPTION" />
+				<field name="lightbox_autostart" type="radio" default="0" showon="lightbox_slideshow!:0" label="SIGPLUS_LIGHTBOX_AUTOSTART" description="SIGPLUS_LIGHTBOX_AUTOSTART_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_ROTATOR" />
+				<field name="rotator_orientation" type="list" default="vertical" showon="layout:fixed,packed" label="SIGPLUS_ROTATOR_ORIENTATION" description="SIGPLUS_ROTATOR_ORIENTATION_DESCRIPTION">
+					<option value="horizontal">SIGPLUS_ROTATOR_ORIENTATION_HORIZONTAL</option>
+					<option value="vertical">SIGPLUS_ROTATOR_ORIENTATION_VERTICAL</option>
+				</field>
+				<field name="rotator_buttons" type="radio" default="1" showon="layout:fixed" label="SIGPLUS_ROTATOR_BUTTONS" description="SIGPLUS_ROTATOR_BUTTONS_DESCRIPTION">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field name="rotator_navigation" type="list" default="bottom" showon="layout:fixed" label="SIGPLUS_ROTATOR_NAVIGATION" description="SIGPLUS_ROTATOR_NAVIGATION_DESCRIPTION">
+					<option value="bottom">SIGPLUS_ROTATOR_NAVIGATION_BOTTOM</option>
+					<option value="top">SIGPLUS_ROTATOR_NAVIGATION_TOP</option>
+					<option value="none">SIGPLUS_ROTATOR_NAVIGATION_NONE</option>
+					<option value="both">SIGPLUS_ROTATOR_NAVIGATION_BOTH</option>
+				</field>
+				<field name="rotator_links" type="radio" default="1" showon="layout:fixed" label="SIGPLUS_ROTATOR_LINKS" description="SIGPLUS_ROTATOR_LINKS_DESCRIPTION">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+				<field name="rotator_trigger" type="list" default="click" showon="layout:fixed" label="SIGPLUS_ROTATOR_TRIGGER" description="SIGPLUS_ROTATOR_TRIGGER_DESCRIPTION">
+					<option value="click">SIGPLUS_ROTATOR_TRIGGER_CLICK</option>
+					<option value="mouseover">SIGPLUS_ROTATOR_TRIGGER_MOUSEOVER</option>
+				</field>
+				<field name="rotator_step" type="list" default="single" showon="layout:fixed" label="SIGPLUS_ROTATOR_STEP" description="SIGPLUS_ROTATOR_STEP_DESCRIPTION">
+					<option value="single">SIGPLUS_ROTATOR_STEP_SINGLE</option>
+					<option value="page">SIGPLUS_ROTATOR_STEP_PAGE</option>
+				</field>
+				<field name="rotator_duration" type="text" default="800" showon="layout:fixed" label="SIGPLUS_ROTATOR_DURATION" description="SIGPLUS_ROTATOR_DURATION_DESCRIPTION" />
+				<field name="rotator_delay" type="text" default="0" showon="layout:fixed" label="SIGPLUS_ROTATOR_DELAY" description="SIGPLUS_ROTATOR_DELAY_DESCRIPTION" />
+				<field name="loop" type="radio" default="1" label="SIGPLUS_LOOP" description="SIGPLUS_LOOP_DESCRIPTION">
+					<option value="1">JON</option>
+					<option value="0">JOFF</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_CAPTION" />
+				<field name="caption_visibility" type="list" default="mouseover" label="SIGPLUS_CAPTION_VISIBILITY" description="SIGPLUS_CAPTION_VISIBILITY_DESCRIPTION">
+					<option value="none">SIGPLUS_CAPTION_NONE</option>
+					<option value="mouseover">SIGPLUS_CAPTION_MOUSEOVER</option>
+					<option value="always">SIGPLUS_CAPTION_ALWAYS</option>
+				</field>
+				<field name="caption_position" type="list" default="overlay" showon="caption_visibility!:none" label="SIGPLUS_CAPTION_POSITION" description="SIGPLUS_CAPTION_POSITION_DESCRIPTION">
+					<option value="overlay-bottom">SIGPLUS_CAPTION_OVERLAY_BOTTOM</option>
+					<option value="overlay-top">SIGPLUS_CAPTION_OVERLAY_TOP</option>
+					<option value="below">SIGPLUS_CAPTION_BELOW</option>
+					<option value="above">SIGPLUS_CAPTION_ABOVE</option>
+				</field>
+				<field name="caption_title" type="textarea" cols="40" label="SIGPLUS_CAPTION_TITLE_DEFAULT" description="SIGPLUS_CAPTION_TITLE_DEFAULT_DESCRIPTION" filter="raw" />
+				<field name="caption_summary" type="textarea" cols="40" label="SIGPLUS_CAPTION_SUMMARY_DEFAULT" description="SIGPLUS_CAPTION_SUMMARY_DEFAULT_DESCRIPTION" filter="raw" />
+			</fieldset>
+			<fieldset name="advanced" label="SIGPLUS_FIELDSET_ADVANCED" addfieldpath="modules/mod_sigplus/fields/">
+				<field type="spacer" label="SIGPLUS_CATEGORY_DOWNLOAD" />
+				<field name="download" type="accesslevel" default="" label="SIGPLUS_DOWNLOAD" description="SIGPLUS_DOWNLOAD_DESCRIPTION">
+					<option value="">JDISABLED</option>
+				</field>
+				<field name="metadata" type="accesslevel" default="" label="SIGPLUS_METADATA" description="SIGPLUS_METADATA_DESCRIPTION">
+					<option value="">JDISABLED</option>
+				</field>
+				<field name="protection" type="radio" default="0" label="SIGPLUS_PROTECTION" description="SIGPLUS_PROTECTION_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_PREVIEW_STYLE" />
+				<field name="preview_margin" type="dimension" size="6" label="SIGPLUS_CSS_MARGIN" description="SIGPLUS_CSS_MARGIN_DESCRIPTION" />
+				<field name="preview_border_style" type="list" default="" label="SIGPLUS_CSS_BORDER_STYLE" description="SIGPLUS_CSS_BORDER_STYLE_DESCRIPTION">
+					<option value="">SIGPLUS_CSS_BORDER_DEFAULT</option>
+					<option value="none">SIGPLUS_CSS_BORDER_NONE</option>
+					<option value="dotted">SIGPLUS_CSS_BORDER_DOTTED</option>
+					<option value="dashed">SIGPLUS_CSS_BORDER_DASHED</option>
+					<option value="solid">SIGPLUS_CSS_BORDER_SOLID</option>
+					<option value="double">SIGPLUS_CSS_BORDER_DOUBLE</option>
+					<option value="groove">SIGPLUS_CSS_BORDER_GROOVE</option>
+					<option value="ridge">SIGPLUS_CSS_BORDER_RIDGE</option>
+					<option value="inset">SIGPLUS_CSS_BORDER_INSET</option>
+					<option value="outset">SIGPLUS_CSS_BORDER_OUTSET</option>
+				</field>
+				<field name="preview_border_width" type="dimension" size="6" showon="preview_border_style!:none" label="SIGPLUS_CSS_BORDER_WIDTH" description="SIGPLUS_CSS_BORDER_WIDTH_DESCRIPTION" />
+				<field name="preview_border_color" type="color" showon="preview_border_style!:none" label="SIGPLUS_CSS_BORDER_COLOR" description="SIGPLUS_CSS_BORDER_COLOR_DESCRIPTION" />
+				<field name="preview_padding" type="dimension" size="6" label="SIGPLUS_CSS_PADDING" description="SIGPLUS_CSS_PADDING_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_SORTING" />
+				<field name="sort_criterion" type="list" default="labels-filename" label="SIGPLUS_SORT_CRITERION" description="SIGPLUS_SORT_CRITERION_DESCRIPTION">
+					<option value="labels-filename">SIGPLUS_SORT_CRITERION_LABELS_FILENAME</option>
+					<option value="labels-mtime">SIGPLUS_SORT_CRITERION_LABELS_MTIME</option>
+					<option value="labels-filesize">SIGPLUS_SORT_CRITERION_LABELS_FILESIZE</option>
+					<option value="labels-random">SIGPLUS_SORT_CRITERION_LABELS_RANDOM</option>
+					<option value="labels">SIGPLUS_SORT_CRITERION_LABELS</option>
+					<option value="filename">SIGPLUS_SORT_CRITERION_FILENAME</option>
+					<option value="mtime">SIGPLUS_SORT_CRITERION_MTIME</option>
+					<option value="filesize">SIGPLUS_SORT_CRITERION_FILESIZE</option>
+					<option value="random">SIGPLUS_SORT_CRITERION_RANDOM</option>
+				</field>
+				<field name="sort_order" type="list" default="0" showon="sort_criterion!:random" label="SIGPLUS_SORT_ORDER" description="SIGPLUS_SORT_ORDER_DESCRIPTION">
+					<option value="0">SIGPLUS_SORT_ORDER_ASCENDING</option>
+					<option value="1">SIGPLUS_SORT_ORDER_DESCENDING</option>
+				</field>
+				<field name="depth" type="number" min="-1" step="0" default="0" label="SIGPLUS_DEPTH" description="SIGPLUS_DEPTH_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_WATERMARK" />
+				<field name="watermark_position" type="list" default="" label="SIGPLUS_WATERMARK_POSITION" description="SIGPLUS_WATERMARK_POSITION_DESCRIPTION">
+					<option value="">SIGPLUS_ALIGNMENT_NONE</option>
+					<option value="n">SIGPLUS_ALIGNMENT_NORTH</option>
+					<option value="ne">SIGPLUS_ALIGNMENT_NORTHEAST</option>
+					<option value="e">SIGPLUS_ALIGNMENT_EAST</option>
+					<option value="se">SIGPLUS_ALIGNMENT_SOUTHEAST</option>
+					<option value="s">SIGPLUS_ALIGNMENT_SOUTH</option>
+					<option value="sw">SIGPLUS_ALIGNMENT_SOUTHWEST</option>
+					<option value="w">SIGPLUS_ALIGNMENT_WEST</option>
+					<option value="nw">SIGPLUS_ALIGNMENT_NORTHWEST</option>
+					<option value="c">SIGPLUS_ALIGNMENT_CENTER</option>
+				</field>
+				<field name="watermark_x" type="text" showon="watermark_position!:,c,n,s" label="SIGPLUS_WATERMARK_X" description="SIGPLUS_WATERMARK_X_DESCRIPTION" />
+				<field name="watermark_y" type="text" showon="watermark_position!:,c,e,w" label="SIGPLUS_WATERMARK_Y" description="SIGPLUS_WATERMARK_Y_DESCRIPTION" />
+				<field name="watermark_source" type="text" default="watermark.png" showon="watermark_position:n,ne,e,se,s,sw,w,nw,c" label="SIGPLUS_WATERMARK_SOURCE" description="SIGPLUS_WATERMARK_SOURCE_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_THUMBNAIL" />
+				<field name="thumb_width" type="text" default="60" label="SIGPLUS_THUMB_WIDTH" description="SIGPLUS_THUMB_WIDTH_DESCRIPTION" />
+				<field name="thumb_height" type="text" default="60" label="SIGPLUS_THUMB_HEIGHT" description="SIGPLUS_THUMB_HEIGHT_DESCRIPTION" />
+				<field name="thumb_crop" type="radio" default="0" label="SIGPLUS_THUMB_CROP" description="SIGPLUS_THUMB_CROP_DESCRIPTION">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_LIGHTBOX_ADVANCED" />
+				<field name="lightbox_transition" type="list" default="sine" label="SIGPLUS_LIGHTBOX_TRANSITION" description="SIGPLUS_LIGHTBOX_TRANSITION_DESCRIPTION">
+					<option value="linear">SIGPLUS_TRANSITION_LINEAR</option>
+					<option value="quad">SIGPLUS_TRANSITION_QUAD</option>
+					<option value="cubic">SIGPLUS_TRANSITION_CUBIC</option>
+					<option value="quart">SIGPLUS_TRANSITION_QUART</option>
+					<option value="quint">SIGPLUS_TRANSITION_QUINT</option>
+					<option value="expo">SIGPLUS_TRANSITION_EXPO</option>
+					<option value="circ">SIGPLUS_TRANSITION_CIRC</option>
+					<option value="sine">SIGPLUS_TRANSITION_SINE</option>
+					<option value="back">SIGPLUS_TRANSITION_BACK</option>
+					<option value="bounce">SIGPLUS_TRANSITION_BOUNCE</option>
+					<option value="elastic">SIGPLUS_TRANSITION_ELASTIC</option>
+				</field>
+				<field type="spacer" showon="layout:fixed" label="SIGPLUS_CATEGORY_ROTATOR_ADVANCED" />
+				<field name="rotator_alignment" type="list" default="center" showon="layout:fixed" label="SIGPLUS_ROTATOR_ALIGNMENT" description="SIGPLUS_ROTATOR_ALIGNMENT_DESCRIPTION">
+					<option value="c">SIGPLUS_ALIGNMENT_CENTER</option>
+					<option value="n">SIGPLUS_ALIGNMENT_NORTH</option>
+					<option value="ne">SIGPLUS_ALIGNMENT_NORTHEAST</option>
+					<option value="e">SIGPLUS_ALIGNMENT_EAST</option>
+					<option value="se">SIGPLUS_ALIGNMENT_SOUTHEAST</option>
+					<option value="s">SIGPLUS_ALIGNMENT_SOUTH</option>
+					<option value="sw">SIGPLUS_ALIGNMENT_SOUTHWEST</option>
+					<option value="w">SIGPLUS_ALIGNMENT_WEST</option>
+					<option value="nw">SIGPLUS_ALIGNMENT_NORTHWEST</option>
+				</field>
+				<field name="rotator_transition" type="list" default="sine" showon="layout:fixed" label="SIGPLUS_ROTATOR_TRANSITION" description="SIGPLUS_ROTATOR_TRANSITION_DESCRIPTION">
+					<option value="linear">SIGPLUS_TRANSITION_LINEAR</option>
+					<option value="quad">SIGPLUS_TRANSITION_QUAD</option>
+					<option value="cubic">SIGPLUS_TRANSITION_CUBIC</option>
+					<option value="quart">SIGPLUS_TRANSITION_QUART</option>
+					<option value="quint">SIGPLUS_TRANSITION_QUINT</option>
+					<option value="expo">SIGPLUS_TRANSITION_EXPO</option>
+					<option value="circ">SIGPLUS_TRANSITION_CIRC</option>
+					<option value="sine">SIGPLUS_TRANSITION_SINE</option>
+					<option value="back">SIGPLUS_TRANSITION_BACK</option>
+					<option value="bounce">SIGPLUS_TRANSITION_BOUNCE</option>
+					<option value="elastic">SIGPLUS_TRANSITION_ELASTIC</option>
+				</field>
+				<field type="spacer" label="SIGPLUS_CATEGORY_CAPTION_TEMPLATE" />
+				<field name="caption_title_template" type="textarea" cols="40" label="SIGPLUS_CAPTION_TITLE_TEMPLATE" description="SIGPLUS_CAPTION_TITLE_TEMPLATE_DESCRIPTION" filter="raw" />
+				<field name="caption_summary_template" type="textarea" cols="40" default="{$text} ({$current}/{$total})" label="SIGPLUS_CAPTION_SUMMARY_TEMPLATE" description="SIGPLUS_CAPTION_SUMMARY_TEMPLATE_DESCRIPTION" filter="raw" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_FOLDER" />
+				<field name="caption_source" type="text" default="labels.txt" label="SIGPLUS_CAPTION_SOURCE" description="SIGPLUS_CAPTION_SOURCE_DESCRIPTION" />
+				<field name="quality" type="text" default="85" label="SIGPLUS_IMAGE_QUALITY" description="SIGPLUS_IMAGE_QUALITY_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_MODULE" />
+				<field name="id" type="text" label="SIGPLUS_IDENTIFIER" description="SIGPLUS_IDENTIFIER_DESCRIPTION" />
+				<field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="settings" type="textarea" cols="40" label="SIGPLUS_SETTINGS_ADDITIONAL" description="SIGPLUS_SETTINGS_ADDITIONAL_DESCRIPTION" />
+				<field type="spacer" label="SIGPLUS_CATEGORY_BACKUP_RESTORE" />
+				<field name="settings_exporter" type="exporter" label="SIGPLUS_SETTINGS_MIGRATE" description="SIGPLUS_SETTINGS_MIGRATE_DESCRIPTION" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

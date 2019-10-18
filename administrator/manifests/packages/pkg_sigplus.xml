@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="package" method="upgrade">
+	<packagename>sigplus</packagename>
+	<packager>Levente Hunyadi</packager>
+	<name>sigplus</name>
+	<author>Levente Hunyadi</author>
+	<creationDate>Jul 19, 2019</creationDate>
+	<copyright>© 2009-2019 Levente Hunyadi. All rights reserved.</copyright>
+	<license>GNU/GPL</license>
+	<authorUrl>http://hunyadi.info.hu/sigplus</authorUrl>
+	<version>1.5.0.277</version>
+	<downloadUrl>https://bitbucket.org/hunyadi/sigplus/downloads/</downloadUrl>
+	<files>
+		<file id="sigplus" type="plugin" group="content">plg_content_sigplus.ar.zip</file>
+		<file id="sigplus" type="plugin" group="search">plg_search_sigplus.ar.zip</file>
+		<file id="sigplus" type="plugin" group="editors-xtd">plg_button_sigplus.ar.zip</file>
+		<file id="mod_sigplus" type="module" client="site">mod_sigplus.ar.zip</file>
+	</files>
+	<updateservers>
+		<server type="extension" name="sigplus updates">http://hunyadi.info.hu/sigplus/extension.xml</server>
+	</updateservers>
+</extension>

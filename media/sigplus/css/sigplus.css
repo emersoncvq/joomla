@@ -1,0 +1,192 @@
+/**
+* @file
+* @brief    sigplus Image Gallery Plus image gallery stylesheet
+* @author   Levente Hunyadi
+* @version  1.5.0
+* @remarks  Copyright (C) 2009-2017 Levente Hunyadi
+* @remarks  Licensed under GNU/GPLv3, see http://www.gnu.org/licenses/gpl-3.0.html
+* @see      http://hunyadi.info.hu/projects/sigplus
+*/
+
+/*
+* User-definable image gallery stylesheet rules.
+* Rules in this section should be changed as needed.
+*/
+
+/* images */
+.slideplus-slot {
+margin:2px !important;
+}
+
+a.sigplus-image > img {
+border:0 none transparent !important;
+padding:0 !important;
+}
+
+/* example settings
+.slideplus-slot {
+margin:4px !important;
+}
+
+a.sigplus-image > img {
+border:1px solid gray !important;
+padding:2px !important;
+}
+
+a.sigplus-image:hover > img {
+border:1px solid red !important;
+padding:2px !important;
+}
+*/
+
+/*
+* Generic image gallery stylesheet rules.
+* Rules in this section should normally be left as they are.
+*/
+
+a.sigplus-image {
+display:inline-block !important;
+box-sizing:border-box !important;
+}
+
+a.sigplus-image > img {
+box-sizing:border-box !important;
+max-width:100%;
+height:auto;
+}
+
+.sigplus-gallery ul > li {
+overflow:visible !important;
+}
+
+.sigplus-gallery ul > li:before {
+content:none !important;  /* remove list bullet images inserted by some templates */
+}
+
+.sigplus-gallery ul > li > a,
+.sigplus-gallery ul > li > div > a,
+.sigplus-gallery ul > li > div > .captionplus > a {
+display:inline-block !important;
+}
+
+.sigplus-gallery .sigplus-thumb {
+display:none;
+}
+
+/* image gallery alignment */
+.sigplus-center {
+text-align:center !important;  /* for flow layout */
+}
+
+.sigplus-center > * {
+float:none !important;
+clear:both !important;
+}
+
+.sigplus-left {
+text-align:left !important;  /* for flow layout */
+}
+
+.sigplus-right {
+text-align:right !important;  /* for flow layout */
+}
+
+.sigplus-left.sigplus-float > * {
+float:left !important;
+clear:left !important;
+}
+
+.sigplus-left.sigplus-clear > * {
+margin:0 auto 0 0 !important;
+}
+
+.sigplus-right.sigplus-float > * {
+float:right !important;
+clear:right !important;
+}
+
+.sigplus-right.sigplus-clear > * {
+margin: 0 0 0 auto !important;
+}
+
+/* flow layout */
+.sigplus-gallery > ul {
+display:block;
+position:relative;
+margin:0;
+padding:0;
+list-style-type:none;
+list-style-image:none;
+}
+
+.sigplus-gallery > ul > li {
+display:inline-block;
+margin:1px;
+border:0 none transparent;
+padding:0;
+background:transparent none no-repeat scroll 0 0;
+text-align:center;
+visibility:visible;
+opacity:1;
+animation:fade-in 1s;
+}
+
+.sigplus-gallery > ul > li.sigplus-hidden {
+opacity:0;
+transition:opacity 1s linear;
+}
+
+@keyframes fade-in {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+/* packed layout */
+.sigplus-gallery.scrollplus-horizontal .scrollplus-content {
+display: inline;
+}
+
+.sigplus-gallery.scrollplus-container ul {
+display: inline-flex;
+flex-wrap: nowrap;
+align-items: center;
+flex: none;
+list-style-type: none;
+margin: 0;
+padding: 0;
+white-space: nowrap;
+}
+
+.sigplus-gallery.scrollplus-container ul > li {
+display: inline-block;
+flex: none;
+}
+
+.sigplus-gallery.scrollplus-vertical ul {
+flex-direction: column;
+max-width: 100%;
+}
+
+.sigplus-gallery.scrollplus-horizontal ul {
+flex-direction: row;
+}
+
+/* hidden layout */
+.sigplus-hidden {
+display:none !important;
+}
+
+/* horizontally scrollable gallery in <noscript> mode */
+.sigplus-gallery.sigplus-noscript > ul {
+overflow:auto !important;
+white-space:pre !important;
+}
+
+.sigplus-summary, .sigplus-download {
+display:none !important;
+}
+
+/* search results page item */
+.sigplus-search-preview {
+cursor:pointer;
+}

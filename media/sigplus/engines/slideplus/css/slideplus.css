@@ -1,0 +1,406 @@
+
+/*
+* Size of content item holder (customizable)
+*/
+
+.slideplus-slot {
+width: 200px;  /* preferred width for items */
+}
+
+.slideplus-aspect {
+padding-bottom: 100%;  /* preferred height for items, set value in terms of preferred width */
+}
+
+/*
+* Caption area (customizable)
+*/
+
+.slideplus-above > .slideplus-aspect,
+.slideplus-below > .slideplus-aspect {
+padding-top: 40px;  /* extra vertical space reserved for captions, always leave "padding-top" */
+}
+
+.slideplus-above > .slideplus-content {
+padding-top: 40px;  /* extra vertical space reserved for captions, use same value as above */
+}
+
+.slideplus-below > .slideplus-content {
+padding-bottom: 40px;  /* extra vertical space reserved for captions, use same value as above */
+}
+
+.slideplus-above > .slideplus-caption,
+.slideplus-below > .slideplus-caption {
+height: 40px;  /* caption height, use the same value as for "padding-top" above */
+}
+
+.slideplus-top .slideplus-caption,
+.slideplus-bottom .slideplus-caption {
+color: white;
+background-color: rgba(0,0,0,0.4);  /* background color for overlay captions */
+}
+
+.slideplus-top .slideplus-caption a,
+.slideplus-bottom .slideplus-caption a {
+color: white;
+}
+
+/*
+* Item alignment (customizable)
+*/
+
+.slideplus-content {
+align-items: center;  /* vertical alignment of item in sliding strip item container */
+justify-content: center;  /* horizontal alignment of item in sliding strip item container */
+}
+
+/*
+* Navigation bar (customizable)
+*/
+
+.slideplus-navigation.slideplus-top {
+/* display: none;  /* uncomment to hide top navigation bar */
+}
+
+.slideplus-navigation.slideplus-bottom {
+/* display: none;  /* uncomment to hide bottom navigation bar */
+}
+
+/*
+* JavaScript disabled mode (customizable)
+*/
+
+noscript.slideplus > ul > li {
+width: 200px;
+height: 200px;
+}
+
+/*
+* Viewport and viewport elements
+*/
+
+.slideplus-container {
+display: inline-block;
+max-width: 100%;
+}
+
+.slideplus-viewport {
+display: block;
+position: relative;
+max-width: 100%;
+overflow: hidden;
+}
+
+.slideplus-stripe {
+display: block;
+position: relative;
+max-width: 100%;
+animation-duration: 3s;
+animation-timing-function: linear;
+}
+
+.slideplus-stripe.slideplus-successor {
+position: absolute;
+}
+
+.slideplus-stripe > div {
+display: flex;
+}
+
+.slideplus-slot {
+display: inline-block;
+position: relative;
+}
+
+.slideplus-aspect {
+box-sizing: border-box;
+max-width: 100%;
+}
+
+.slideplus-content, .slideplus-caption {
+left: 0;
+right: 0;
+position: absolute;
+}
+
+.slideplus-content {
+display: flex;
+top: 0;
+bottom: 0;
+}
+
+.slideplus-content > div {
+display: block;
+position: relative;
+max-width: 100%;
+max-height: 100%;
+min-height: 85px;  /* make sure navigation buttons and spinner icon are visible */
+overflow: hidden;
+overflow-wrap: break-word;
+}
+
+.slideplus-content > div > * {
+vertical-align: middle;  /* remove space injected between lines consisting of inline elements */
+}
+
+.slideplus-caption {
+box-sizing: border-box;
+padding: 4px;
+max-height: 100%;
+overflow-x: hidden;
+overflow-y: auto;
+overflow-wrap: break-word;
+text-align: center;
+}
+
+.slideplus-top .slideplus-caption,
+.slideplus-bottom .slideplus-caption {
+pointer-events: none;
+visibility: hidden;
+}
+
+@media (hover) and (pointer: fine), (-moz-touch-enabled: 0) {  /* rules for desktop devices */
+.slideplus-top .slideplus-caption,
+.slideplus-bottom .slideplus-caption {
+pointer-events: auto;
+}
+}
+
+.slideplus-top:hover .slideplus-caption,
+.slideplus-bottom:hover .slideplus-caption {
+visibility: visible;
+}
+
+.slideplus-above > .slideplus-caption,
+.slideplus-top .slideplus-caption {
+top: 0;
+}
+
+.slideplus-bottom .slideplus-caption,
+.slideplus-below > .slideplus-caption {
+bottom: 0;
+}
+
+noscript.slideplus > ul > li > img,
+.slideplus-content > div > img {
+max-width: 100%;
+height: auto;
+}
+
+/*
+* Progress indicator
+*/
+
+.loadplus-progress {
+display: inline-block;
+position: absolute;
+box-sizing: border-box;
+width: 80px;
+height: 80px;
+top: 50%;
+left: 50%;
+margin: -40px 0 0 -40px;
+border-radius: 100%;
+border: 10px solid rgba(64, 64, 64, 0.2);
+border-top-color: #000;
+animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+100% { transform: rotate(360deg); }
+}
+
+.loadplus-hidden {
+visibility: hidden;
+}
+
+/**
+* Overlay navigation buttons
+*/
+
+.slideplus-viewport > .slideplus-button {
+position: absolute;
+background: transparent no-repeat center center;
+}
+
+.slideplus-viewport.slideplus-horizontal > .slideplus-button {
+width: 58px;
+}
+
+.slideplus-container[dir=ltr] > .slideplus-viewport.slideplus-horizontal > .slideplus-previous,
+.slideplus-container[dir=rtl] > .slideplus-viewport.slideplus-horizontal > .slideplus-next {
+left: 0;
+right: auto;
+top: 0;
+bottom: 0;
+background-image: url('button-left.svg');
+}
+
+.slideplus-container[dir=ltr] > .slideplus-viewport.slideplus-horizontal > .slideplus-next,
+.slideplus-container[dir=rtl] > .slideplus-viewport.slideplus-horizontal > .slideplus-previous {
+left: auto;
+right: 0;
+top: 0;
+bottom: 0;
+background-image: url('button-right.svg');
+}
+
+.slideplus-viewport.slideplus-vertical > .slideplus-button {
+height: 58px;
+}
+
+.slideplus-viewport.slideplus-vertical > .slideplus-previous {
+top: 0;
+left: 0;
+right: 0;
+background-image: url('button-up.svg');
+}
+
+.slideplus-viewport.slideplus-vertical > .slideplus-next {
+bottom: 0;
+left: 0;
+right: 0;
+background-image: url('button-down.svg');
+}
+
+/*
+* Navigation bar
+*/
+
+.slideplus-navigation {
+display: flex;
+justify-content: center;
+}
+
+.slideplus-navigation > *,
+.slideplus-paging > * {
+padding: 0 3px;
+width: 1.4em;
+height: 1.4em;
+background-size: 1.4em 1.4em;
+background-repeat: no-repeat;
+}
+
+.slideplus-navigation > span {
+flex-grow: 1;
+}
+
+.slideplus-navigation[dir=ltr] > .slideplus-first,
+.slideplus-navigation[dir=rtl] > .slideplus-last {
+background-image: url('icon-first.svg');
+}
+
+.slideplus-navigation[dir=ltr] > .slideplus-previous,
+.slideplus-navigation[dir=rtl] > .slideplus-next {
+background-image: url('icon-previous.svg');
+}
+
+.slideplus-navigation[dir=ltr] > .slideplus-next,
+.slideplus-navigation[dir=rtl] > .slideplus-previous {
+background-image: url('icon-next.svg');
+}
+
+.slideplus-navigation[dir=ltr] > .slideplus-last,
+.slideplus-navigation[dir=rtl] > .slideplus-first {
+background-image: url('icon-last.svg');
+}
+
+.slideplus-first.slideplus-hidden,
+.slideplus-previous.slideplus-hidden,
+.slideplus-next.slideplus-hidden,
+.slideplus-last.slideplus-hidden {
+display: unset;
+visibility: hidden;
+}
+
+.slideplus-paging {
+overflow: hidden;
+text-align: center;
+}
+
+.slideplus-pager {
+display: inline-block;
+box-sizing: border-box;
+border: 1px solid gray;
+border-radius: 100%;
+padding: 0;
+color: inherit;
+text-decoration: none;
+}
+
+.slideplus-pager.slideplus-current {
+color: white;
+background-color: gray;
+}
+
+.slideplus-pager > span {
+vertical-align: middle;
+}
+
+/*
+* Navigation animation sequence
+*/
+
+.slideplus-fade-in {
+animation-name: slideplus-fade-in;
+}
+
+@keyframes slideplus-fade-in {
+0% { opacity: 0.0; }
+100% { opacity: 1.0; }
+}
+
+.slideplus-fade-out {
+animation-name: slideplus-fade-out;
+}
+
+@keyframes slideplus-fade-out {
+0% { opacity: 1.0; }
+100% { opacity: 0.0; }
+}
+
+.slideplus-push-left {
+animation-name: slideplus-push-left;
+}
+
+@keyframes slideplus-push-left {
+0% { transform: translate(0, 0); }
+100% { transform: translate(-100%, 0); }
+}
+
+.slideplus-push-right {
+animation-name: slideplus-push-right;
+}
+
+@keyframes slideplus-push-right {
+0% { transform: translate(0, 0); }
+100% { transform: translate(100%, 0); }
+}
+
+/*
+* Hide inactive controls and display elements
+*/
+
+.slideplus-hidden {
+display: none;
+}
+
+/*
+* JavaScript disabled mode
+*/
+
+noscript.slideplus > ul {
+padding: 0;
+list-style-type: none;
+overflow-x: auto;
+overflow-y: hidden;
+white-space: nowrap;
+}
+
+noscript.slideplus > ul > li {
+display: inline-block;
+position: relative;
+overflow-x: hidden;
+overflow-y: auto;
+overflow-wrap: break-word;
+white-space: normal;
+}

@@ -1,0 +1,208 @@
+﻿GPXTrackMap Release Notes
+
+V1.4.1 Beta 1 - 2017-09-06
+
+The OpenCycleMap and other map layers from Thunderforest (www.thunderforest.com)
+now require an API key. Added an option to include this key and get the
+map layers to work correctly on http and https.
+
+
+V1.4.0 Beta 1 - 2017-01-15
+
+Beta version which includes the OpenStreetMap and OpenLayers libs in the
+Plugin distribution to allow GTM to work on https servers.
+
+Added "zoomlevel" parameter to set a fixed zoom level. Useful when your
+track has only a single trackpoint (and auto-zoom does not work).
+
+
+V1.3.3 - 2014-12-30
+
+New: Fullscreen switch to toggle the map between normal and fullscreen mode
+  (see the plugin options / map controls tab)
+  NOTE: this will not work nicely if you have multiple maps on a single page.
+Improved: The "map controls and layers" option page has been split into 
+  "map controls" and "map layers". It just got too long with all those new layers.
+Improved: The plugin now outputs it's version number in a comment in the html
+  output so it'll be easier for me to track down problems on live sites
+Fixed: attribution on some of the map layers, changed CC-by-SA to ODbl license
+
+GENERAL NOTE: before using ANY map layer, you should check with the supplier
+of the map tiles if it is ok to use their tiles! The one's labelled with
+"OpenStreetMap <x>" in the plugin are fine. All others: use at your own risk!
+
+
+V1.3.2 - 2014-12-22
+
+Added: six new Map Layers:
+- Transport, Landscape and Outdoors layers from Thunderforest (Andy Alan),
+  who also provides the OpenCycleMap: http://www.thunderforest.com/
+- MapQuest from http://www.mapquest.com/  
+- OpenTopoMap from http://opentopomap.org/
+- MeMoMaps Public Transport from Melchior Moos, http://memomaps.de/
+  (IMPORTANT: before using this map layer on a live server, contact 
+   Mr. Moos via his site and ask for his permission!!)
+  
+Fixed: Mapnik DE layer had CORS problems, now working again
+Fixed: Hike&Bike server has moved to new URL, fixed 
+Fixed: Hillshading layer now disappears below zoom level of 16 instead of showing pink 
+tiles. Also the server URL had changed, fixed this as well. 
+Known issues: Hillshading layer does not work in combination with BING(tm) maps.
+I can't for the life of me figure out why...
+ 
+ 
+V1.3.1 -
+
+New: Support for up to three custom map layers added.
+see http://software.frankingermann.de/gpxtrackmap/gtm-documentation/custom-map-layers
+for documentation on how to use this.
+ 
+New: added option to turn Warnings / Errors off (plugin options / advanced settings)
+
+
+V1.3.0 -
+
+New: Added a switch in the extended plugin parameters to use jQuery instead of mootools
+to include the track map. This is needed for some newer J3.2x templates that exclusively
+use jQuery and don't use the mootools library at all. Fixes "empty map" problem for
+those templates.
+
+Improved: Translation of the plugin made easier: new strings are now always added
+at the top of the resp. translation files. A new file called
+gpxtrackmap-translation-strings.txt in the plugin directory was added to keep 
+track of all new strings / translations by version.
+
+Improved: included this file (the release notes) into the plugin distribution
+
+V1.2.3 -
+
+New: added possibility to show "remote" gpx files via URL rather than a local path
+on the server
+
+New: added possibility to have waypoint symbols (icons) instead of simple dots
+
+New: added possibility to use BBCode in waypoint popups that get transformed in to HTML,
+so it's now possible to have links and images in waypoint popups.
+
+v1.2.2 -
+
+New: a bunch of new parameters to customize the speed and elevation diagrams' axis
+rendering are now configureable in the Options
+
+New: in the invocation code, instead of supplying a layout template number (tpl=1)
+it's now possible to supply a layout template filename directly (tpl=mytemplate.html)
+
+Fixed: several more checks added for more stability with "strange" gpx files
+
+Fixed: waypoints would show even when they where turned off in the Options
+
+Fixed: exit gracefully when the gpxtracks folder is not writeable
+
+V1.2.1 -
+
+Fixed: several places where "unusual" gpx files could produce errors while parsing
+
+V1.2.0 -
+
+New: GPXTrackMap now officialy supports Joomla 3
+
+Fixed: added CSS styles to circumvent map display problems with some Joomla 2.5 and 3 
+templates
+
+New: Parameter "Moving speed threshold" (timovespeed) controls which parts of the track are 
+regarded as "Paused" vs. "in motion" (found in parameter section "Track Info").
+
+New: X axis in elevation and speed diagrams to show distances since track start. Configurable
+in parameter section "Elevation diagram" with parameters edxgrid, edxgridunits, edxgridlimit.
+
+New: Fill Mode parameter for elevation and speed diagrams controls if and how the area below
+the diagram line gets filled.
+
+New: Waypoint popups can be enabled to show popups on the map when you hover over / click on a
+waypoint. The popups can contain the Waypoint name, elevation, timestamp and description.
+Configurable in the new parameter section "Waypoints".
+
+
+V1.1.4 -
+
+Included French translation (thanks to Sergio!)
+
+Added: Parameter "edunits" to show min/max altitudes in elevation diagram in m or ft
+(Note: after changing this setting, you must deactivate the "Use cache files" option OR delete the 
+.svg files in the gpx track folder, so the plugin will re-render the elevation diagrams!)
+
+Added: Ability to render a speed diagram of the track similar to the elevation diagram.
+(parameters for that are the same as for the elevation diagram, but all paramater names start with
+"spd" instead of "ed")
+
+Added: Lots of new placeholders for the Track Information to be used in Layout Templates:
+- "%DISTANCE-NM%" and "%AVGSPEED-KN%" for track distance in nautical miles and
+average speed in knots
+- "%MAXSPEED-KMH%", "%MAXSPEEDUP-KMH%", "%MAXSPEEDDOWN-KMH%" for the maximum speed overall,
+  maximum uphill and downhill speeds. 
+- "%AVGSPEED-KMH%", "%AVGSPEEDUP-KMH%", "%AVGSPEEDDOWN-KMH%", "%AVGSPEEDMOVING-KMH%" for the 
+  average speed overall, uphill and downhill averages and the average speed whil not paused.
+- all the new MAXSPEED and AVGSPEED placeholders are also available in "-MPH" and "-KN" variations  
+  for miles per hour / knots.
+- "%DURATIONMOVING%" and "%DURATIONPAUSED%" for the duration parts of the track where the speed
+  was above (MOVING) or below (PAUSED) 2 km/h. 
+
+Added: Layout Template 6. It contains a complete list of all available placeholders for the 
+Track Information (including the additions as noted above)
+  
+Fixed: Zoomout parameter did not work correctly (thanks to Amos for the fix!)
+Fixed: parameters from Parameter Presets no longer override individual params in the invocation
+Fixed: Choosing the Layout Template (tpl=<n>) is now also possible in a Parameter Preset
+(reported by Sergio)
+Fixed: Path to the hikebikelayer.js was a local filename instead of a URL (reported by Andreas)
+
+V1.1.3 - 
+
+Included Hungarian translation (thanks to Nagy Zoltán!)
+
+Included Polish translation (thanks to Joachim Makowski!)
+
+Fixed: depending on server settings, the 1.1.2 version was unable to show the track
+because of a misformed URL for the GPX file (slashes and backslashes in the URL could be mixed up).
+
+
+V1.1.2 -
+
+Improved error handling: Now reports missing/misspelled gpx file names and exits gracefully.
+
+Improved gpx compatibility: Will now also handle gpx files with just routes and/or waypoints,
+but no tracks inside. This includes several checks for possible "div by 0" errors.
+(thanks for your help, Steve!)
+
+Fixed: Google Maps(TM) Street and Hybrid layers where mixed up, now rendered correctly.
+
+
+V1.1.1 - 
+
+Included missing index.html in some directories for JED approval
+
+
+V1.1.0 -
+
+Implemented Layout Template system to make custom styling easier
+
+Added Elevation Diagram. Can render a SVG file containing the altitude profile
+of the track
+
+Added Track Infos. The Plugin can parse the GPX file to extract statistical infos like
+track length, duration, min/max elevation etc. and display them above or below the map.
+
+Added Hike&Bike map as base layer option
+
+Added Graticule option to show coordinate grid
+
+Added Hillshading overlay for 3d-style rendering
+
+V1.0.1 -
+
+Added ability to customize script source urls for the OpenLayers, OSM and Google scripts
+
+Display of waypoints (if found inside gpx file) is now customizable (radius, color) and can
+be switched on or off
+
+V1.0.0 - first stable realease (2012-12-12)

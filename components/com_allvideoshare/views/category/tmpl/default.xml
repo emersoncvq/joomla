@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <layout title="CATEGORIES_LAYOUT">
+    <message>CATEGORIES_LAYOUT_DESCRIPTION</message>
+  </layout>
+  <state>
+    <name>CATEGORIES_LAYOUT</name>
+    <description>CATEGORIES_LAYOUT_DESCRIPTION</description>
+    <fields name="request">
+      <fieldset name="request">
+        <field name="slg" type="sql" default="0" label="SELECT_CATEGORY_LABEL" description="SELECT_CATEGORY_DESCRIPTION" query="SELECT slug, name from #__allvideoshare_categories WHERE published=1 ORDER BY name ASC" key_field="slug" value_field="name">
+          	<option value="0">DISPLAY_ALL_CATEGORIES</option>
+        </field>
+      </fieldset>
+    </fields>
+    <fields name="params">
+      <fieldset name="basic" label="ALL_VIDEO_SHARE">
+        <field name="orderby" type="list" default="default" label="ORDER_BY_LABEL" description="ORDER_BY_DESCRIPTION">
+          	<option value="default">DEFAULT</option>
+          	<option value="latest">LATEST_VIDEOS_ID</option>
+			<option value="latest_by_date">LATEST_VIDEOS_DATE</option>
+          	<option value="popular">POPULAR_VIDEOS</option>
+          	<option value="random">RANDOM_VIDEOS</option>
+        </field>
+		<field name="featured" type="list" default="0" label="FEATURED_ONLY_LABEL" description="FEATURED_ONLY_DESCRIPTION">
+          	<option value="1">ALL_VIDEO_SHARE_YES</option>
+          	<option value="0">ALL_VIDEO_SHARE_NO</option>
+        </field>	
+        <field name="no_of_rows" type="text" default="" label="NO_OF_ROWS_LABEL" description="NO_OF_ROWS_DESCRIPTION" />
+        <field name="no_of_cols" type="text" default="" label="NO_OF_COLS_LABEL" description="NO_OF_COLS_DESCRIPTION" />
+      </fieldset>
+    </fields>
+  </state>
+</metadata>
